@@ -97,14 +97,20 @@ Deploy this first so the `xiaozhi` stack can register it.
 
 It runs on CPU because the GPU build needs a newer GPU and NVIDIA driver than
 the P2000 / driver 550. The NAS CPU has no VNNI, so keep `fp32`. It generates
-one sentence at a time. XiaoZhi streams it (provider `vieneu_stream`, see
-`VIENEU_TTS_STREAM` below): playback starts ~0.5 s after a sentence is sent
-instead of after the whole sentence is generated. Streaming plays smoothly
-only while VieNeu generates faster than real time: check the `rtf=` value in
-the VieNeu log (`done: ... rtf=0.9` = 0.9 s of work per 1 s of audio). Above 1
-the audio stutters mid-sentence; then set `VIENEU_TTS_STREAM=false`, keep
-replies short, or use Edge TTS. VieNeu is Vietnamese only; use Edge TTS for
-English.
+one sentence at a time, at `rtf` ~1.2 on the NAS (`done: ... rtf=1.2` in its
+log = 1.2 s of work per 1 s of audio), i.e. slower than real time.
+
+XiaoZhi streams it (provider `vieneu_stream`, see `VIENEU_TTS_STREAM` below)
+instead of waiting for whole sentences (~5 s). Because generation is slower
+than playback, the provider holds back the start of each sentence just long
+enough that playback never catches up: (rtf - 1) x the rest of the sentence,
+plus an *Extra buffer* (default 1.0 s). It learns rtf from recent sentences.
+On a CPU like the NAS's, a sentence starts ~1.5-2 s after it is sent and
+plays without gaps. Tune *Extra buffer* in *Model Config → Text-to-Speech →
+VieNeu-TTS (Vietnamese)*: raise it if speech still stutters, lower it (e.g.
+0.5) for an earlier start. The server log shows each sentence as
+`语音生成成功: <text>，首包 <first audio>s，缓冲 <held>s，... rtf <estimate>`.
+VieNeu is Vietnamese only; use Edge TTS for English.
 
 ## 2. Deploy the XiaoZhi server
 
@@ -245,7 +251,8 @@ markers: `大模型收到用户消息` (LLM received the user's message), `识�
 | VieNeu: `401` | `VIENEU_TTS_API_KEY` / the TTS entry's API key differs from `VIENEU_API_KEY` |
 | VieNeu: `400 unknown voice` | Voice name must match `GET /v1/voices` exactly (with diacritics) |
 | VieNeu: `429` | Requests queued too long on CPU; raise `VIENEU_QUEUE` or use Edge TTS |
-| VieNeu audio stutters mid-sentence | VieNeu slower than real time (`rtf` > 1 in its log): `VIENEU_TTS_STREAM=false`, shorter replies, or Edge TTS |
+| VieNeu audio stutters mid-sentence | Generation speed varies more than the head start covers: raise *Extra buffer* on the VieNeu-TTS model (e.g. 1.5), or `VIENEU_TTS_STREAM=false` (no gaps, ~5 s wait per sentence) |
+| Long pause before each VieNeu sentence | The head start for a slow CPU; lower *Extra buffer* (e.g. 0.5) if speech stays smooth, keep replies short, or use Edge TTS |
 | Reply after interrupting the device starts late | Expected: VieNeu (one CPU slot) first finishes the interrupted sentence, then the next |
 | VieNeu container restarts on first start | Model download still running or failed; check its log and `/health` |
 | MySQL fails with a permission error | Stack folder is on an SMB-shared dataset with restricted ACLs: set `DATA_ROOT` to a dataset with the Apps preset |

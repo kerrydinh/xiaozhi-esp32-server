@@ -20,6 +20,7 @@ VALUES ('CUSTOM_TTS_VieneuStream', 'TTS', 'vieneu_stream', 'VieNeu-TTS (streamin
           {"key": "api_key", "type": "string", "label": "API key (VIENEU_API_KEY)"},
           {"key": "model", "type": "string", "label": "Model"},
           {"key": "voice", "type": "string", "label": "Default voice"},
+          {"key": "buffer_margin", "type": "number", "label": "Extra buffer (s, default 1.0): higher = smoother, later start"},
           {"key": "output_dir", "type": "string", "label": "Output directory"}]',
         99, 1, NOW(), 1, NOW())
 ON DUPLICATE KEY UPDATE provider_code = VALUES(provider_code), name = VALUES(name), fields = VALUES(fields);

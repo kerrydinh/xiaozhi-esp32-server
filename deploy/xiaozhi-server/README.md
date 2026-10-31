@@ -112,8 +112,10 @@ dropdowns, parameter descriptions and role template names. With
   (`init/sql/vieneu.sql`) once. Choose it under *Text-to-Speech* in the agent's
   role configuration, then a voice. By default it uses
   `init/custom/tts/vieneu_stream.py` (TTS type `vieneu_stream`, provider
-  *VieNeu-TTS (streaming)*), which plays audio while it is generated: the
-  first audio arrives after ~0.4-0.8 s instead of after the whole sentence.
+  *VieNeu-TTS (streaming)*), which plays audio while it is generated instead
+  of after the whole sentence. When VieNeu is slower than real time (CPU),
+  it holds back each sentence's start just enough to play it without gaps,
+  plus an *Extra buffer* (`buffer_margin`, default 1.0 s) set on the model.
   `VIENEU_TTS_STREAM=false` switches the model back to the built-in
   *OpenAI TTS* provider on the next start.
 - **Extra Edge TTS voices:** Vietnamese (`vi-VN-HoaiMyNeural`,

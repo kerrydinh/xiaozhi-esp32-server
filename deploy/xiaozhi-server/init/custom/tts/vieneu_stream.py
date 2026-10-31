@@ -6,11 +6,21 @@ sentence before playing it; this one requests raw PCM at the device's sample
 rate and encodes it to Opus frame by frame as it arrives, so playback starts
 after the first chunk.
 
+The server sends audio to the device in real time with almost no buffer, so
+when VieNeu generates slower than real time (rtf > 1, e.g. on a NAS CPU)
+playback would catch up and stutter. Each sentence's audio is therefore held
+back until the buffer covers (rtf - 1) x the rest of the sentence (+ a small
+margin): just enough that playback never runs dry. rtf comes from earlier
+sentences and the current sentence's own pace; the sentence's length is
+estimated from its text. At rtf < 0.9 nothing is held back.
+
 Config (same shape as the "openai" TTS type):
     api_url   e.g. http://<host>:8010/v1/audio/speech
     api_key   the server's VIENEU_API_KEY (empty if it has none)
     model     reported back by the server; default vieneu-v3-turbo
     voice     preset name from GET /v1/voices (overridden by the agent's voice)
+    buffer_margin  optional, seconds of extra head start (default 1.0); raise it
+                   if speech still stutters, lower it for an earlier start
 """
 import threading
 import time
@@ -30,9 +40,20 @@ logger = setup_logging()
 SAMPLE_RATES = (8000, 16000, 24000, 48000)
 FRAME_MS = 60
 MAX_ATTEMPTS = 3
+# Extra audio to hold back for uneven generation speed. With rtf varying
+# 1.0-1.5 within sentences, 0.3-0.6 s still left short stalls and 1.0 s none;
+# config "buffer_margin" overrides it.
+BUFFER_MARGIN_S = 1.0
+DURATION_SAFETY = 1.15  # overestimate a sentence's length rather than underestimate it
 
 
 class TTSProvider(TTSProviderBase):
+    # Shared by all connections (one VieNeu server); updated after each sentence.
+    # Starting values are on the slow side, so the first sentence does not stutter.
+    rtf = 1.25  # generation seconds per second of audio
+    chars_per_second = 15.0  # speaking rate, to estimate a sentence's duration
+
+
     def __init__(self, config, delete_audio_file):
         super().__init__(config, delete_audio_file)
         self.api_url = config.get("api_url", "http://127.0.0.1:8010/v1/audio/speech")
@@ -41,6 +62,8 @@ class TTSProvider(TTSProviderBase):
         self.voice = config.get("private_voice") or config.get("voice") or None
         self.audio_file_type = "wav"
         self.output_file = config.get("output_dir", "tmp/")
+        margin = config.get("buffer_margin")
+        self.buffer_margin = float(margin) if margin not in (None, "") else BUFFER_MARGIN_S
 
         model_key_msg = check_model_key("TTS", self.api_key)
         if model_key_msg:
@@ -91,8 +114,21 @@ class TTSProvider(TTSProviderBase):
             raise ValueError(f"device sample rate {sample_rate} not in {SAMPLE_RATES}")
         frame_bytes = sample_rate * FRAME_MS // 1000 * 2  # 16-bit mono
         sentence_id = getattr(self, "current_sentence_id", None)
+        bytes_per_second = sample_rate * 2
+        expected = len(text) / TTSProvider.chars_per_second * DURATION_SAFETY
         start = time.monotonic()
         first_audio = None
+        held_for = None  # seconds between the first audio and the start of playback
+        held = bytearray()  # audio received but not yet released to the device
+        received = 0
+
+        def release(pcm, end_of_stream):
+            nonlocal held_for
+            if not state["started"]:
+                state["started"] = True
+                held_for = time.monotonic() - start - first_audio
+                self.tts_audio_queue.put((SentenceType.FIRST, None, original_text, sentence_id))
+            self._emit(pcm, end_of_stream, frame_bytes, opus_handler)
 
         resp = requests.post(
             self.api_url,
@@ -120,26 +156,62 @@ class TTSProvider(TTSProviderBase):
                     return
                 if not chunk:
                     continue
-                if not state["started"]:
-                    state["started"] = True
+                if first_audio is None:
                     first_audio = time.monotonic() - start
-                    self.tts_audio_queue.put((SentenceType.FIRST, None, original_text, sentence_id))
+                received += len(chunk)
                 pending.extend(chunk)
                 whole = len(pending) - len(pending) % frame_bytes
-                if whole:
-                    self._emit(bytes(pending[:whole]), False, frame_bytes, opus_handler)
-                    del pending[:whole]
+                if not whole:
+                    continue
+                held.extend(pending[:whole])
+                del pending[:whole]
+                if state["started"] or self._ready(
+                    received / bytes_per_second, time.monotonic() - start - first_audio, expected
+                ):
+                    release(bytes(held), False)
+                    held.clear()
         finally:
             if not handed_off:
                 resp.close()
 
-        if not state["started"]:
+        if first_audio is None:
             raise RuntimeError("server returned no audio")
-        del pending[len(pending) - len(pending) % 2 :]  # whole samples only
-        self._emit(bytes(pending), True, frame_bytes, opus_handler)
+        total = time.monotonic() - start
+        held.extend(pending[: len(pending) - len(pending) % 2])  # whole samples only
+        release(bytes(held), True)
+        audio_seconds = received / bytes_per_second
+        self._learn(text, total - first_audio, audio_seconds)
         logger.bind(tag=TAG).info(
-            f"语音生成成功: {original_text}，首包 {first_audio:.2f}s，总计 {time.monotonic() - start:.2f}s"
+            f"语音生成成功: {original_text}，首包 {first_audio:.2f}s，缓冲 {held_for:.2f}s，"
+            f"总计 {total:.2f}s，音频 {audio_seconds:.2f}s，rtf {TTSProvider.rtf:.2f}"
         )
+
+    def _ready(self, buffered, elapsed, expected):
+        """Whether playback can start now without catching up with generation.
+
+        buffered: seconds of audio received so far; elapsed: seconds since the
+        first audio; expected: estimated length of the sentence in seconds.
+        Playing the rest takes `remaining` seconds while generating it takes
+        rtf x remaining, so the buffer must cover (rtf - 1) x remaining.
+        """
+        rtf = TTSProvider.rtf
+        if elapsed > 0.3 and buffered > 0.3:
+            rtf = max(rtf, elapsed / buffered)  # this sentence's own pace so far
+        if rtf < 0.9:
+            return True
+        remaining = max(0.0, expected - buffered)
+        return buffered >= (rtf - 1.0) * remaining + self.buffer_margin
+
+    @staticmethod
+    def _learn(text, generation_seconds, audio_seconds):
+        if audio_seconds < 0.5:  # too short to say much
+            return
+        cls = TTSProvider
+        rtf = min(max(generation_seconds / audio_seconds, 0.3), 3.0)
+        cps = min(max(len(text) / audio_seconds, 5.0), 40.0)
+        weight = 0.7 if rtf > cls.rtf else 0.3  # follow a slowdown quickly, a speed-up slowly
+        cls.rtf = (1 - weight) * cls.rtf + weight * rtf
+        cls.chars_per_second = 0.5 * cls.chars_per_second + 0.5 * cps
 
     @staticmethod
     def _drain(resp, chunks):
