@@ -13,6 +13,26 @@ VALUES ('CUSTOM_ASR_OpenaiCompat', 'ASR', 'openai_compat', 'OpenAI-compatible AS
         99, 1, NOW(), 1, NOW())
 ON DUPLICATE KEY UPDATE provider_code = VALUES(provider_code), name = VALUES(name), fields = VALUES(fields);
 
+-- Provider for custom/llm/gemini_openai (Gemini's OpenAI-compatible API; keeps
+-- Gemini 3 thought signatures on tool calls). Same fields as "OpenAI API".
+INSERT INTO ai_model_provider (id, model_type, provider_code, name, fields, sort, creator, create_date, updater, update_date)
+VALUES ('CUSTOM_LLM_GeminiOpenAI', 'LLM', 'gemini_openai', 'Gemini (OpenAI-compatible, tool calls)',
+        '[{"key": "base_url", "type": "string", "label": "Base URL (https://generativelanguage.googleapis.com/v1beta/openai)"},
+          {"key": "model_name", "type": "string", "label": "Model name"},
+          {"key": "api_key", "type": "string", "label": "API key"},
+          {"key": "temperature", "type": "number", "label": "Temperature"},
+          {"key": "max_tokens", "type": "number", "label": "Max tokens"},
+          {"key": "top_p", "type": "number", "label": "top_p value"},
+          {"key": "frequency_penalty", "type": "number", "label": "Frequency penalty"}]',
+        99, 1, NOW(), 1, NOW())
+ON DUPLICATE KEY UPDATE provider_code = VALUES(provider_code), name = VALUES(name), fields = VALUES(fields);
+
+-- LLM entries pointing at Gemini's OpenAI-compatible API use gemini_openai
+-- (a superset of "openai": tool calls also work on Gemini 3).
+UPDATE ai_model_config SET config_json = JSON_SET(config_json, '$.type', 'gemini_openai')
+WHERE model_type = 'LLM' AND JSON_UNQUOTE(JSON_EXTRACT(config_json, '$.type')) = 'openai'
+  AND JSON_UNQUOTE(JSON_EXTRACT(config_json, '$.base_url')) LIKE '%generativelanguage.googleapis.com%';
+
 -- Provider for custom/tts/vieneu_stream.py (VieNeu-TTS, streamed as it is generated).
 INSERT INTO ai_model_provider (id, model_type, provider_code, name, fields, sort, creator, create_date, updater, update_date)
 VALUES ('CUSTOM_TTS_VieneuStream', 'TTS', 'vieneu_stream', 'VieNeu-TTS (streaming)',

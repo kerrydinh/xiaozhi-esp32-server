@@ -189,17 +189,26 @@ Save, then restart the device (or wait for it to reconnect).
 
 ### LLM entries (*Model Config → Large Language Model → Add*)
 
-All use provider **OpenAI API**. The server appends `/chat/completions` to
+ChatGPT and Ollama use provider **OpenAI API**; Gemini uses **Gemini
+(OpenAI-compatible, tool calls)**. The server appends `/chat/completions` to
 `base_url`, so never include it (or `/responses`).
 
-| Name | base_url | model_name | api_key |
-|---|---|---|---|
-| ChatGPT | `https://api.openai.com/v1` | a fast "mini" model | OpenAI API key (platform.openai.com; needs API credit, separate from a ChatGPT subscription) |
-| Gemini | `https://generativelanguage.googleapis.com/v1beta/openai` | a current Flash model, e.g. `gemini-2.5-flash` | Key from aistudio.google.com/apikey |
-| Local Ollama (GPU) | `http://192.168.8.122:11435/v1` | e.g. `llama3.2:3b` | `ollama` |
+| Name | Provider | base_url | model_name | api_key |
+|---|---|---|---|---|
+| ChatGPT | OpenAI API | `https://api.openai.com/v1` | a fast "mini" model | OpenAI API key (platform.openai.com; needs API credit, separate from a ChatGPT subscription) |
+| Gemini | Gemini (OpenAI-compatible, tool calls) | `https://generativelanguage.googleapis.com/v1beta/openai` | a Flash model, e.g. a Gemini 3 Flash or `gemini-2.5-flash` | Key from aistudio.google.com/apikey |
+| Local Ollama (GPU) | OpenAI API | `http://192.168.8.122:11435/v1` | e.g. `llama3.2:3b` | `ollama` |
 
 Use these instead of the built-in *Google Gemini* / *Ollama* providers. Fast
 models matter for voice: LLM latency is silence on the device.
+
+Gemini 3 models reject a tool result unless the function call is sent back
+with its *thought signature* (error `Function call is missing a
+thought_signature`); the server drops it. The Gemini provider
+(`init/custom/llm/gemini_openai`, type `gemini_openai`) records the signatures
+and puts them back. `init` switches every *OpenAI API* entry whose base_url is
+Gemini's to it on each start, so an entry created with *OpenAI API* is fixed
+automatically.
 
 ## MCP endpoint (your own tools for the agent)
 
@@ -288,6 +297,8 @@ markers: `大模型收到用户消息` (LLM received the user's message), `识�
 |---|---|
 | Device says it is busy, or ~10 s silence then nothing | The LLM call failed; the next `ERROR` line after `大模型收到用户消息` says why. The fallback reply is Chinese, which a Vietnamese voice cannot speak, so TTS also fails and retries. |
 | `404 Invalid URL (POST /v1/responses/chat/completions)` | `base_url` must end in `/v1` (OpenAI) or `/v1beta/openai` (Gemini) |
+| `400 ... Function call is missing a thought_signature` (Gemini 3, after a tool call) | The Gemini entry must use provider *Gemini (OpenAI-compatible, tool calls)*; `init` switches entries with Gemini's base_url on start, so redeploy the stack with the current init image |
+| `'ascii' codec can't encode` from memory (`powermem`, `mem0ai`) | The memory module still has its placeholder key `你的...`: set Memory to *No Memory* or configure it |
 | `429 ... credit_balance_exhausted` / `insufficient_quota` | Add API credit at platform.openai.com → Billing |
 | Header/ascii error with `你的api_key` | The API key field still holds the placeholder |
 | Replies in Chinese / calls "exit" on hello | Small local model confused by the tool descriptions: set Intent to *No Intent Recognition*, or use ChatGPT/Gemini |

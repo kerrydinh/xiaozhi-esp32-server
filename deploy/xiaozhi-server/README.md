@@ -104,6 +104,12 @@ dropdowns, parameter descriptions and role template names. With
 
 `init` also applies `init/sql/custom.sql` on every start:
 
+- **Gemini 3 tool calls.** `init/custom/llm/gemini_openai` (type
+  `gemini_openai`, provider *Gemini (OpenAI-compatible, tool calls)*) extends
+  the built-in OpenAI provider: it records the thought signature Gemini puts on
+  each function call and adds it back when the call is sent with the tool
+  result, which Gemini 3 requires. `init/sql/custom.sql` switches every
+  *OpenAI API* LLM entry whose `base_url` is Gemini's to it on each start.
 - **Ollama / OpenAI-compatible speech recognition.** `init/custom/asr/openai_compat.py`
   is installed into the server as ASR type `openai_compat` (`init` puts it in
   `data/custom/`; the server copies it into its providers on start). It posts audio to any
