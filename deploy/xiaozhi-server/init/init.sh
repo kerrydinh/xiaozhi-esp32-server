@@ -93,6 +93,41 @@ else
   log "PUBLIC_HOST is empty: set server.websocket and server.ota in the console yourself"
 fi
 
+# MCP endpoint server: create its config once, with the key that signs agent
+# tokens, so the console parameter can point at it before it first starts.
+MCP_CFG=/mcp-endpoint/.mcp-endpoint-server.cfg
+if [ ! -s "$MCP_CFG" ]; then
+  cat > "$MCP_CFG" <<EOF
+[server]
+host = 0.0.0.0
+port = 8004
+debug = false
+log_level = INFO
+key = $(head -c 16 /dev/urandom | od -An -tx1 | tr -d ' \n')
+
+[websocket]
+max_connections = 1000
+ping_interval = 30
+ping_timeout = 10
+close_timeout = 10
+
+[security]
+allowed_origins = *
+enable_cors = true
+
+[logging]
+log_file = logs/mcp_server.log
+max_file_size = 10MB
+backup_count = 5
+EOF
+  log "Created MCP endpoint config with a new key"
+fi
+MCP_KEY=$(sed -n 's/^key[[:space:]]*=[[:space:]]*//p' "$MCP_CFG" | head -n 1 | tr -d '\r')
+if [ -n "${PUBLIC_HOST:-}" ] && [ ${#MCP_KEY} -ge 32 ]; then
+  set_param server.mcp_endpoint "http://$PUBLIC_HOST:$MCP_PORT/mcp_endpoint/health?key=$MCP_KEY"
+  log "MCP endpoint: http://$PUBLIC_HOST:$MCP_PORT/mcp_endpoint/ (agent addresses: role configuration > Edit functions)"
+fi
+
 # --- 5. English console data (names, labels, help texts) -------------------
 if [ "${CONSOLE_DATA_LANGUAGE:-en}" = "en" ]; then
   sql < /init/i18n/en.sql

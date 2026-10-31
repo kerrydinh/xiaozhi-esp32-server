@@ -3,7 +3,7 @@
 # Works as a Dockge stack (TrueNAS SCALE) or with plain `docker compose up -d`.
 # All settings live in .env (copy .env.example). See README.md for setup.
 #
-# Start order: db + redis -> web (console/API) -> init (one-shot) -> server
+# Start order: db + redis -> web (console/API) -> init (one-shot) -> server, mcp-endpoint
 # `init` reads the generated server.secret, writes data/.config.yaml, sets the
 # device-facing URLs, optionally translates console data to English, and
 # downloads the SenseVoice ASR model, so no manual copy/paste is needed.
@@ -98,9 +98,11 @@ services:
       VIENEU_TTS_URL: ${VIENEU_TTS_URL:-}
       VIENEU_TTS_API_KEY: ${VIENEU_TTS_API_KEY:-}
       VIENEU_TTS_STREAM: ${VIENEU_TTS_STREAM:-true}
+      MCP_PORT: ${MCP_PORT:-8004}
     volumes:
       - ${DATA_ROOT:-.}/data:/data
       - ${DATA_ROOT:-.}/models:/models
+      - ${DATA_ROOT:-.}/mcp-endpoint:/mcp-endpoint
 
   # Voice server: WebSocket for devices (8000) + HTTP for vision/MCP (8003)
   server:
@@ -125,3 +127,16 @@ services:
     volumes:
       - ${DATA_ROOT:-.}/data:/opt/xiaozhi-esp32-server/data
       - ${DATA_ROOT:-.}/models:/models:ro
+
+  # MCP endpoint (8004): relays MCP tools you run elsewhere to the agents.
+  # init creates its key and sets the console parameter server.mcp_endpoint.
+  mcp-endpoint:
+    <<: *common
+    image: ghcr.io/xinnan-tech/mcp-endpoint-server:${MCP_ENDPOINT_VERSION:-0.0.7}
+    depends_on:
+      init:
+        condition: service_completed_successfully
+    ports:
+      - "${MCP_PORT:-8004}:8004"
+    volumes:
+      - ${DATA_ROOT:-.}/mcp-endpoint:/app/data

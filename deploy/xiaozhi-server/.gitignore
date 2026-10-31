@@ -5,3 +5,4 @@ models/
 mysql/
 uploadfile/
 restore/
+mcp-endpoint/

@@ -7,7 +7,7 @@ How the self-hosted XiaoZhi voice assistant is deployed on the TrueNAS box
 
 | Stack (Dockge) | What it runs | Host port(s) |
 |---|---|---|
-| `xiaozhi` | XiaoZhi server: device WebSocket, admin console + OTA, MySQL, Redis, one-shot `init` | 8000 (WebSocket), 8002 (console/OTA), 8003 (vision/MCP) |
+| `xiaozhi` | XiaoZhi server: device WebSocket, admin console + OTA, MySQL, Redis, MCP endpoint, one-shot `init` | 8000 (WebSocket), 8002 (console/OTA), 8003 (vision/MCP), 8004 (MCP endpoint) |
 | `vieneu-tts` | VieNeu-TTS: Vietnamese text-to-speech, OpenAI-compatible API, CPU | 8010 |
 | `ollama` (existing) | Ollama `latest` on CPU: Qwen3-ASR speech recognition (+ Open WebUI on 3000) | 11434 |
 | `ollama-2` (optional) | Ollama `0.24.0` on the Quadro P2000 GPU: local chat model | 11435 |
@@ -153,6 +153,8 @@ VieNeu is Vietnamese only; use Edge TTS for English.
 | `OLLAMA_ASR_MODEL` | `hf.co/foryoung365/Qwen3-ASR-1.7B-Q4_K_M-GGUF` | Must be pulled in the `ollama` stack |
 | `VIENEU_TTS_URL` | `http://192.168.8.122:8010/v1/audio/speech` | Creates *VieNeu-TTS (Vietnamese)* and its 25 voices once |
 | `VIENEU_TTS_API_KEY` | same as `VIENEU_API_KEY` | Only used when the TTS entry is created; later fix the key in the console (*Model Config → Text-to-Speech*) |
+| `MCP_PORT` | `8004` | MCP endpoint host port; `init` writes it into `server.mcp_endpoint` |
+| `MCP_ENDPOINT_VERSION` | `0.0.7` | `mcp-endpoint-server` image tag |
 | `VIENEU_TTS_STREAM` | `true` (default) | `true` = stream VieNeu audio (`vieneu_stream`); `false` = built-in OpenAI TTS, waits for whole sentences. Applied on every start |
 
 The ASR and TTS entries are created once (if missing); after that, edit them
@@ -196,6 +198,29 @@ All use provider **OpenAI API**. The server appends `/chat/completions` to
 
 Use these instead of the built-in *Google Gemini* / *Ollama* providers. Fast
 models matter for voice: LLM latency is silence on the device.
+
+## MCP endpoint (your own tools for the agent)
+
+The `mcp-endpoint` service (xinnan-tech's `mcp-endpoint-server`, port 8004)
+lets MCP tools running anywhere on the network (a PC, the NAS, a Home
+Assistant box) give the agent new abilities. `init` creates its secret key in
+`mcp-endpoint/.mcp-endpoint-server.cfg` (stack folder) and sets the console
+parameter `server.mcp_endpoint` to
+`http://192.168.8.122:8004/mcp_endpoint/health?key=...`.
+
+1. Console → *Parameter Dictionary → System Function Config*: tick **MCP
+   endpoint** and save (once).
+2. *Agents → Configure role → Edit functions*: the **MCP endpoint** section
+   shows this agent's address, `ws://192.168.8.122:8004/mcp_endpoint/mcp/?token=...`.
+   The token identifies the agent; treat the address like a password.
+3. Run an MCP tool connected to that address, e.g. the XiaoZhi sample
+   [mcp-calculator](https://github.com/78/mcp-calculator):
+   `MCP_ENDPOINT='ws://...'` then `python mcp_pipe.py calculator.py`.
+4. Reconnect the device (it loads the agent's tools when it connects) and ask
+   it to use the tool.
+
+Check the service: `http://192.168.8.122:8004/mcp_endpoint/health?key=<key>`
+answers `"status":"success"`.
 
 ## Ollama stacks
 

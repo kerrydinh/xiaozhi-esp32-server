@@ -18,6 +18,7 @@ Compared with the upstream `docker-compose_all.yml`, this stack:
 | `web`    | `ghcr.io/xinnan-tech/xiaozhi-esp32-server:web_<ver>` | 8002 | Admin console, management API, OTA |
 | `db`     | `mysql:8.4` | — | Console database |
 | `redis`  | `redis:8.0` | — | API cache |
+| `mcp-endpoint` | `ghcr.io/xinnan-tech/mcp-endpoint-server:<ver>` | 8004 | MCP endpoint: connects your own MCP tools to agents |
 | `init`   | `ghcr.io/kerrydinh/xiaozhi-server-init` (built from `init/`) | — | One-shot provisioning, exits when done |
 
 Release 0.9.8 publishes amd64 and arm64 images. The first start downloads
@@ -93,6 +94,14 @@ dropdowns, parameter descriptions and role template names. With
 
 ## Extras added by this stack
 
+- **MCP endpoint.** The `mcp-endpoint` service relays MCP tools you run
+  elsewhere to the agents. `init` creates its config with a random key in
+  `mcp-endpoint/.mcp-endpoint-server.cfg` (once) and, with `PUBLIC_HOST` set,
+  points the console parameter `server.mcp_endpoint` at
+  `http://<PUBLIC_HOST>:<MCP_PORT>/mcp_endpoint/health?key=...`. Tick *MCP
+  endpoint* under *Parameter Dictionary → System Function Config*; each
+  agent's address then appears under *Configure role → Edit functions*.
+
 `init` also applies `init/sql/custom.sql` on every start:
 
 - **Ollama / OpenAI-compatible speech recognition.** `init/custom/asr/openai_compat.py`
@@ -150,7 +159,7 @@ once the new host works.
 | `WEB_PORT` / `WS_PORT` / `HTTP_PORT` | 8002 / 8000 / 8003 | Host ports |
 | `MYSQL_ROOT_PASSWORD` | — | Required; only applied when the database is first created |
 | `TZ` | `Etc/UTC` | Container time zone |
-| `DATA_ROOT` | `.` | Where `mysql/`, `data/`, `models/`, `uploadfile/` live |
+| `DATA_ROOT` | `.` | Where `mysql/`, `data/`, `models/`, `uploadfile/`, `mcp-endpoint/` live |
 | `CONSOLE_DATA_LANGUAGE` | `en` | `en` = translate console data; anything else = leave it |
 | `SENSEVOICE_DOWNLOAD` | `true` | Download the local FunASR model; `false` if you only use remote ASR |
 | `SENSEVOICE_URL` | Hugging Face | ModelScope mirror is listed in `.env.example` |
@@ -159,6 +168,8 @@ once the new host works.
 | `VIENEU_TTS_URL` | — | e.g. `http://<host>:8010/v1/audio/speech`; creates the *VieNeu-TTS (Vietnamese)* model once |
 | `VIENEU_TTS_API_KEY` | — | The VieNeu server's `VIENEU_API_KEY` |
 | `VIENEU_TTS_STREAM` | `true` | `true` = streaming provider; `false` = built-in OpenAI TTS (whole sentences) |
+| `MCP_PORT` | `8004` | MCP endpoint host port |
+| `MCP_ENDPOINT_VERSION` | `0.0.7` | `mcp-endpoint-server` image tag |
 
 Notes:
 
