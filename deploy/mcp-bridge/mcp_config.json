@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "brave-search": {
+      "command": "brave-search-mcp-server",
+      "args": ["--transport", "stdio"]
+    }
+  }
+}
