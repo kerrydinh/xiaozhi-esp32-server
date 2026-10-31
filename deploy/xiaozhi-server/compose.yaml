@@ -97,6 +97,7 @@ services:
       OLLAMA_ASR_MODEL: ${OLLAMA_ASR_MODEL:-}
       VIENEU_TTS_URL: ${VIENEU_TTS_URL:-}
       VIENEU_TTS_API_KEY: ${VIENEU_TTS_API_KEY:-}
+      VIENEU_TTS_STREAM: ${VIENEU_TTS_STREAM:-true}
     volumes:
       - ${DATA_ROOT:-.}/data:/data
       - ${DATA_ROOT:-.}/models:/models

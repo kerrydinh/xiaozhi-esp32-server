@@ -13,6 +13,17 @@ VALUES ('CUSTOM_ASR_OpenaiCompat', 'ASR', 'openai_compat', 'OpenAI-compatible AS
         99, 1, NOW(), 1, NOW())
 ON DUPLICATE KEY UPDATE provider_code = VALUES(provider_code), name = VALUES(name), fields = VALUES(fields);
 
+-- Provider for custom/tts/vieneu_stream.py (VieNeu-TTS, streamed as it is generated).
+INSERT INTO ai_model_provider (id, model_type, provider_code, name, fields, sort, creator, create_date, updater, update_date)
+VALUES ('CUSTOM_TTS_VieneuStream', 'TTS', 'vieneu_stream', 'VieNeu-TTS (streaming)',
+        '[{"key": "api_url", "type": "string", "label": "Speech URL (.../v1/audio/speech)"},
+          {"key": "api_key", "type": "string", "label": "API key (VIENEU_API_KEY)"},
+          {"key": "model", "type": "string", "label": "Model"},
+          {"key": "voice", "type": "string", "label": "Default voice"},
+          {"key": "output_dir", "type": "string", "label": "Output directory"}]',
+        99, 1, NOW(), 1, NOW())
+ON DUPLICATE KEY UPDATE provider_code = VALUES(provider_code), name = VALUES(name), fields = VALUES(fields);
+
 -- Extra Edge TTS voices (names max 20 chars). The "languages" value feeds the
 -- agent's Language dropdown; Edge TTS itself only uses the voice code.
 INSERT IGNORE INTO ai_tts_voice (id, tts_model_id, name, tts_voice, languages, sort) VALUES

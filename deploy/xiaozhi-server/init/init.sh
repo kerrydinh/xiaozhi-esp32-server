@@ -114,17 +114,23 @@ if [ -n "${OLLAMA_ASR_URL:-}" ]; then
   log "ASR model 'Ollama Qwen3-ASR' available ($OLLAMA_ASR_URL)"
 fi
 
-# Ready-made TTS entry for a VieNeu-TTS speech API (OpenAI-compatible), with
-# its preset voices. Created once; edit it in the console afterwards.
+# Ready-made TTS entry for a VieNeu-TTS speech API, with its preset voices.
+# Created once; edit it in the console afterwards. VIENEU_TTS_STREAM picks the
+# provider on every start: "vieneu_stream" (plays while generating) or the
+# built-in "openai" (waits for each whole sentence); other settings are kept.
 if [ -n "${VIENEU_TTS_URL:-}" ]; then
-  tts_config=$(printf '{"type": "openai", "api_url": "%s", "api_key": "%s", "model": "vieneu-v3-turbo", "voice": "Hải Đăng", "speed": 1, "output_dir": "tmp/"}' \
-    "$VIENEU_TTS_URL" "${VIENEU_TTS_API_KEY:-}")
+  if [ "${VIENEU_TTS_STREAM:-true}" = "true" ]; then tts_type=vieneu_stream; else tts_type=openai; fi
+  tts_config=$(printf '{"type": "%s", "api_url": "%s", "api_key": "%s", "model": "vieneu-v3-turbo", "voice": "Hải Đăng", "speed": 1, "output_dir": "tmp/"}' \
+    "$tts_type" "$VIENEU_TTS_URL" "${VIENEU_TTS_API_KEY:-}")
   sql -e "INSERT IGNORE INTO ai_model_config (id, model_type, model_code, model_name, is_default, is_enabled, config_json, remark, sort, creator, create_date, updater, update_date)
           VALUES ('TTS_VieNeuTTS', 'TTS', 'VieNeuTTS', 'VieNeu-TTS (Vietnamese)', 0, 1, $(sqlq "$tts_config"),
-                  'Vietnamese speech from a VieNeu-TTS server (OpenAI-compatible /v1/audio/speech). Created from VIENEU_TTS_URL in .env; edit here afterwards.',
+                  'Vietnamese speech from a VieNeu-TTS server (/v1/audio/speech). Created from VIENEU_TTS_URL in .env; edit here afterwards.',
                   0, 1, NOW(), 1, NOW())"
+  sql -e "UPDATE ai_model_config SET config_json = JSON_SET(config_json, '\$.type', '$tts_type')
+          WHERE id = 'TTS_VieNeuTTS' AND JSON_UNQUOTE(JSON_EXTRACT(config_json, '\$.type')) IN ('openai', 'vieneu_stream')
+            AND JSON_UNQUOTE(JSON_EXTRACT(config_json, '\$.type')) <> '$tts_type'"
   sql < /init/sql/vieneu.sql
-  log "TTS model 'VieNeu-TTS (Vietnamese)' available ($VIENEU_TTS_URL)"
+  log "TTS model 'VieNeu-TTS (Vietnamese)' available ($VIENEU_TTS_URL, provider $tts_type)"
 fi
 
 # --- 7. Drop the API's Redis cache if the database changed -----------------

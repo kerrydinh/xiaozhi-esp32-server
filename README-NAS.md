@@ -96,8 +96,15 @@ Deploy this first so the `xiaozhi` stack can register it.
 | `TZ` | `Australia/Sydney` | |
 
 It runs on CPU because the GPU build needs a newer GPU and NVIDIA driver than
-the P2000 / driver 550. It generates one sentence at a time; on the PC a
-sentence took ~3 s. VieNeu is Vietnamese only; use Edge TTS for English.
+the P2000 / driver 550. The NAS CPU has no VNNI, so keep `fp32`. It generates
+one sentence at a time. XiaoZhi streams it (provider `vieneu_stream`, see
+`VIENEU_TTS_STREAM` below): playback starts ~0.5 s after a sentence is sent
+instead of after the whole sentence is generated. Streaming plays smoothly
+only while VieNeu generates faster than real time: check the `rtf=` value in
+the VieNeu log (`done: ... rtf=0.9` = 0.9 s of work per 1 s of audio). Above 1
+the audio stutters mid-sentence; then set `VIENEU_TTS_STREAM=false`, keep
+replies short, or use Edge TTS. VieNeu is Vietnamese only; use Edge TTS for
+English.
 
 ## 2. Deploy the XiaoZhi server
 
@@ -139,7 +146,8 @@ sentence took ~3 s. VieNeu is Vietnamese only; use Edge TTS for English.
 | `OLLAMA_ASR_URL` | `http://192.168.8.122:11434/v1/audio/transcriptions` | Creates *Ollama Qwen3-ASR* once |
 | `OLLAMA_ASR_MODEL` | `hf.co/foryoung365/Qwen3-ASR-1.7B-Q4_K_M-GGUF` | Must be pulled in the `ollama` stack |
 | `VIENEU_TTS_URL` | `http://192.168.8.122:8010/v1/audio/speech` | Creates *VieNeu-TTS (Vietnamese)* and its 25 voices once |
-| `VIENEU_TTS_API_KEY` | same as `VIENEU_API_KEY` | |
+| `VIENEU_TTS_API_KEY` | same as `VIENEU_API_KEY` | Only used when the TTS entry is created; later fix the key in the console (*Model Config → Text-to-Speech*) |
+| `VIENEU_TTS_STREAM` | `true` (default) | `true` = stream VieNeu audio (`vieneu_stream`); `false` = built-in OpenAI TTS, waits for whole sentences. Applied on every start |
 
 The ASR and TTS entries are created once (if missing); after that, edit them
 in the console under *Model Config*. `init` runs on every deploy and is safe
@@ -237,6 +245,8 @@ markers: `大模型收到用户消息` (LLM received the user's message), `识�
 | VieNeu: `401` | `VIENEU_TTS_API_KEY` / the TTS entry's API key differs from `VIENEU_API_KEY` |
 | VieNeu: `400 unknown voice` | Voice name must match `GET /v1/voices` exactly (with diacritics) |
 | VieNeu: `429` | Requests queued too long on CPU; raise `VIENEU_QUEUE` or use Edge TTS |
+| VieNeu audio stutters mid-sentence | VieNeu slower than real time (`rtf` > 1 in its log): `VIENEU_TTS_STREAM=false`, shorter replies, or Edge TTS |
+| Reply after interrupting the device starts late | Expected: VieNeu (one CPU slot) first finishes the interrupted sentence, then the next |
 | VieNeu container restarts on first start | Model download still running or failed; check its log and `/health` |
 | MySQL fails with a permission error | Stack folder is on an SMB-shared dataset with restricted ACLs: set `DATA_ROOT` to a dataset with the Apps preset |
 | Console edits to the WebSocket/OTA URL revert | Expected: `PUBLIC_HOST` in `.env` is the source of truth |

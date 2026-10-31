@@ -108,9 +108,14 @@ dropdowns, parameter descriptions and role template names. With
   `OLLAMA_KEEP_ALIVE` on the Ollama host to keep it loaded.
 - **VieNeu-TTS (Vietnamese speech).** With `VIENEU_TTS_URL` set to a
   [VieNeu-TTS](../vieneu-tts/) server, `init` creates the TTS model
-  **VieNeu-TTS (Vietnamese)** (provider *OpenAI TTS*) and its 25 preset voices
+  **VieNeu-TTS (Vietnamese)** and its 25 preset voices
   (`init/sql/vieneu.sql`) once. Choose it under *Text-to-Speech* in the agent's
-  role configuration, then a voice.
+  role configuration, then a voice. By default it uses
+  `init/custom/tts/vieneu_stream.py` (TTS type `vieneu_stream`, provider
+  *VieNeu-TTS (streaming)*), which plays audio while it is generated: the
+  first audio arrives after ~0.4-0.8 s instead of after the whole sentence.
+  `VIENEU_TTS_STREAM=false` switches the model back to the built-in
+  *OpenAI TTS* provider on the next start.
 - **Extra Edge TTS voices:** Vietnamese (`vi-VN-HoaiMyNeural`,
   `vi-VN-NamMinhNeural`) and English (US, AU, UK). Choose *Text-to-Speech:
   Edge TTS*, then *Language: Vietnamese/English* and the voice.
@@ -151,6 +156,7 @@ once the new host works.
 | `OLLAMA_ASR_MODEL` | — | Ollama model name, e.g. `hf.co/foryoung365/Qwen3-ASR-1.7B-Q4_K_M-GGUF` |
 | `VIENEU_TTS_URL` | — | e.g. `http://<host>:8010/v1/audio/speech`; creates the *VieNeu-TTS (Vietnamese)* model once |
 | `VIENEU_TTS_API_KEY` | — | The VieNeu server's `VIENEU_API_KEY` |
+| `VIENEU_TTS_STREAM` | `true` | `true` = streaming provider; `false` = built-in OpenAI TTS (whole sentences) |
 
 Notes:
 
