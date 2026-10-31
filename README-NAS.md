@@ -16,31 +16,29 @@ Voice path for one request: device → `xiaozhi` server → speech recognition
 (Ollama Qwen3-ASR) → LLM (OpenAI, Gemini or local Ollama) → text-to-speech
 (VieNeu-TTS or Edge TTS) → device.
 
-## Files in this folder
+## Files (`deploy/`)
 
-None of these are part of the upstream repo; they are excluded from git in
-`.git/info/exclude` (`.env` is ignored by upstream's `.gitignore`).
+Everything for these stacks lives in `deploy/`, each folder with its own
+README. The `.env` files and `restore/` hold secrets and are git-ignored; they
+exist only on the PC (and on the NAS).
 
 | File | Use |
 |---|---|
-| `compose.yaml` | Paste into the `xiaozhi` Dockge stack |
-| `.env` | Paste into the `xiaozhi` stack's `.env` editor (holds the MySQL password and the VieNeu key) |
-| `restore/xiaozhi.sql` | Database dump from the first (PC) install; only for restoring, contains secrets |
-| `vieneu-tts/compose.yaml` | Paste into the `vieneu-tts` Dockge stack |
-| `vieneu-tts/.env` | Paste into the `vieneu-tts` stack's `.env` editor |
-
-The sources these are generated from (compose files, `init` scripts, English
-console data, image Dockerfiles) live in the firmware repo
-`E:\Development\Development\Projects\IoT\xiaozhi\xiaozhi-esp32\docker\`:
-`xiaozhi-server/` and `vieneu-tts/`, each with its own README.
+| `deploy/xiaozhi-server/compose.yaml` | Paste into the `xiaozhi` Dockge stack |
+| `deploy/xiaozhi-server/.env` | Paste into the `xiaozhi` stack's `.env` editor (MySQL password, VieNeu key). Not in git; template: `.env.example` |
+| `deploy/xiaozhi-server/restore/xiaozhi.sql` | Database dump from the first (PC) install; only for restoring. Not in git |
+| `deploy/xiaozhi-server/init/` | Source of the `init` image: `init.sh`, English console data (`i18n/`), SQL additions (`sql/`), Ollama ASR provider (`custom/`) |
+| `deploy/vieneu-tts/compose.yaml` | Paste into the `vieneu-tts` Dockge stack |
+| `deploy/vieneu-tts/.env` | Paste into the `vieneu-tts` stack's `.env` editor. Not in git |
+| `deploy/vieneu-tts/Dockerfile` | Layer on top of upstream's VieNeu-TTS CPU image |
 
 ## Images
 
 | Image | Built from | Notes |
 |---|---|---|
 | `ghcr.io/xinnan-tech/xiaozhi-esp32-server:server_0.9.8`, `web_0.9.8` | upstream | Pulled as is; the server image is ~3.5 GB |
-| `ghcr.io/kerrydinh/xiaozhi-server-init:latest` | `xiaozhi-esp32/docker/xiaozhi-server/init/` | Provisioning, English console data, Ollama ASR provider, extra voices, VieNeu entries |
-| `ghcr.io/kerrydinh/vieneu-tts:cpu` | upstream VieNeu-TTS @ `04044e1b` + `xiaozhi-esp32/docker/vieneu-tts/Dockerfile` | ~2.7 GB |
+| `ghcr.io/kerrydinh/xiaozhi-server-init:latest` | `deploy/xiaozhi-server/init/` | Provisioning, English console data, Ollama ASR provider, extra voices, VieNeu entries |
+| `ghcr.io/kerrydinh/vieneu-tts:cpu` | upstream VieNeu-TTS @ `04044e1b` + `deploy/vieneu-tts/Dockerfile` | ~2.7 GB |
 
 Both `kerrydinh` packages must be **Public** (GitHub → Packages → package →
 Package settings) so the NAS can pull them without logging in. They contain no
@@ -48,18 +46,19 @@ secrets.
 
 ### Rebuilding and pushing
 
-Run on the PC from `E:\Development\Development\Projects\IoT\xiaozhi\xiaozhi-esp32`
-(Docker Desktop running). Log in once with a GitHub token that has
+Run on the PC from the root of this repo
+(`E:\Development\Development\Projects\IoT\xiaozhi\xiaozhi-esp32-server`,
+Docker Desktop running). Log in once with a GitHub token that has
 `write:packages`:
 
 ```sh
 echo <token> | docker login ghcr.io -u kerrydinh --password-stdin
 ```
 
-`init` image (after any change under `docker/xiaozhi-server/init/`):
+`init` image (after any change under `deploy/xiaozhi-server/init/`):
 
 ```sh
-docker build --platform linux/amd64 -t ghcr.io/kerrydinh/xiaozhi-server-init:latest docker/xiaozhi-server/init
+docker build --platform linux/amd64 -t ghcr.io/kerrydinh/xiaozhi-server-init:latest deploy/xiaozhi-server/init
 docker push ghcr.io/kerrydinh/xiaozhi-server-init:latest
 ```
 
@@ -68,7 +67,7 @@ VieNeu-TTS image (only when moving to a newer VieNeu-TTS commit):
 ```sh
 docker build --platform linux/amd64 -t vieneu-tts-upstream:cpu -f docker/Dockerfile.cpu \
   https://github.com/pnnbao97/VieNeu-TTS.git#04044e1b8f822f946bafb2c88b716459f4164152
-docker build --platform linux/amd64 -t ghcr.io/kerrydinh/vieneu-tts:cpu docker/vieneu-tts
+docker build --platform linux/amd64 -t ghcr.io/kerrydinh/vieneu-tts:cpu deploy/vieneu-tts
 docker push ghcr.io/kerrydinh/vieneu-tts:cpu
 ```
 
@@ -80,8 +79,8 @@ image and restart.
 Deploy this first so the `xiaozhi` stack can register it.
 
 1. Dockge → **+ Compose** → name `vieneu-tts`.
-2. Paste `vieneu-tts/compose.yaml` into the compose editor and
-   `vieneu-tts/.env` into the `.env` editor.
+2. Paste `deploy/vieneu-tts/compose.yaml` into the compose editor and
+   `deploy/vieneu-tts/.env` into the `.env` editor.
 3. **Deploy**. The first start downloads the v3 Turbo model (~0.5 GB) into
    the `hf_cache` volume; later starts take about a minute.
 4. Check `http://192.168.8.122:8010/health` → `"status":"ok"`.
@@ -103,10 +102,10 @@ sentence took ~3 s. VieNeu is Vietnamese only; use Edge TTS for English.
 ## 2. Deploy the XiaoZhi server
 
 1. Dockge → **+ Compose** → name `xiaozhi`.
-2. Paste `compose.yaml` and `.env`.
+2. Paste `deploy/xiaozhi-server/compose.yaml` and `deploy/xiaozhi-server/.env`.
 3. Choose one:
    - **Restore the existing setup** (accounts, agent, bound device, model
-     settings): click **Save** (not Deploy). Copy `restore/xiaozhi.sql` into
+     settings): click **Save** (not Deploy). Copy `deploy/xiaozhi-server/restore/xiaozhi.sql` into
      the stack folder on the NAS as `restore/xiaozhi.sql` (SMB, or
      `scp` + TrueNAS shell). Then **Deploy**. MySQL imports it only while
      creating an empty database.

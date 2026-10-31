@@ -1,0 +1,7 @@
+# Runtime data created by the stack
+.env
+data/
+models/
+mysql/
+uploadfile/
+restore/

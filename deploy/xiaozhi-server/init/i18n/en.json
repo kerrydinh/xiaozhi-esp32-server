@@ -1,0 +1,3158 @@
+{
+ "source": "xiaozhi-esp32-server 0.9.8 seed data",
+ "rows": [
+  {
+   "t": "sys_dict_type",
+   "c": "dict_name",
+   "id": "101",
+   "zh": "固件类型",
+   "en": "Firmware type"
+  },
+  {
+   "t": "sys_dict_type",
+   "c": "dict_name",
+   "id": "102",
+   "zh": "手机区域",
+   "en": "Phone region"
+  },
+  {
+   "t": "sys_dict_type",
+   "c": "remark",
+   "id": "101",
+   "zh": "固件类型字典",
+   "en": "Firmware type dictionary"
+  },
+  {
+   "t": "sys_dict_type",
+   "c": "remark",
+   "id": "102",
+   "zh": "手机区域字典",
+   "en": "Phone region dictionary"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101001",
+   "zh": "面包板新版接线（WiFi）",
+   "en": "Breadboard, new wiring (WiFi)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101002",
+   "zh": "面包板新版接线（WiFi）+ LCD",
+   "en": "Breadboard, new wiring (WiFi) + LCD"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101003",
+   "zh": "面包板新版接线（ML307 AT）",
+   "en": "Breadboard, new wiring (ML307 AT)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101004",
+   "zh": "面包板（WiFi） ESP32 DevKit",
+   "en": "Breadboard (WiFi) ESP32 DevKit"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101005",
+   "zh": "面包板（WiFi+ LCD） ESP32 DevKit",
+   "en": "Breadboard (WiFi + LCD) ESP32 DevKit"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101006",
+   "zh": "DFRobot 行空板 k10",
+   "en": "DFRobot UNIHIKER k10"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101014",
+   "zh": "Kevin SP V3开发板",
+   "en": "Kevin SP V3 dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101015",
+   "zh": "Kevin SP V4开发板",
+   "en": "Kevin SP V4 dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101016",
+   "zh": "鱼鹰科技3.13LCD开发板",
+   "en": "Yuying Tech 3.13 LCD dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101017",
+   "zh": "立创·实战派ESP32-S3开发板",
+   "en": "LCSC Szpi ESP32-S3 dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101018",
+   "zh": "立创·实战派ESP32-C3开发板",
+   "en": "LCSC Szpi ESP32-C3 dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101019",
+   "zh": "神奇按钮 Magiclick_2.4",
+   "en": "Magiclick button Magiclick_2.4"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101020",
+   "zh": "神奇按钮 Magiclick_2.5",
+   "en": "Magiclick button Magiclick_2.5"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101021",
+   "zh": "神奇按钮 Magiclick_C3",
+   "en": "Magiclick button Magiclick_C3"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101022",
+   "zh": "神奇按钮 Magiclick_C3_v2",
+   "en": "Magiclick button Magiclick_C3_v2"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101028",
+   "zh": "虾哥 Mini C3",
+   "en": "Xiage Mini C3"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101029",
+   "zh": "ESP32S3_KORVO2_V3开发板",
+   "en": "ESP32S3_KORVO2_V3 dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101030",
+   "zh": "ESP-SparkBot开发板",
+   "en": "ESP-SparkBot dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101037",
+   "zh": "土豆子",
+   "en": "Tudouzi"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101040",
+   "zh": "Movecall Moji 小智AI衍生版",
+   "en": "Movecall Moji XiaoZhi AI derivative"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101041",
+   "zh": "Movecall CuiCan 璀璨·AI吊坠",
+   "en": "Movecall CuiCan AI pendant"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101042",
+   "zh": "正点原子DNESP32S3开发板",
+   "en": "ALIENTEK DNESP32S3 dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101043",
+   "zh": "正点原子DNESP32S3-BOX",
+   "en": "ALIENTEK DNESP32S3-BOX"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101044",
+   "zh": "嘟嘟开发板CHATX(wifi)",
+   "en": "Dudu dev board CHATX (wifi)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101045",
+   "zh": "太极小派esp32s3",
+   "en": "Taiji Xiaopai esp32s3"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101046",
+   "zh": "无名科技星智0.85(WIFI)",
+   "en": "Wuming Xingzhi 0.85 (WIFI)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101047",
+   "zh": "无名科技星智0.85(ML307)",
+   "en": "Wuming Xingzhi 0.85 (ML307)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101048",
+   "zh": "无名科技星智0.96(WIFI)",
+   "en": "Wuming Xingzhi 0.96 (WIFI)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101049",
+   "zh": "无名科技星智0.96(ML307)",
+   "en": "Wuming Xingzhi 0.96 (ML307)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101050",
+   "zh": "无名科技星智1.54(WIFI)",
+   "en": "Wuming Xingzhi 1.54 (WIFI)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101051",
+   "zh": "无名科技星智1.54(ML307)",
+   "en": "Wuming Xingzhi 1.54 (ML307)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101053",
+   "zh": "四博智联AI陪伴盒子",
+   "en": "DOIT AI companion box"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "101054",
+   "zh": "元控·青春",
+   "en": "Yuankong Qingchun"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102001",
+   "zh": "中国大陆",
+   "en": "Mainland China"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102002",
+   "zh": "中国香港",
+   "en": "Hong Kong, China"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102003",
+   "zh": "中国澳门",
+   "en": "Macao, China"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102004",
+   "zh": "中国台湾",
+   "en": "Taiwan, China"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102005",
+   "zh": "美国/加拿大",
+   "en": "USA/Canada"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102006",
+   "zh": "英国",
+   "en": "United Kingdom"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102007",
+   "zh": "法国",
+   "en": "France"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102008",
+   "zh": "意大利",
+   "en": "Italy"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102009",
+   "zh": "德国",
+   "en": "Germany"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102010",
+   "zh": "波兰",
+   "en": "Poland"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102011",
+   "zh": "瑞士",
+   "en": "Switzerland"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102012",
+   "zh": "西班牙",
+   "en": "Spain"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102013",
+   "zh": "丹麦",
+   "en": "Denmark"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102014",
+   "zh": "马来西亚",
+   "en": "Malaysia"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102015",
+   "zh": "澳大利亚",
+   "en": "Australia"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102016",
+   "zh": "印度尼西亚",
+   "en": "Indonesia"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102017",
+   "zh": "菲律宾",
+   "en": "Philippines"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102018",
+   "zh": "新西兰",
+   "en": "New Zealand"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102019",
+   "zh": "新加坡",
+   "en": "Singapore"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102020",
+   "zh": "泰国",
+   "en": "Thailand"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102021",
+   "zh": "日本",
+   "en": "Japan"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102022",
+   "zh": "韩国",
+   "en": "South Korea"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102023",
+   "zh": "越南",
+   "en": "Vietnam"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102024",
+   "zh": "印度",
+   "en": "India"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102025",
+   "zh": "巴基斯坦",
+   "en": "Pakistan"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102026",
+   "zh": "尼日利亚",
+   "en": "Nigeria"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102027",
+   "zh": "孟加拉国",
+   "en": "Bangladesh"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102028",
+   "zh": "沙特阿拉伯",
+   "en": "Saudi Arabia"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102029",
+   "zh": "阿联酋",
+   "en": "UAE"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102030",
+   "zh": "巴西",
+   "en": "Brazil"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102031",
+   "zh": "墨西哥",
+   "en": "Mexico"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102032",
+   "zh": "智利",
+   "en": "Chile"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102033",
+   "zh": "阿根廷",
+   "en": "Argentina"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102034",
+   "zh": "埃及",
+   "en": "Egypt"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102035",
+   "zh": "南非",
+   "en": "South Africa"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102036",
+   "zh": "肯尼亚",
+   "en": "Kenya"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102037",
+   "zh": "坦桑尼亚",
+   "en": "Tanzania"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "dict_label",
+   "id": "102038",
+   "zh": "哈萨克斯坦",
+   "en": "Kazakhstan"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101001",
+   "zh": "面包板新版接线（WiFi）",
+   "en": "Breadboard, new wiring (WiFi)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101002",
+   "zh": "面包板新版接线（WiFi）+ LCD",
+   "en": "Breadboard, new wiring (WiFi) + LCD"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101003",
+   "zh": "面包板新版接线（ML307 AT）",
+   "en": "Breadboard, new wiring (ML307 AT)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101004",
+   "zh": "面包板（WiFi） ESP32 DevKit",
+   "en": "Breadboard (WiFi) ESP32 DevKit"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101005",
+   "zh": "面包板（WiFi+ LCD） ESP32 DevKit",
+   "en": "Breadboard (WiFi + LCD) ESP32 DevKit"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101006",
+   "zh": "DFRobot 行空板 k10",
+   "en": "DFRobot UNIHIKER k10"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101014",
+   "zh": "Kevin SP V3开发板",
+   "en": "Kevin SP V3 dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101015",
+   "zh": "Kevin SP V4开发板",
+   "en": "Kevin SP V4 dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101016",
+   "zh": "鱼鹰科技3.13LCD开发板",
+   "en": "Yuying Tech 3.13 LCD dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101017",
+   "zh": "立创·实战派ESP32-S3开发板",
+   "en": "LCSC Szpi ESP32-S3 dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101018",
+   "zh": "立创·实战派ESP32-C3开发板",
+   "en": "LCSC Szpi ESP32-C3 dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101019",
+   "zh": "神奇按钮 Magiclick_2.4",
+   "en": "Magiclick button Magiclick_2.4"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101020",
+   "zh": "神奇按钮 Magiclick_2.5",
+   "en": "Magiclick button Magiclick_2.5"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101021",
+   "zh": "神奇按钮 Magiclick_C3",
+   "en": "Magiclick button Magiclick_C3"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101022",
+   "zh": "神奇按钮 Magiclick_C3_v2",
+   "en": "Magiclick button Magiclick_C3_v2"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101028",
+   "zh": "虾哥 Mini C3",
+   "en": "Xiage Mini C3"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101029",
+   "zh": "ESP32S3_KORVO2_V3开发板",
+   "en": "ESP32S3_KORVO2_V3 dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101030",
+   "zh": "ESP-SparkBot开发板",
+   "en": "ESP-SparkBot dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101037",
+   "zh": "土豆子",
+   "en": "Tudouzi"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101040",
+   "zh": "Movecall Moji 小智AI衍生版",
+   "en": "Movecall Moji XiaoZhi AI derivative"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101041",
+   "zh": "Movecall CuiCan 璀璨·AI吊坠",
+   "en": "Movecall CuiCan AI pendant"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101042",
+   "zh": "正点原子DNESP32S3开发板",
+   "en": "ALIENTEK DNESP32S3 dev board"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101043",
+   "zh": "正点原子DNESP32S3-BOX",
+   "en": "ALIENTEK DNESP32S3-BOX"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101044",
+   "zh": "嘟嘟开发板CHATX(wifi)",
+   "en": "Dudu dev board CHATX (wifi)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101045",
+   "zh": "太极小派esp32s3",
+   "en": "Taiji Xiaopai esp32s3"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101046",
+   "zh": "无名科技星智0.85(WIFI)",
+   "en": "Wuming Xingzhi 0.85 (WIFI)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101047",
+   "zh": "无名科技星智0.85(ML307)",
+   "en": "Wuming Xingzhi 0.85 (ML307)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101048",
+   "zh": "无名科技星智0.96(WIFI)",
+   "en": "Wuming Xingzhi 0.96 (WIFI)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101049",
+   "zh": "无名科技星智0.96(ML307)",
+   "en": "Wuming Xingzhi 0.96 (ML307)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101050",
+   "zh": "无名科技星智1.54(WIFI)",
+   "en": "Wuming Xingzhi 1.54 (WIFI)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101051",
+   "zh": "无名科技星智1.54(ML307)",
+   "en": "Wuming Xingzhi 1.54 (ML307)"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101053",
+   "zh": "四博智联AI陪伴盒子",
+   "en": "DOIT AI companion box"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "101054",
+   "zh": "元控·青春",
+   "en": "Yuankong Qingchun"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102001",
+   "zh": "中国大陆",
+   "en": "Mainland China"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102002",
+   "zh": "中国香港",
+   "en": "Hong Kong, China"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102003",
+   "zh": "中国澳门",
+   "en": "Macao, China"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102004",
+   "zh": "中国台湾",
+   "en": "Taiwan, China"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102005",
+   "zh": "美国/加拿大",
+   "en": "USA/Canada"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102006",
+   "zh": "英国",
+   "en": "United Kingdom"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102007",
+   "zh": "法国",
+   "en": "France"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102008",
+   "zh": "意大利",
+   "en": "Italy"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102009",
+   "zh": "德国",
+   "en": "Germany"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102010",
+   "zh": "波兰",
+   "en": "Poland"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102011",
+   "zh": "瑞士",
+   "en": "Switzerland"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102012",
+   "zh": "西班牙",
+   "en": "Spain"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102013",
+   "zh": "丹麦",
+   "en": "Denmark"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102014",
+   "zh": "马来西亚",
+   "en": "Malaysia"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102015",
+   "zh": "澳大利亚",
+   "en": "Australia"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102016",
+   "zh": "印度尼西亚",
+   "en": "Indonesia"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102017",
+   "zh": "菲律宾",
+   "en": "Philippines"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102018",
+   "zh": "新西兰",
+   "en": "New Zealand"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102019",
+   "zh": "新加坡",
+   "en": "Singapore"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102020",
+   "zh": "泰国",
+   "en": "Thailand"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102021",
+   "zh": "日本",
+   "en": "Japan"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102022",
+   "zh": "韩国",
+   "en": "South Korea"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102023",
+   "zh": "越南",
+   "en": "Vietnam"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102024",
+   "zh": "印度",
+   "en": "India"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102025",
+   "zh": "巴基斯坦",
+   "en": "Pakistan"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102026",
+   "zh": "尼日利亚",
+   "en": "Nigeria"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102027",
+   "zh": "孟加拉国",
+   "en": "Bangladesh"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102028",
+   "zh": "沙特阿拉伯",
+   "en": "Saudi Arabia"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102029",
+   "zh": "阿联酋",
+   "en": "UAE"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102030",
+   "zh": "巴西",
+   "en": "Brazil"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102031",
+   "zh": "墨西哥",
+   "en": "Mexico"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102032",
+   "zh": "智利",
+   "en": "Chile"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102033",
+   "zh": "阿根廷",
+   "en": "Argentina"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102034",
+   "zh": "埃及",
+   "en": "Egypt"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102035",
+   "zh": "南非",
+   "en": "South Africa"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102036",
+   "zh": "肯尼亚",
+   "en": "Kenya"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102037",
+   "zh": "坦桑尼亚",
+   "en": "Tanzania"
+  },
+  {
+   "t": "sys_dict_data",
+   "c": "remark",
+   "id": "102038",
+   "zh": "哈萨克斯坦",
+   "en": "Kazakhstan"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "102",
+   "zh": "服务器密钥",
+   "en": "Server secret key"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "103",
+   "zh": "是否允许管理员以外的人注册",
+   "en": "Allow non-admin users to register"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "104",
+   "zh": "下发六位验证码时显示的控制面板地址",
+   "en": "Control panel URL shown with the 6-digit verification code"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "105",
+   "zh": "单台设备每天最多输出字数，0表示不限制",
+   "en": "Max output characters per device per day; 0 = unlimited"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "106",
+   "zh": "websocket地址，多个用;分隔",
+   "en": "WebSocket URL; separate multiple with ;"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "107",
+   "zh": "ota地址",
+   "en": "OTA URL"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "108",
+   "zh": "系统名称",
+   "en": "System name"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "109",
+   "zh": "icp备案号，填写null则不设置",
+   "en": "ICP filing number; enter null to leave unset"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "110",
+   "zh": "公安备案号，填写null则不设置",
+   "en": "Public security filing number; enter null to leave unset"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "111",
+   "zh": "是否开启手机注册",
+   "en": "Enable phone number registration"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "112",
+   "zh": "单号码单日最大短信发送条数",
+   "en": "Max SMS messages per number per day"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "113",
+   "zh": "mcp接入点地址",
+   "en": "MCP endpoint URL"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "114",
+   "zh": "声纹接口地址",
+   "en": "Voiceprint API URL"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "115",
+   "zh": "声纹识别相似度阈值，范围0.0-1.0，默认0.4，数值越高越严格",
+   "en": "Voiceprint similarity threshold, range 0.0-1.0, default 0.4; higher is stricter"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "116",
+   "zh": "mqtt gateway 配置",
+   "en": "MQTT gateway config"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "117",
+   "zh": "mqtt 密钥 配置",
+   "en": "MQTT secret key config"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "118",
+   "zh": "udp gateway 配置",
+   "en": "udp gateway config"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "119",
+   "zh": "MQTT网关管理API的地址",
+   "en": "MQTT gateway management API URL"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "120",
+   "zh": "服务器SM2公钥",
+   "en": "Server SM2 public key"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "121",
+   "zh": "服务器SM2私钥",
+   "en": "Server SM2 private key"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "122",
+   "zh": "server模块是否开启token认证",
+   "en": "Enable token auth for the server module"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "201",
+   "zh": "控制台日志格式",
+   "en": "Console log format"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "202",
+   "zh": "文件日志格式",
+   "en": "File log format"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "203",
+   "zh": "日志级别",
+   "en": "Log level"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "204",
+   "zh": "日志目录",
+   "en": "Log directory"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "205",
+   "zh": "日志文件名",
+   "en": "Log file name"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "206",
+   "zh": "数据目录",
+   "en": "Data directory"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "301",
+   "zh": "是否删除使用后的音频文件",
+   "en": "Delete audio files after use"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "302",
+   "zh": "无语音输入断开连接时间(秒)",
+   "en": "Disconnect after no voice input (seconds)"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "303",
+   "zh": "TTS请求超时时间(秒)",
+   "en": "TTS request timeout (seconds)"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "304",
+   "zh": "是否开启唤醒词加速",
+   "en": "Enable wake word acceleration"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "305",
+   "zh": "是否开启开场回复",
+   "en": "Enable opening reply"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "306",
+   "zh": "是否开启结束提示音",
+   "en": "Enable end-of-session sound"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "307",
+   "zh": "结束提示音文件路径",
+   "en": "End-of-session sound file path"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "308",
+   "zh": "退出命令列表",
+   "en": "Exit command list"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "309",
+   "zh": "小智类型",
+   "en": "XiaoZhi type"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "310",
+   "zh": "唤醒词列表，用于识别唤醒词",
+   "en": "Wake word list, used to detect wake words"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "311",
+   "zh": "是否启用WebSocket心跳保活机制",
+   "en": "Enable WebSocket heartbeat keep-alive"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "312",
+   "zh": "工具调用超时时间(秒)",
+   "en": "Tool call timeout (seconds)"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "500",
+   "zh": "是否开启结束语",
+   "en": "Enable closing message"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "501",
+   "zh": "结束提示词",
+   "en": "Closing prompt"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "502",
+   "zh": "系统错误时的回复",
+   "en": "Reply on system error"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "600",
+   "zh": "系统功能菜单配置",
+   "en": "System feature menu config"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "610",
+   "zh": "阿里云平台access_key",
+   "en": "Alibaba Cloud access_key"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "611",
+   "zh": "阿里云平台access_key_secret",
+   "en": "Alibaba Cloud access_key_secret"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "612",
+   "zh": "阿里云短信签名",
+   "en": "Alibaba Cloud SMS signature"
+  },
+  {
+   "t": "sys_params",
+   "c": "remark",
+   "id": "613",
+   "zh": "阿里云短信模板",
+   "en": "Alibaba Cloud SMS template"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_AliyunASR",
+   "zh": "阿里云语音识别",
+   "en": "Alibaba Cloud Speech Recognition"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_AliyunBLStream",
+   "zh": "阿里百炼Paraformer实时语音识别",
+   "en": "Alibaba Bailian Paraformer Realtime ASR"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_AliyunStreamASR",
+   "zh": "阿里云语音识别(流式)",
+   "en": "Alibaba Cloud Speech Recognition (Streaming)"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_BaiduASR",
+   "zh": "百度语音识别",
+   "en": "Baidu Speech Recognition"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_DoubaoASR",
+   "zh": "火山引擎语音识别",
+   "en": "Volcano Engine Speech Recognition"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_DoubaoStreamASR",
+   "zh": "火山引擎语音识别(流式)",
+   "en": "Volcano Engine Speech Recognition (Streaming)"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_FunASR",
+   "zh": "FunASR语音识别",
+   "en": "FunASR Speech Recognition"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_FunASRServer",
+   "zh": "FunASR服务语音识别",
+   "en": "FunASR Server Speech Recognition"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_OpenaiASR",
+   "zh": "OpenAI语音识别",
+   "en": "OpenAI Speech Recognition"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_Qwen3Flash",
+   "zh": "Qwen3-ASR-Flash语音识别",
+   "en": "Qwen3-ASR-Flash Speech Recognition"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_SherpaASR",
+   "zh": "SherpaASR语音识别",
+   "en": "SherpaASR Speech Recognition"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_TencentASR",
+   "zh": "腾讯语音识别",
+   "en": "Tencent Speech Recognition"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_VoskASR",
+   "zh": "VOSK离线语音识别",
+   "en": "VOSK Offline Speech Recognition"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_ASR_XunfeiStream",
+   "zh": "讯飞流式语音识别",
+   "en": "iFlytek Streaming Speech Recognition"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_Intent_function_call",
+   "zh": "大模型自主函数调用",
+   "en": "LLM Autonomous Function Calling"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_Intent_intent_llm",
+   "zh": "外挂的大模型意图识别",
+   "en": "External LLM Intent Recognition"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_Intent_nointent",
+   "zh": "无意图识别",
+   "en": "No Intent Recognition"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_LLM_AliBL",
+   "zh": "阿里百炼接口",
+   "en": "Alibaba Bailian API"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_LLM_coze",
+   "zh": "Coze接口",
+   "en": "Coze API"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_LLM_dify",
+   "zh": "Dify接口",
+   "en": "Dify API"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_LLM_fastgpt",
+   "zh": "FastGPT接口",
+   "en": "FastGPT API"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_LLM_gemini",
+   "zh": "Gemini接口",
+   "en": "Gemini API"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_LLM_ollama",
+   "zh": "Ollama接口",
+   "en": "Ollama API"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_LLM_openai",
+   "zh": "OpenAI接口",
+   "en": "OpenAI API"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_LLM_xinference",
+   "zh": "Xinference接口",
+   "en": "Xinference API"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_Memory_mem_local_short",
+   "zh": "本地短期记忆（总结记忆）",
+   "en": "Local Short-term Memory (Summarized)"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_Memory_mem_report_only",
+   "zh": "仅上报聊天记录（不总结记忆）",
+   "en": "Report Chat History Only (No Summary)"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_Memory_mem0ai",
+   "zh": "Mem0AI记忆",
+   "en": "Mem0AI Memory"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_Memory_nomem",
+   "zh": "无记忆",
+   "en": "No Memory"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_Memory_powermem",
+   "zh": "PowerMem记忆",
+   "en": "PowerMem Memory"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_PLUGIN_CALL_DEVICE",
+   "zh": "设备呼叫设备",
+   "en": "Device-to-Device Call"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_PLUGIN_HA_PLAY_MUSIC",
+   "zh": "HomeAssistant音乐播放",
+   "en": "HomeAssistant Music Playback"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_PLUGIN_HA_STATE",
+   "zh": "HomeAssistant设备控制",
+   "en": "HomeAssistant Device Control"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_PLUGIN_MUSIC",
+   "zh": "服务器音乐播放",
+   "en": "Server Music Playback"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_PLUGIN_NEWS_CHINANEWS",
+   "zh": "中新网新闻",
+   "en": "China News"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_PLUGIN_NEWS_NEWSNOW",
+   "zh": "newsnow新闻聚合",
+   "en": "newsnow News Aggregator"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_PLUGIN_WEATHER",
+   "zh": "天气查询",
+   "en": "Weather Lookup"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_PLUGIN_WEB_SEARCH",
+   "zh": "联网搜索",
+   "en": "Web Search"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_TTS_AliBLStreamTTS",
+   "zh": "阿里百炼流式语音合成",
+   "en": "Alibaba Bailian Streaming TTS"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_TTS_aliyun",
+   "zh": "阿里云TTS",
+   "en": "Alibaba Cloud TTS"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_TTS_AliyunStreamTTS",
+   "zh": "阿里云语音合成(流式)",
+   "en": "Alibaba Cloud TTS (Streaming)"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_TTS_custom",
+   "zh": "自定义TTS",
+   "en": "Custom TTS"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_TTS_doubao",
+   "zh": "火山引擎TTS",
+   "en": "Volcano Engine TTS"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_TTS_HSDSTTS",
+   "zh": "火山双流式语音合成",
+   "en": "Volcano Dual-Streaming TTS"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_TTS_IndexStreamTTS",
+   "zh": "Index-TTS-vLLM流式语音合成",
+   "en": "Index-TTS-vLLM Streaming TTS"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_TTS_MinimaxStreamTTS",
+   "zh": "Minimax流式语音合成",
+   "en": "Minimax Streaming TTS"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_TTS_siliconflow",
+   "zh": "硅基流动TTS",
+   "en": "SiliconFlow TTS"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_TTS_TencentTTS",
+   "zh": "腾讯语音合成",
+   "en": "Tencent TTS"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_TTS_XunFeiStreamTTS",
+   "zh": "讯飞流式语音合成",
+   "en": "iFlytek Streaming TTS"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_VAD_SileroVAD",
+   "zh": "SileroVAD语音活动检测",
+   "en": "SileroVAD Voice Activity Detection"
+  },
+  {
+   "t": "ai_model_provider",
+   "c": "name",
+   "id": "SYSTEM_VLLM_openai",
+   "zh": "OpenAI接口",
+   "en": "OpenAI API"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_AliyunASR",
+   "zh": "阿里云语音识别",
+   "en": "Alibaba Cloud Speech Recognition"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_AliyunBLStream",
+   "zh": "阿里百炼Paraformer实时语音识别",
+   "en": "Alibaba Bailian Paraformer Realtime ASR"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_AliyunStreamASR",
+   "zh": "阿里云语音识别(流式)",
+   "en": "Alibaba Cloud Speech Recognition (Streaming)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_BaiduASR",
+   "zh": "百度语音识别",
+   "en": "Baidu Speech Recognition"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_DoubaoASR",
+   "zh": "豆包语音识别",
+   "en": "Doubao Speech Recognition"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_DoubaoStreamASR",
+   "zh": "豆包语音识别(流式)",
+   "en": "Doubao Speech Recognition (Streaming)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_DoubaoStreamASRV2",
+   "zh": "豆包语音识别2.0(流式)",
+   "en": "Doubao Speech Recognition 2.0 (Streaming)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_FunASR",
+   "zh": "FunASR语音识别",
+   "en": "FunASR Speech Recognition"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_FunASRServer",
+   "zh": "FunASR服务语音识别",
+   "en": "FunASR Server Speech Recognition"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_GroqASR",
+   "zh": "Groq语音识别",
+   "en": "Groq Speech Recognition"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_OpenaiASR",
+   "zh": "OpenAI语音识别",
+   "en": "OpenAI Speech Recognition"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_Qwen3Flash",
+   "zh": "Qwen3Flash语音识别",
+   "en": "Qwen3Flash Speech Recognition"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_SherpaASR",
+   "zh": "Sherpa语音识别",
+   "en": "Sherpa Speech Recognition"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_TencentASR",
+   "zh": "腾讯语音识别",
+   "en": "Tencent Speech Recognition"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_VoskASR",
+   "zh": "VOSK离线语音识别",
+   "en": "VOSK Offline Speech Recognition"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "ASR_XunfeiStream",
+   "zh": "讯飞语音识别(流式)",
+   "en": "iFlytek Speech Recognition (Streaming)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "Intent_function_call",
+   "zh": "大模型自主函数调用",
+   "en": "LLM Autonomous Function Calling"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "Intent_intent_llm",
+   "zh": "外挂的大模型意图识别",
+   "en": "External LLM Intent Recognition"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "Intent_nointent",
+   "zh": "无意图识别",
+   "en": "No Intent Recognition"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "LLM_AliAppLLM",
+   "zh": "百炼智能体应用",
+   "en": "Bailian Agent App"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "LLM_AliLLM",
+   "zh": "通义千问",
+   "en": "Qwen"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "LLM_ChatGLMLLM",
+   "zh": "智谱AI",
+   "en": "Zhipu AI"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "LLM_DoubaoLLM",
+   "zh": "豆包大模型",
+   "en": "Doubao LLM"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "LLM_GeminiLLM",
+   "zh": "谷歌Gemini",
+   "en": "Google Gemini"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "LLM_OllamaLLM",
+   "zh": "Ollama本地模型",
+   "en": "Ollama Local Model"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "LLM_VolcesAiGatewayLLM",
+   "zh": "火山引擎边缘大模型网关",
+   "en": "Volcano Engine Edge LLM Gateway"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "LLM_XinferenceLLM",
+   "zh": "Xinference大模型",
+   "en": "Xinference Large Model"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "LLM_XinferenceSmallLLM",
+   "zh": "Xinference小模型",
+   "en": "Xinference Small Model"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "LLM_XunfeiSparkLLM",
+   "zh": "讯飞星火认知大模型",
+   "en": "iFlytek Spark LLM"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "Memory_mem_local_short",
+   "zh": "本地短期记忆（总结记忆）",
+   "en": "Local Short-term Memory (Summarized)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "Memory_mem_report_only",
+   "zh": "仅上报聊天记录（不总结记忆）",
+   "en": "Report Chat History Only (No Summary)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "Memory_mem0ai",
+   "zh": "Mem0AI记忆",
+   "en": "Mem0AI Memory"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "Memory_nomem",
+   "zh": "无记忆",
+   "en": "No Memory"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "Memory_powermem",
+   "zh": "PowerMem记忆",
+   "en": "PowerMem Memory"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_AliBLStreamTTS",
+   "zh": "阿里百炼(流式)",
+   "en": "Alibaba Bailian (Streaming)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_AliyunStreamTTS",
+   "zh": "阿里云(流式)",
+   "en": "Alibaba Cloud (Streaming)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_AliyunTTS",
+   "zh": "阿里云语音合成",
+   "en": "Alibaba Cloud TTS"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_CosyVoiceSiliconflow",
+   "zh": "硅基流动语音合成",
+   "en": "SiliconFlow TTS"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_CozeCnTTS",
+   "zh": "Coze中文语音合成",
+   "en": "Coze Chinese TTS"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_CustomTTS",
+   "zh": "自定义语音合成",
+   "en": "Custom TTS"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_DoubaoTTS",
+   "zh": "豆包语音合成",
+   "en": "Doubao TTS"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_EdgeTTS",
+   "zh": "Edge语音合成",
+   "en": "Edge TTS"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_FishSpeech",
+   "zh": "FishSpeech语音合成",
+   "en": "FishSpeech TTS"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_HSDSTTS_V2",
+   "zh": "豆包语音合成2.0(流式)",
+   "en": "Doubao TTS 2.0 (Streaming)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_HuoshanDoubleStreamTTS",
+   "zh": "火山引擎(流式)",
+   "en": "Volcano Engine (Streaming)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_IndexStreamTTS",
+   "zh": "IndexTTS(流式)",
+   "en": "IndexTTS (Streaming)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_MinimaxStreamTTS",
+   "zh": "Minimax(流式)",
+   "en": "Minimax (Streaming)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_OpenAITTS",
+   "zh": "OpenAI语音合成",
+   "en": "OpenAI TTS"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_PaddleSpeechTTS",
+   "zh": "PaddleSpeech(流式)",
+   "en": "PaddleSpeech (Streaming)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_TencentTTS",
+   "zh": "腾讯语音合成",
+   "en": "Tencent TTS"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_TTS302AI",
+   "zh": "302AI语音合成",
+   "en": "302AI TTS"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_VolcesAiGatewayTTS",
+   "zh": "火山引擎边缘大模型网关",
+   "en": "Volcano Engine Edge LLM Gateway"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "TTS_XunFeiStreamTTS",
+   "zh": "科大讯飞(流式)",
+   "en": "iFlytek (Streaming)"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "VAD_SileroVAD",
+   "zh": "语音活动检测",
+   "en": "Voice Activity Detection"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "VLLM_ChatGLMVLLM",
+   "zh": "智谱视觉AI",
+   "en": "Zhipu Vision AI"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "model_name",
+   "id": "VLLM_QwenVLVLLM",
+   "zh": "千问视觉模型",
+   "en": "Qwen Vision Model"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_AliyunASR",
+   "zh": "阿里云ASR配置说明：\n1. 访问 https://nls-portal.console.aliyun.com/ 开通服务\n2. 访问 https://nls-portal.console.aliyun.com/applist 获取appkey\n3. 访问 https://nls-portal.console.aliyun.com/overview 获取token\n4. 获取access_key_id和access_key_secret\n5. 填入配置文件中",
+   "en": "Alibaba Cloud ASR setup:\n1. Go to https://nls-portal.console.aliyun.com/ to activate the service\n2. Go to https://nls-portal.console.aliyun.com/applist to get the appkey\n3. Go to https://nls-portal.console.aliyun.com/overview to get the token\n4. Obtain the access_key_id and access_key_secret\n5. Enter them in the configuration"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_AliyunBLStream",
+   "zh": "阿里百炼Paraformer实时语音识别配置说明：\n1. 登录阿里云百炼平台 https://bailian.console.aliyun.com/\n2. 创建API-KEY https://bailian.console.aliyun.com/#/api-key\n3. 支持模型：paraformer-realtime-v2(推荐)、paraformer-realtime-8k-v2、paraformer-realtime-v1、paraformer-realtime-8k-v1\n4. 功能特性：\n   - 多语言支持(中文含方言、英文、日语、韩语、德语、法语、俄语)\n   - 热词定制(vocabulary_id参数)，详细说明请参考：https://help.aliyun.com/zh/model-studio/custom-hot-words?\n   - 语义断句/VAD断句(semantic_punctuation_enabled参数)\n   - 自动标点符号、ITN、过滤语气词等\n5. 参数说明：\n   - model: 模型名称，推荐paraformer-realtime-v2\n   - sample_rate: 采样率(Hz)，v2支持任意采样率，v1仅支持16000，8k版本仅支持8000\n   - semantic_punctuation_enabled: false为VAD断句(低延迟)，true为语义断句(高准确)\n   - max_sentence_silence: VAD断句静音时长阈值(200-6000ms)\n",
+   "en": "Alibaba Cloud Bailian (Model Studio) Paraformer real-time speech recognition setup:\n1. Log in to the Alibaba Cloud Bailian platform https://bailian.console.aliyun.com/\n2. Create an API key https://bailian.console.aliyun.com/#/api-key\n3. Supported models: paraformer-realtime-v2 (recommended), paraformer-realtime-8k-v2, paraformer-realtime-v1, paraformer-realtime-8k-v1\n4. Features:\n   - Multilingual support (Chinese including dialects, English, Japanese, Korean, German, French, Russian)\n   - Custom hot words (vocabulary_id parameter); for details see: https://help.aliyun.com/zh/model-studio/custom-hot-words?\n   - Semantic sentence segmentation / VAD segmentation (semantic_punctuation_enabled parameter)\n   - Automatic punctuation, ITN, filler-word filtering, etc.\n5. Parameters:\n   - model: model name; paraformer-realtime-v2 is recommended\n   - sample_rate: sample rate (Hz); v2 supports any sample rate, v1 supports only 16000, 8k versions support only 8000\n   - semantic_punctuation_enabled: false = VAD segmentation (low latency), true = semantic segmentation (high accuracy)\n   - max_sentence_silence: silence duration threshold for VAD segmentation (200-6000ms)\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_AliyunStreamASR",
+   "zh": "阿里云流式ASR配置说明：\n1. 阿里云ASR和阿里云(流式)ASR的区别是：阿里云ASR是一次性识别，阿里云(流式)ASR是实时流式识别\n2. 流式ASR具有更低的延迟和更好的实时性，适合语音交互场景\n3. 需要在阿里云智能语音交互控制台创建应用并获取认证信息\n4. 支持中文实时语音识别，支持标点符号预测和逆文本规范化\n5. 需要网络连接，输出文件保存在tmp/目录\n申请步骤：\n1. 访问 https://nls-portal.console.aliyun.com/ 开通智能语音交互服务\n2. 访问 https://nls-portal.console.aliyun.com/applist 创建项目并获取appkey\n3. 访问 https://nls-portal.console.aliyun.com/overview 获取临时token（或配置access_key_id和access_key_secret自动获取）\n4. 如需动态token管理，建议配置access_key_id和access_key_secret\n5. max_sentence_silence参数控制断句检测时间（毫秒），默认800ms\n如需了解更多参数配置，请参考：https://help.aliyun.com/zh/isi/developer-reference/real-time-speech-recognition\n",
+   "en": "Alibaba Cloud streaming ASR setup:\n1. Difference between Alibaba Cloud ASR and Alibaba Cloud (Streaming) ASR: Alibaba Cloud ASR recognizes audio in one pass, while Alibaba Cloud (Streaming) ASR performs real-time streaming recognition\n2. Streaming ASR has lower latency and better real-time performance, making it suitable for voice interaction\n3. Create an application in the Alibaba Cloud Intelligent Speech Interaction console and obtain the credentials\n4. Supports real-time Chinese speech recognition, with punctuation prediction and inverse text normalization\n5. Requires a network connection; output files are saved in the tmp/ directory\nHow to apply:\n1. Go to https://nls-portal.console.aliyun.com/ to activate the Intelligent Speech Interaction service\n2. Go to https://nls-portal.console.aliyun.com/applist to create a project and get the appkey\n3. Go to https://nls-portal.console.aliyun.com/overview to get a temporary token (or configure access_key_id and access_key_secret to obtain it automatically)\n4. For dynamic token management, configuring access_key_id and access_key_secret is recommended\n5. The max_sentence_silence parameter controls the sentence-break detection time (ms); default 800ms\nFor more parameters, see: https://help.aliyun.com/zh/isi/developer-reference/real-time-speech-recognition\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_BaiduASR",
+   "zh": "百度ASR配置说明：\n1. 访问 https://console.bce.baidu.com/ai-engine/old/#/ai/speech/app/list\n2. 创建新应用\n3. 获取AppID、API Key和Secret Key\n4. 填入配置文件中\n查看资源额度：https://console.bce.baidu.com/ai-engine/old/#/ai/speech/overview/resource/list\n语言参数说明：https://ai.baidu.com/ai-doc/SPEECH/0lbxfnc9b\n",
+   "en": "Baidu ASR setup:\n1. Go to https://console.bce.baidu.com/ai-engine/old/#/ai/speech/app/list\n2. Create a new application\n3. Get the AppID, API Key and Secret Key\n4. Enter them in the configuration\nCheck resource quota: https://console.bce.baidu.com/ai-engine/old/#/ai/speech/overview/resource/list\nLanguage parameters: https://ai.baidu.com/ai-doc/SPEECH/0lbxfnc9b\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_DoubaoASR",
+   "zh": "豆包ASR配置说明：\n1. 豆包ASR和豆包(流式)ASR的区别是：豆包ASR是按次收费，豆包(流式)ASR是按时收费\n2. 一般来说按次收费的更便宜，但是豆包(流式)ASR使用了大模型技术，效果更好\n3. 需要在火山引擎控制台创建应用并获取appid和access_token\n4. 支持中文语音识别\n5. 需要网络连接\n6. 输出文件保存在tmp/目录\n申请步骤：\n1. 访问 https://console.volcengine.com/speech/app\n2. 创建新应用\n3. 获取appid和access_token\n4. 填入配置文件中\n如需设置热词，请参考：https://www.volcengine.com/docs/6561/155738\n",
+   "en": "Doubao ASR setup:\n1. Difference between Doubao ASR and Doubao (Streaming) ASR: Doubao ASR is billed per request, while Doubao (Streaming) ASR is billed by duration\n2. Per-request billing is generally cheaper, but Doubao (Streaming) ASR uses large-model technology and gives better results\n3. Create an application in the Volcano Engine console and obtain the appid and access_token\n4. Supports Chinese speech recognition\n5. Requires a network connection\n6. Output files are saved in the tmp/ directory\nHow to apply:\n1. Go to https://console.volcengine.com/speech/app\n2. Create a new application\n3. Get the appid and access_token\n4. Enter them in the configuration\nTo set hot words, see: https://www.volcengine.com/docs/6561/155738\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_DoubaoStreamASR",
+   "zh": "豆包ASR配置说明：\n1. 豆包ASR和豆包(流式)ASR的区别是：豆包ASR是按次收费，豆包(流式)ASR是按时收费\n2. 一般来说按次收费的更便宜，但是豆包(流式)ASR使用了大模型技术，效果更好\n3. 需要在火山引擎控制台创建应用并获取appid和access_token\n4. 支持中文语音识别\n5. 需要网络连接\n6. 输出文件保存在tmp/目录\n申请步骤：\n1. 访问 https://console.volcengine.com/speech/app\n2. 创建新应用\n3. 获取appid和access_token\n4. 填入配置文件中\n如需设置热词，请参考：https://www.volcengine.com/docs/6561/155738\n如开启多语种识别模式，请设置language当该键为空时，该模型支持中英文、上海话、闽南语，四川、陕西、粤语识别。其他语种请参考：https://www.volcengine.com/docs/6561/1354869\n",
+   "en": "Doubao ASR setup:\n1. Difference between Doubao ASR and Doubao (Streaming) ASR: Doubao ASR is billed per request, while Doubao (Streaming) ASR is billed by duration\n2. Per-request billing is generally cheaper, but Doubao (Streaming) ASR uses large-model technology and gives better results\n3. Create an application in the Volcano Engine console and obtain the appid and access_token\n4. Supports Chinese speech recognition\n5. Requires a network connection\n6. Output files are saved in the tmp/ directory\nHow to apply:\n1. Go to https://console.volcengine.com/speech/app\n2. Create a new application\n3. Get the appid and access_token\n4. Enter them in the configuration\nTo set hot words, see: https://www.volcengine.com/docs/6561/155738\nTo enable multilingual recognition mode, set language. When this key is empty, the model supports recognition of Chinese and English, Shanghainese, Hokkien (Minnan), Sichuanese, Shaanxi dialect and Cantonese. For other languages, see: https://www.volcengine.com/docs/6561/1354869\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_DoubaoStreamASRV2",
+   "zh": "豆包语音识别模型2.0配置说明（基于火山引擎seed-asr）：\n1. 访问 https://www.volcengine.com/ 注册并开通火山引擎账号\n2. 访问 https://console.volcengine.com/speech/service/10038 开通豆包流式语音识别模型2.0\n3. 在页面底部获取appid和access_token\n4. 资源ID有两种：小时版（volc.seedasr.sauc.duration）和并发版（volc.seedasr.sauc.concurrent）\n   - 小时版：固定为：volc.seedasr.sauc.duration（豆包语音识别模型2.0）\n   - 并发版：固定为：volc.seedasr.sauc.concurrent（豆包语音识别模型2.0）\n\n详细参数文档：https://www.volcengine.com/docs/6561/109979\n\n注意：\n- 豆包语音识别模型2.0使用volc.seedasr.sauc.duration资源ID，与豆包语音识别(流式)（volc.bigasr.sauc.duration）不同\n- 语音识别模型2.0价格更为便宜，建议在高并发场景下使用并发版资源ID\n",
+   "en": "Doubao Speech Recognition Model 2.0 setup (based on Volcano Engine seed-asr):\n1. Go to https://www.volcengine.com/ to register and activate a Volcano Engine account\n2. Go to https://console.volcengine.com/speech/service/10038 to activate Doubao Streaming Speech Recognition Model 2.0\n3. Get the appid and access_token at the bottom of the page\n4. There are two resource IDs: hourly (volc.seedasr.sauc.duration) and concurrent (volc.seedasr.sauc.concurrent)\n   - Hourly: always volc.seedasr.sauc.duration (Doubao Speech Recognition Model 2.0)\n   - Concurrent: always volc.seedasr.sauc.concurrent (Doubao Speech Recognition Model 2.0)\n\nDetailed parameter docs: https://www.volcengine.com/docs/6561/109979\n\nNote:\n- Doubao Speech Recognition Model 2.0 uses the volc.seedasr.sauc.duration resource ID, which differs from Doubao Speech Recognition (Streaming) (volc.bigasr.sauc.duration)\n- Speech Recognition Model 2.0 is cheaper; for high-concurrency scenarios, the concurrent resource ID is recommended\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_FunASR",
+   "zh": "FunASR本地模型配置说明：\n1. 需要下载模型文件到xiaozhi-server/models/SenseVoiceSmall目录\n2. 支持中日韩粤语音识别\n3. 本地推理，无需网络连接\n4. 待识别文件保存在tmp/目录\n5. “识别语言”字段控制识别语种：auto = 自动检测；如需限定只识别中文可设为 zh（en=英语、ja=日语、ko=韩语、yue=粤语）。",
+   "en": "FunASR local model setup:\n1. Download the model files to the xiaozhi-server/models/SenseVoiceSmall directory\n2. Supports Chinese, Japanese, Korean and Cantonese speech recognition\n3. Local inference, no network connection required\n4. Files to be recognized are saved in the tmp/ directory\n5. The \"Recognition Language\" field controls the recognition language: auto = automatic detection; to recognize Chinese only, set it to zh (en = English, ja = Japanese, ko = Korean, yue = Cantonese)."
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_FunASRServer",
+   "zh": "独立部署FunASR，使用FunASR的API服务，只需要五句话\n第一句：mkdir -p ./funasr-runtime-resources/models\n第二句：sudo docker run -d -p 10096:10095 --privileged=true -v $PWD/funasr-runtime-resources/models:/workspace/models registry.cn-hangzhou.aliyuncs.com/funasr_repo/funasr:funasr-runtime-sdk-online-cpu-0.1.12\n上一句话执行后会进入到容器，继续第三句：cd FunASR/runtime\n不要退出容器，继续在容器中执行第四句：nohup bash run_server_2pass.sh --download-model-dir /workspace/models --vad-dir damo/speech_fsmn_vad_zh-cn-16k-common-onnx --model-dir iic/SenseVoiceSmall-onnx  --online-model-dir damo/speech_paraformer-large_asr_nat-zh-cn-16k-common-vocab8404-online-onnx  --punc-dir damo/punc_ct-transformer_zh-cn-common-vad_realtime-vocab272727-onnx --lm-dir damo/speech_ngram_lm_zh-cn-ai-wesp-fst --itn-dir thuduj12/fst_itn_zh --hotword /workspace/models/hotwords.txt > log.txt 2>&1 &\n上一句话执行后会进入到容器，继续第五句：tail -f log.txt\n第五句话执行完后，会看到模型下载日志，下载完后就可以连接使用了\n以上是使用CPU推理，如果有GPU，详细参考：https://github.com/modelscope/FunASR/blob/main/runtime/docs/SDK_advanced_guide_online_zh.md",
+   "en": "Deploy FunASR standalone and use its API service in just five commands\nCommand 1: mkdir -p ./funasr-runtime-resources/models\nCommand 2: sudo docker run -d -p 10096:10095 --privileged=true -v $PWD/funasr-runtime-resources/models:/workspace/models registry.cn-hangzhou.aliyuncs.com/funasr_repo/funasr:funasr-runtime-sdk-online-cpu-0.1.12\nThe previous command takes you into the container; continue with command 3: cd FunASR/runtime\nWithout exiting the container, run command 4 inside it: nohup bash run_server_2pass.sh --download-model-dir /workspace/models --vad-dir damo/speech_fsmn_vad_zh-cn-16k-common-onnx --model-dir iic/SenseVoiceSmall-onnx  --online-model-dir damo/speech_paraformer-large_asr_nat-zh-cn-16k-common-vocab8404-online-onnx  --punc-dir damo/punc_ct-transformer_zh-cn-common-vad_realtime-vocab272727-onnx --lm-dir damo/speech_ngram_lm_zh-cn-ai-wesp-fst --itn-dir thuduj12/fst_itn_zh --hotword /workspace/models/hotwords.txt > log.txt 2>&1 &\nThe previous command takes you into the container; continue with command 5: tail -f log.txt\nAfter command 5, you will see the model download log; once the download finishes, the service is ready to connect\nThe above uses CPU inference; if you have a GPU, see: https://github.com/modelscope/FunASR/blob/main/runtime/docs/SDK_advanced_guide_online_zh.md"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_GroqASR",
+   "zh": "Groq ASR配置说明：\n1.登录groq Console。https://console.groq.com/home\n2.创建api-key  https://console.groq.com/keys\n3.模型可以选择whisper-large-v3-turbo或whisper-large-v3（distil-whisper-large-v3-en仅支持英语转录）\n",
+   "en": "Groq ASR setup:\n1. Log in to the Groq Console: https://console.groq.com/home\n2. Create an API key  https://console.groq.com/keys\n3. The model can be whisper-large-v3-turbo or whisper-large-v3 (distil-whisper-large-v3-en supports English transcription only)\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_OpenaiASR",
+   "zh": "OpenAI ASR配置说明：\n1. 需要在OpenAI开放平台创建组织并获取api_key\n2. 支持中、英、日、韩等多种语音识别，具体参考文档https://platform.openai.com/docs/guides/speech-to-text\n3. 需要网络连接\n4. 输出文件保存在tmp/目录\n申请步骤：\n**OpenAi ASR申请步骤：**\n1.登录OpenAI Platform。https://auth.openai.com/log-in\n2.创建api-key  https://platform.openai.com/settings/organization/api-keys\n3.模型可以选择gpt-4o-transcribe或GPT-4o mini Transcribe\n",
+   "en": "OpenAI ASR setup:\n1. Create an organization on the OpenAI platform and obtain an api_key\n2. Supports speech recognition in Chinese, English, Japanese, Korean and many other languages; see https://platform.openai.com/docs/guides/speech-to-text\n3. Requires a network connection\n4. Output files are saved in the tmp/ directory\nHow to apply:\n**OpenAI ASR application steps:**\n1. Log in to the OpenAI Platform: https://auth.openai.com/log-in\n2. Create an API key  https://platform.openai.com/settings/organization/api-keys\n3. The model can be gpt-4o-transcribe or GPT-4o mini Transcribe\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_Qwen3Flash",
+   "zh": "通义千问Qwen3-ASR-Flash配置说明：\n1. 登录阿里云百炼平台https://bailian.console.aliyun.com/\n2. 创建API-KEY  https://bailian.console.aliyun.com/#/api-key\n3.Qwen3-ASR-Flash基于通义千问多模态基座，支持多语言识别、歌唱识别、噪声拒识等功能\n",
+   "en": "Qwen3-ASR-Flash (Qwen) setup:\n1. Log in to the Alibaba Cloud Bailian platform https://bailian.console.aliyun.com/\n2. Create an API key  https://bailian.console.aliyun.com/#/api-key\n3. Qwen3-ASR-Flash is built on the Qwen multimodal foundation model and supports multilingual recognition, singing recognition, noise rejection and more\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_SherpaASR",
+   "zh": "SherpaASR配置说明：\n1. 运行时自动下载模型文件到models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17目录\n2. 支持中文、英文、日语、韩语、粤语等多种语言\n3. 本地推理，无需网络连接\n4. 输出文件保存在tmp/目录",
+   "en": "SherpaASR setup:\n1. Model files are downloaded automatically at runtime to the models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17 directory\n2. Supports Chinese, English, Japanese, Korean, Cantonese and other languages\n3. Local inference, no network connection required\n4. Output files are saved in the tmp/ directory"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_TencentASR",
+   "zh": "腾讯ASR配置说明：\n1. 需要在腾讯云控制台创建应用并获取appid、secret_id和secret_key\n2. 支持中文语音识别\n3. 需要网络连接\n4. 输出文件保存在tmp/目录\n申请步骤：\n1. 访问 https://console.cloud.tencent.com/cam/capi 获取密钥\n2. 访问 https://console.cloud.tencent.com/asr/resourcebundle 领取免费资源\n3. 获取appid、secret_id和secret_key\n4. 填入配置文件中",
+   "en": "Tencent ASR setup:\n1. Create an application in the Tencent Cloud console and obtain the appid, secret_id and secret_key\n2. Supports Chinese speech recognition\n3. Requires a network connection\n4. Output files are saved in the tmp/ directory\nHow to apply:\n1. Go to https://console.cloud.tencent.com/cam/capi to get the keys\n2. Go to https://console.cloud.tencent.com/asr/resourcebundle to claim free resources\n3. Get the appid, secret_id and secret_key\n4. Enter them in the configuration"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_VoskASR",
+   "zh": "VOSK ASR配置说明：\n1. VOSK是一个离线语音识别库，支持多种语言\n2. 需要先下载模型文件：https://alphacephei.com/vosk/models\n3. 中文模型推荐使用vosk-model-small-cn-0.22或vosk-model-cn-0.22\n4. 完全离线运行，无需网络连接\n5. 输出文件保存在tmp/目录\n使用步骤：\n1. 访问 https://alphacephei.com/vosk/models 下载中文模型\n2. 解压模型文件到项目目录下的models/vosk/文件夹\n3. 在配置中指定正确的模型路径\n4. 注意：VOSK中文模型输出不带标点符号，词与词之间会有空格\n",
+   "en": "VOSK ASR setup:\n1. VOSK is an offline speech recognition library that supports many languages\n2. Download the model files first: https://alphacephei.com/vosk/models\n3. For Chinese, vosk-model-small-cn-0.22 or vosk-model-cn-0.22 is recommended\n4. Runs fully offline, no network connection required\n5. Output files are saved in the tmp/ directory\nUsage:\n1. Go to https://alphacephei.com/vosk/models and download a Chinese model\n2. Extract the model files to the models/vosk/ folder in the project directory\n3. Specify the correct model path in the configuration\n4. Note: VOSK Chinese models output no punctuation, and words are separated by spaces\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "ASR_XunfeiStream",
+   "zh": "讯飞流式语音识别配置说明：\n1. 登录讯飞开放平台 https://www.xfyun.cn/\n2. 创建语音识别应用获取APPID、APISecret、APIKey\n3. 参数说明：\n   - app_id: 应用ID，在讯飞开放平台创建应用后获得\n   - api_key: API密钥，用于接口鉴权\n   - api_secret: API密钥，用于生成签名\n   - domain: 识别领域，默认slm（智能化语音转写）\n   - language: 识别语言，默认zh_cn（中文）\n   - accent: 方言类型，默认mandarin（普通话），支持cantonese（粤语）等\n   - dwa: 动态修正，默认wpgs（开启动态修正）\n   - output_dir: 音频文件输出目录，默认tmp/\n4. 支持实时流式识别，适用于实时语音交互场景\n5. 支持多种方言和语言识别\n",
+   "en": "iFlytek streaming speech recognition setup:\n1. Log in to the iFlytek Open Platform https://www.xfyun.cn/\n2. Create a speech recognition application to obtain the APPID, APISecret and APIKey\n3. Parameters:\n   - app_id: application ID, obtained after creating an application on the iFlytek Open Platform\n   - api_key: API key, used for API authentication\n   - api_secret: API secret, used to generate signatures\n   - domain: recognition domain; default slm (intelligent speech transcription)\n   - language: recognition language; default zh_cn (Chinese)\n   - accent: dialect; default mandarin (Mandarin), also supports cantonese (Cantonese), etc.\n   - dwa: dynamic correction; default wpgs (dynamic correction enabled)\n   - output_dir: output directory for audio files; default tmp/\n4. Supports real-time streaming recognition, suitable for real-time voice interaction\n5. Supports recognition of multiple dialects and languages\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "Intent_function_call",
+   "zh": "函数调用意图识别配置说明：\n1. 使用LLM的function_call功能进行意图识别\n2. 需要所选择的LLM支持function_call\n3. 按需调用工具，处理速度快",
+   "en": "Function-call intent recognition setup:\n1. Uses the LLM's function_call capability for intent recognition\n2. The selected LLM must support function_call\n3. Calls tools on demand; fast processing"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "Intent_intent_llm",
+   "zh": "LLM意图识别配置说明：\n1. 使用独立的LLM进行意图识别\n2. 默认使用selected_module.LLM的模型\n3. 可以配置使用独立的LLM（如免费的ChatGLMLLM）\n4. 通用性强，但会增加处理时间\n配置说明：\n1. 在llm字段中指定使用的LLM模型\n2. 如果不指定，则使用selected_module.LLM的模型",
+   "en": "LLM intent recognition setup:\n1. Uses a separate LLM for intent recognition\n2. Uses the selected_module.LLM model by default\n3. Can be configured to use a separate LLM (e.g. the free ChatGLMLLM)\n4. Highly versatile, but adds processing time\nConfiguration:\n1. Specify the LLM model to use in the llm field\n2. If not specified, the selected_module.LLM model is used"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "Intent_nointent",
+   "zh": "无意图识别配置说明：\n1. 不进行意图识别\n2. 所有对话直接传递给LLM处理\n3. 无需额外配置\n4. 适合简单对话场景",
+   "en": "No intent recognition setup:\n1. No intent recognition is performed\n2. All conversations are passed directly to the LLM\n3. No additional configuration needed\n4. Suitable for simple conversations"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_AliAppLLM",
+   "zh": "通义百炼配置说明：\n1. 访问 https://bailian.console.aliyun.com/?apiKey=1#/api-key\n2. 获取app_id和api_key\n3. 填入配置文件中",
+   "en": "Alibaba Cloud Bailian setup:\n1. Go to https://bailian.console.aliyun.com/?apiKey=1#/api-key\n2. Get the app_id and api_key\n3. Enter them in the configuration"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_AliLLM",
+   "zh": "通义千问配置说明：\n1. 访问 https://bailian.console.aliyun.com/?apiKey=1#/api-key\n2. 获取API密钥\n3. 填入配置文件中，当前配置使用qwen-flash模型\n4. 支持自定义参数：temperature=0.7, max_tokens=500, top_p=1, top_k=50",
+   "en": "Qwen setup:\n1. Go to https://bailian.console.aliyun.com/?apiKey=1#/api-key\n2. Get an API key\n3. Enter it in the configuration; the current configuration uses the qwen-flash model\n4. Supports custom parameters: temperature=0.7, max_tokens=500, top_p=1, top_k=50"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_ChatGLMLLM",
+   "zh": "ChatGLM配置说明：\n1. 访问 https://bigmodel.cn/usercenter/proj-mgmt/apikeys\n2. 注册并获取API密钥\n3. 填入配置文件中",
+   "en": "ChatGLM setup:\n1. Go to https://bigmodel.cn/usercenter/proj-mgmt/apikeys\n2. Register and get an API key\n3. Enter it in the configuration"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_CozeLLM",
+   "zh": "Coze配置说明：\n1. 使用Coze平台服务\n2. 需要bot_id、user_id和个人令牌\n3. 需要网络连接\n申请步骤：\n1. 访问 https://www.coze.cn/open/oauth/pats\n2. 获取个人令牌\n3. 手动计算bot_id和user_id\n4. 填入配置文件中",
+   "en": "Coze setup:\n1. Uses the Coze platform service\n2. Requires a bot_id, user_id and personal access token\n3. Requires a network connection\nHow to apply:\n1. Go to https://www.coze.cn/open/oauth/pats\n2. Get a personal access token\n3. Work out the bot_id and user_id manually\n4. Enter them in the configuration"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_DeepSeekLLM",
+   "zh": "DeepSeek配置说明：\n1. 访问 https://platform.deepseek.com/\n2. 注册并获取API密钥\n3. 填入配置文件中",
+   "en": "DeepSeek setup:\n1. Go to https://platform.deepseek.com/\n2. Register and get an API key\n3. Enter it in the configuration"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_DifyLLM",
+   "zh": "Dify配置说明：\n1. 访问 https://cloud.dify.ai/\n2. 注册并获取API密钥\n3. 填入配置文件中\n4. 支持多种对话模式：workflows/run, chat-messages, completion-messages\n5. 平台设置的角色定义会失效，需要在Dify控制台设置\n注意：建议使用本地部署的Dify接口，国内部分区域访问公有云接口可能受限",
+   "en": "Dify setup:\n1. Go to https://cloud.dify.ai/\n2. Register and get an API key\n3. Enter it in the configuration\n4. Supports multiple conversation modes: workflows/run, chat-messages, completion-messages\n5. Role definitions set on this platform will not take effect; set them in the Dify console instead\nNote: A locally deployed Dify API is recommended; access to the public cloud API may be restricted in some regions of mainland China"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_DoubaoLLM",
+   "zh": "豆包大模型配置说明：\n1. 访问 https://console.volcengine.com/ark/region:ark+cn-beijing/openManagement\n2. 开通 Doubao-Seed-2.0-Lite 服务\n3. 访问 https://console.volcengine.com/ark/region:ark+cn-beijing/apiKey 获取API密钥\n4. 填入配置文件中\n5. 当前建议使用 doubao-seed-2-0-lite-260215\n注意：有免费额度500000token",
+   "en": "Doubao LLM setup:\n1. Go to https://console.volcengine.com/ark/region:ark+cn-beijing/openManagement\n2. Activate the Doubao-Seed-2.0-Lite service\n3. Go to https://console.volcengine.com/ark/region:ark+cn-beijing/apiKey to get an API key\n4. Enter it in the configuration\n5. doubao-seed-2-0-lite-260215 is currently recommended\nNote: Includes a free quota of 500000 tokens"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_FastgptLLM",
+   "zh": "FastGPT配置说明：\n1. 使用FastGPT平台服务\n2. 需要网络连接\n3. 配置文件中的prompt无效，需要在FastGPT控制台设置\n4. 支持自定义变量\n申请步骤：\n1. 访问 https://cloud.tryfastgpt.ai/account/apikey\n2. 获取API密钥\n3. 填入配置文件中",
+   "en": "FastGPT setup:\n1. Uses the FastGPT platform service\n2. Requires a network connection\n3. The prompt in the configuration has no effect; set it in the FastGPT console instead\n4. Supports custom variables\nHow to apply:\n1. Go to https://cloud.tryfastgpt.ai/account/apikey\n2. Get an API key\n3. Enter it in the configuration"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_GeminiLLM",
+   "zh": "Gemini配置说明：\n1. 使用谷歌Gemini API服务\n2. 当前配置使用gemini-2.0-flash模型\n3. 需要网络连接\n4. 支持配置代理\n申请步骤：\n1. 访问 https://aistudio.google.com/apikey\n2. 创建API密钥\n3. 填入配置文件中\n注意：若在中国境内使用，请遵守《生成式人工智能服务管理暂行办法》",
+   "en": "Gemini setup:\n1. Uses the Google Gemini API service\n2. The current configuration uses the gemini-2.0-flash model\n3. Requires a network connection\n4. Supports proxy configuration\nHow to apply:\n1. Go to https://aistudio.google.com/apikey\n2. Create an API key\n3. Enter it in the configuration\nNote: If used within mainland China, comply with the Interim Measures for the Management of Generative Artificial Intelligence Services"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_LMStudioLLM",
+   "zh": "LM Studio配置说明：\n1. 使用本地部署的LM Studio服务\n2. 当前配置使用deepseek-r1-distill-llama-8b@q4_k_m模型\n3. 本地推理，无需网络连接\n4. 需要预先下载模型\n部署步骤：\n1. 安装LM Studio\n2. 从社区下载模型\n3. 确保服务运行在http://localhost:1234/v1",
+   "en": "LM Studio setup:\n1. Uses a locally deployed LM Studio service\n2. The current configuration uses the deepseek-r1-distill-llama-8b@q4_k_m model\n3. Local inference, no network connection required\n4. Models must be downloaded in advance\nDeployment:\n1. Install LM Studio\n2. Download a model from the community\n3. Make sure the service is running at http://localhost:1234/v1"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_OllamaLLM",
+   "zh": "Ollama配置说明：\n1. 安装Ollama服务\n2. 运行命令：ollama pull qwen2.5\n3. 确保服务运行在http://localhost:11434",
+   "en": "Ollama setup:\n1. Install the Ollama service\n2. Run: ollama pull qwen2.5\n3. Make sure the service is running at http://localhost:11434"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_VolcesAiGatewayLLM",
+   "zh": "火山引擎边缘大模型网关LLM配置说明：\n1. 使用火山引擎边缘大模型网关服务\n2. 需要网关访问密钥\n3. 需要网络连接\n4. 支持function_call功能\n申请步骤：\n1. 访问 https://console.volcengine.com/vei/aigateway/\n2. 创建网关访问密钥，搜索并勾选 Doubao-pro-32k-functioncall\n3. 如果需要使用语音合成，一并勾选 Doubao-语音合成\n4. 访问 https://console.volcengine.com/vei/aigateway/tokens-list 获取密钥\n5. 填入配置文件中",
+   "en": "Volcano Engine Edge LLM Gateway LLM setup:\n1. Uses the Volcano Engine Edge LLM Gateway service\n2. Requires a gateway access key\n3. Requires a network connection\n4. Supports function_call\nHow to apply:\n1. Go to https://console.volcengine.com/vei/aigateway/\n2. Create a gateway access key, then search for and select Doubao-pro-32k-functioncall\n3. If you also need speech synthesis, select Doubao-语音合成 (Doubao speech synthesis) as well\n4. Go to https://console.volcengine.com/vei/aigateway/tokens-list to get the key\n5. Enter it in the configuration"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_XinferenceLLM",
+   "zh": "Xinference配置说明：\n1. 使用本地部署的Xinference服务\n2. 当前配置使用qwen2.5:72b-AWQ模型\n3. 本地推理，无需网络连接\n4. 需要预先启动对应模型\n部署步骤：\n1. 安装Xinference\n2. 启动服务并加载模型\n3. 确保服务运行在http://localhost:9997",
+   "en": "Xinference setup:\n1. Uses a locally deployed Xinference service\n2. The current configuration uses the qwen2.5:72b-AWQ model\n3. Local inference, no network connection required\n4. The corresponding model must be started in advance\nDeployment:\n1. Install Xinference\n2. Start the service and load the model\n3. Make sure the service is running at http://localhost:9997"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_XinferenceSmallLLM",
+   "zh": "Xinference小模型配置说明：\n1. 使用本地部署的Xinference服务\n2. 当前配置使用qwen2.5:3b-AWQ模型\n3. 本地推理，无需网络连接\n4. 用于意图识别\n部署步骤：\n1. 安装Xinference\n2. 启动服务并加载模型\n3. 确保服务运行在http://localhost:9997",
+   "en": "Xinference small model setup:\n1. Uses a locally deployed Xinference service\n2. The current configuration uses the qwen2.5:3b-AWQ model\n3. Local inference, no network connection required\n4. Used for intent recognition\nDeployment:\n1. Install Xinference\n2. Start the service and load the model\n3. Make sure the service is running at http://localhost:9997"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "LLM_XunfeiSparkLLM",
+   "zh": "讯飞星火认知大模型配置说明：\n1. 登录讯飞开放平台 https://www.xfyun.cn/，每一个模型对应每一个api_password,更改模型时需要查看对应模型的api_password\n2. 创建星火认知大模型应用获取API Password\n3. 参数说明：\n   - api_password: API Password，在讯飞开放平台创建应用后获得\n   - model_name: 模型名称，支持generalv3.5、generalv3等版本\n   - base_url: API地址，默认https://spark-api-open.xf-yun.com/v1\n   - temperature: 温度参数，控制生成随机性，范围0-1，默认0.5\n   - max_tokens: 最大输出token数，默认2048\n   - top_p: 核心采样参数，控制词汇多样性，默认1.0\n   - frequency_penalty: 频率惩罚，降低重复内容，默认0.0\n4. 每一个模型对应每一个api_password,更改模型时需要查看对应模型的api_password。\n",
+   "en": "iFlytek Spark LLM setup:\n1. Log in to the iFlytek Open Platform https://www.xfyun.cn/. Each model has its own api_password; when changing models, check the api_password for that model\n2. Create a Spark LLM application to obtain the API Password\n3. Parameters:\n   - api_password: API Password, obtained after creating an application on the iFlytek Open Platform\n   - model_name: model name; supports generalv3.5, generalv3 and other versions\n   - base_url: API address; default https://spark-api-open.xf-yun.com/v1\n   - temperature: temperature, controls generation randomness, range 0-1, default 0.5\n   - max_tokens: maximum number of output tokens, default 2048\n   - top_p: nucleus sampling parameter, controls vocabulary diversity, default 1.0\n   - frequency_penalty: frequency penalty, reduces repetitive content, default 0.0\n4. Each model has its own api_password; when changing models, check the api_password for that model.\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "Memory_mem_local_short",
+   "zh": "本地短期记忆配置说明：\n1. 使用本地存储保存对话历史\n2. 通过selected_module的llm总结对话内容\n3. 数据保存在本地，不会上传到服务器\n4. 适合注重隐私的场景\n5. 无需额外配置",
+   "en": "Local short-term memory setup:\n1. Stores conversation history locally\n2. Summarizes conversations using the llm in selected_module\n3. Data is stored locally and is not uploaded to any server\n4. Suitable for privacy-conscious scenarios\n5. No additional configuration needed"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "Memory_mem_report_only",
+   "zh": "仅上报聊天记录，不总结记忆",
+   "en": "Only reports chat history; does not summarize memory"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "Memory_mem0ai",
+   "zh": "Mem0AI记忆配置说明：\n1. 使用Mem0AI服务保存对话历史\n2. 需要API密钥\n3. 需要网络连接\n4. 每月有1000次免费调用\n申请步骤：\n1. 访问 https://app.mem0.ai/dashboard/api-keys\n2. 获取API密钥\n3. 填入配置文件中",
+   "en": "Mem0AI memory setup:\n1. Uses the Mem0AI service to store conversation history\n2. Requires an API key\n3. Requires a network connection\n4. 1000 free calls per month\nHow to apply:\n1. Go to https://app.mem0.ai/dashboard/api-keys\n2. Get an API key\n3. Enter it in the configuration"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "Memory_nomem",
+   "zh": "无记忆配置说明：\n1. 不保存对话历史\n2. 每次对话都是独立的\n3. 无需额外配置\n4. 适合对隐私要求高的场景",
+   "en": "No memory setup:\n1. Conversation history is not saved\n2. Each conversation is independent\n3. No additional configuration needed\n4. Suitable for scenarios with high privacy requirements"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "Memory_powermem",
+   "zh": "PowerMem是OceanBase开源的agent记忆组件，通过本地LLM进行记忆总结\nGitHub: https://github.com/oceanbase/powermem\n官网: https://www.powermem.ai/\n使用示例: https://github.com/oceanbase/powermem/tree/main/examples\n\n【费用说明】\nPowerMem本身免费，实际费用取决于所选LLM和数据库：\n- 使用sqlite + 免费LLM(如glm-4-flash) = 完全免费\n- 使用云端LLM或云端数据库 = 按对应服务收费\n\n【enable_user_profile】用户画像功能\n- false: 使用普通记忆模式(AsyncMemory)\n- true: 使用用户画像模式(UserMemory)，自动提取用户信息\n- 用户画像功能支持: oceanbase、seekdb、sqlite (powermem 0.3.0+)\n\n【llm】LLM配置 - 用于记忆总结和用户画像提取\n  provider: LLM提供商，可选值：\n    - qwen: 通义千问 (https://bailian.console.aliyun.com/?apiKey=1#/api-key)\n    - openai: OpenAI兼容接口\n    - zhipu: 智谱AI (https://bigmodel.cn/usercenter/proj-mgmt/apikeys) - 推荐使用免费的glm-4-flash\n  config: LLM配置参数\n    - api_key: API密钥 (必填)\n    - model: 模型名称，如 qwen-plus、glm-4-flash 等\n    - openai_base_url: 自定义服务地址 (可选)，如 https://api.openai.com/v1\n  示例：\n    {\"provider\": \"zhipu\", \"config\": {\"api_key\": \"your_key\", \"model\": \"glm-4-flash\"}}\n    {\"provider\": \"qwen\", \"config\": {\"api_key\": \"your_key\", \"model\": \"qwen-plus\"}}\n\n【embedder】Embedding配置 - 用于向量化记忆内容\n  provider: 嵌入模型提供商，可选值：\n    - qwen: 通义千问\n    - openai: OpenAI兼容接口\n  config: Embedding配置参数\n    - api_key: API密钥 (必填)\n    - model: 模型名称，如 text-embedding-v4、text-embedding-3-small 等\n    - openai_base_url: 自定义服务地址 (可选)\n    - embedding_dims: 向量维度 (可选)，非1536时需配置\n  示例：\n    {\"provider\": \"openai\", \"config\": {\"api_key\": \"your_key\", \"model\": \"text-embedding-v4\", \"openai_base_url\": \"https://dashscope.aliyuncs.com/compatible-mode/v1\"}}\n\n【vector_store】数据库存储配置 - 用于存储向量化的记忆\n  provider: 数据库类型，可选值：\n    - sqlite: 轻量级本地数据库 (推荐入门使用，无需额外配置)\n    - oceanbase: OceanBase数据库 (推荐生产使用，最佳性能)\n    - seekdb: SeekDB (推荐，AI应用存储一体)\n    - postgres: PostgreSQL数据库\n\n  SQLite配置 (无需额外配置):\n    {\"provider\": \"sqlite\", \"config\": {}}\n\n  OceanBase配置示例:\n    {\"provider\": \"oceanbase\", \"config\": {\n      \"host\": \"127.0.0.1\",\n      \"port\": 2881,\n      \"user\": \"root@test\",\n      \"password\": \"your_password\",\n      \"db_name\": \"powermem\",\n      \"collection_name\": \"memories\",\n      \"embedding_model_dims\": 1024\n    }}\n  注意：\n    - collection_name: 默认表名，如创建维度错误请删除此表或更改名称\n    - embedding_model_dims: 嵌入向量维度，需与embedder的模型维度匹配\n      例如智谱：embedding-2维度是1024，embedding-3维度是2048\n\n【推荐配置组合】\n1. 完全免费方案：\n   - LLM: zhipu + glm-4-flash (免费)\n   - Embedder: 通义千问 text-embedding-v4\n   - Database: sqlite\n\n2. 生产环境方案：\n   - LLM: qwen-plus 或其他商业模型\n   - Embedder: text-embedding-v4\n   - Database: oceanbase 或 seekdb\n",
+   "en": "PowerMem is OceanBase's open-source agent memory component; it summarizes memories using a local LLM\nGitHub: https://github.com/oceanbase/powermem\nWebsite: https://www.powermem.ai/\nExamples: https://github.com/oceanbase/powermem/tree/main/examples\n\n[Cost]\nPowerMem itself is free; the actual cost depends on the chosen LLM and database:\n- sqlite + a free LLM (e.g. glm-4-flash) = completely free\n- Cloud LLM or cloud database = billed by the respective service\n\n[enable_user_profile] User profile feature\n- false: use the standard memory mode (AsyncMemory)\n- true: use the user profile mode (UserMemory), which automatically extracts user information\n- The user profile feature supports: oceanbase, seekdb, sqlite (powermem 0.3.0+)\n\n[llm] LLM configuration - used for memory summarization and user profile extraction\n  provider: LLM provider; options:\n    - qwen: Qwen (https://bailian.console.aliyun.com/?apiKey=1#/api-key)\n    - openai: OpenAI-compatible API\n    - zhipu: Zhipu AI (https://bigmodel.cn/usercenter/proj-mgmt/apikeys) - the free glm-4-flash is recommended\n  config: LLM configuration parameters\n    - api_key: API key (required)\n    - model: model name, e.g. qwen-plus, glm-4-flash\n    - openai_base_url: custom service URL (optional), e.g. https://api.openai.com/v1\n  Examples:\n    {\"provider\": \"zhipu\", \"config\": {\"api_key\": \"your_key\", \"model\": \"glm-4-flash\"}}\n    {\"provider\": \"qwen\", \"config\": {\"api_key\": \"your_key\", \"model\": \"qwen-plus\"}}\n\n[embedder] Embedding configuration - used to vectorize memory content\n  provider: embedding model provider; options:\n    - qwen: Qwen\n    - openai: OpenAI-compatible API\n  config: Embedding configuration parameters\n    - api_key: API key (required)\n    - model: model name, e.g. text-embedding-v4, text-embedding-3-small\n    - openai_base_url: custom service URL (optional)\n    - embedding_dims: vector dimensions (optional); required if not 1536\n  Example:\n    {\"provider\": \"openai\", \"config\": {\"api_key\": \"your_key\", \"model\": \"text-embedding-v4\", \"openai_base_url\": \"https://dashscope.aliyuncs.com/compatible-mode/v1\"}}\n\n[vector_store] Database storage configuration - used to store vectorized memories\n  provider: database type; options:\n    - sqlite: lightweight local database (recommended for getting started, no additional configuration needed)\n    - oceanbase: OceanBase database (recommended for production, best performance)\n    - seekdb: SeekDB (recommended, all-in-one storage for AI applications)\n    - postgres: PostgreSQL database\n\n  SQLite configuration (no additional configuration needed):\n    {\"provider\": \"sqlite\", \"config\": {}}\n\n  OceanBase configuration example:\n    {\"provider\": \"oceanbase\", \"config\": {\n      \"host\": \"127.0.0.1\",\n      \"port\": 2881,\n      \"user\": \"root@test\",\n      \"password\": \"your_password\",\n      \"db_name\": \"powermem\",\n      \"collection_name\": \"memories\",\n      \"embedding_model_dims\": 1024\n    }}\n  Note:\n    - collection_name: default table name; if it was created with the wrong dimensions, delete this table or change the name\n    - embedding_model_dims: embedding vector dimensions; must match the embedder model's dimensions\n      e.g. Zhipu: embedding-2 has 1024 dimensions, embedding-3 has 2048\n\n[Recommended combinations]\n1. Completely free:\n   - LLM: zhipu + glm-4-flash (free)\n   - Embedder: Qwen text-embedding-v4\n   - Database: sqlite\n\n2. Production:\n   - LLM: qwen-plus or another commercial model\n   - Embedder: text-embedding-v4\n   - Database: oceanbase or seekdb\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "RAG_RAGFlow",
+   "zh": "详细部署教程参考：https://github.com/xinnan-tech/xiaozhi-esp32-server/blob/main/docs/ragflow-integration.md\n部署成功，注冊登录后，点击右上角头像，获得RAGFlow的API KEY和API服务器地址。使用RAGFlow前请在Model Provider中添加模型和设置默认模型。",
+   "en": "For a detailed deployment tutorial, see: https://github.com/xinnan-tech/xiaozhi-esp32-server/blob/main/docs/ragflow-integration.md\nAfter deployment succeeds, register and log in, then click the avatar in the top-right corner to get RAGFlow's API KEY and API server address. Before using RAGFlow, add models and set a default model under Model Provider."
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_AliBLStreamTTS",
+   "zh": "阿里百炼流式 TTS 配置说明：\n1. API密钥填写当前业务空间可用的 DashScope API Key\n2. 公有模式可使用 wss://dashscope.aliyuncs.com/api-ws/v1/inference/\n3. 华北2（北京）业务空间填写 wss://<WorkspaceId>.cn-beijing.maas.aliyuncs.com/api-ws/v1/inference\n4. 新加坡业务空间填写 wss://<WorkspaceId>.ap-southeast-1.maas.aliyuncs.com/api-ws/v1/inference\n5. 将 <WorkspaceId> 替换为真实业务空间 ID；仅支持阿里云官方 WSS 推理地址\n6. 支持 CosyVoice 流式合成及音量、语速、音调配置",
+   "en": "Alibaba Cloud Bailian streaming TTS setup:\n1. For the API key, enter a DashScope API Key that is valid for the current workspace\n2. Public mode can use wss://dashscope.aliyuncs.com/api-ws/v1/inference/\n3. For a China North 2 (Beijing) workspace, enter wss://<WorkspaceId>.cn-beijing.maas.aliyuncs.com/api-ws/v1/inference\n4. For a Singapore workspace, enter wss://<WorkspaceId>.ap-southeast-1.maas.aliyuncs.com/api-ws/v1/inference\n5. Replace <WorkspaceId> with the actual workspace ID; only official Alibaba Cloud WSS inference endpoints are supported\n6. Supports CosyVoice streaming synthesis with volume, speech rate and pitch settings"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_AliyunStreamTTS",
+   "zh": "阿里云流式TTS配置说明：\n1. 阿里云TTS和阿里云(流式)TTS的区别是：阿里云TTS是一次性合成，阿里云(流式)TTS是实时流式合成\n2. 流式TTS具有更低的延迟和更好的实时性，适合语音交互场景\n3. 需要在阿里云智能语音交互控制台创建应用并获取认证信息\n4. 支持CosyVoice大模型音色，音质更加自然\n5. 支持实时调节音量、语速、音调等参数\n申请步骤：\n1. 访问 https://nls-portal.console.aliyun.com/ 开通智能语音交互服务\n2. 访问 https://nls-portal.console.aliyun.com/applist 创建项目并获取appkey\n3. 访问 https://nls-portal.console.aliyun.com/overview 获取临时token（或配置access_key_id和access_key_secret自动获取）\n4. 如需动态token管理，建议配置access_key_id和access_key_secret\n5. 可选择北京、上海等不同地域的服务器以优化延迟\n6. voice参数支持CosyVoice大模型音色，如longxiaochun、longyueyue等\n如需了解更多参数配置，请参考：https://help.aliyun.com/zh/isi/developer-reference/real-time-speech-synthesis\n",
+   "en": "Alibaba Cloud streaming TTS setup:\n1. Difference between Alibaba Cloud TTS and Alibaba Cloud (Streaming) TTS: Alibaba Cloud TTS synthesizes in one pass, while Alibaba Cloud (Streaming) TTS performs real-time streaming synthesis\n2. Streaming TTS has lower latency and better real-time performance, making it suitable for voice interaction\n3. Create an application in the Alibaba Cloud Intelligent Speech Interaction console and obtain the credentials\n4. Supports CosyVoice large-model voices for more natural sound quality\n5. Supports real-time adjustment of volume, speech rate, pitch and other parameters\nHow to apply:\n1. Go to https://nls-portal.console.aliyun.com/ to activate the Intelligent Speech Interaction service\n2. Go to https://nls-portal.console.aliyun.com/applist to create a project and get the appkey\n3. Go to https://nls-portal.console.aliyun.com/overview to get a temporary token (or configure access_key_id and access_key_secret to obtain it automatically)\n4. For dynamic token management, configuring access_key_id and access_key_secret is recommended\n5. Servers in different regions such as Beijing and Shanghai can be selected to optimize latency\n6. The voice parameter supports CosyVoice large-model voices, such as longxiaochun and longyueyue\nFor more parameters, see: https://help.aliyun.com/zh/isi/developer-reference/real-time-speech-synthesis\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_AliyunTTS",
+   "zh": "阿里云TTS配置说明：\n1. 需要在阿里云平台开通智能语音交互服务\n2. 支持多种音色，当前配置使用xiaoyun\n3. 需要网络连接\n4. 输出文件保存在tmp/目录\n申请步骤：\n1. 访问 https://nls-portal.console.aliyun.com/ 开通服务\n2. 访问 https://nls-portal.console.aliyun.com/applist 获取appkey\n3. 访问 https://nls-portal.console.aliyun.com/overview 获取token\n4. 填入配置文件中\n注意：token是临时的24小时有效，长期使用需要配置access_key_id和access_key_secret",
+   "en": "Alibaba Cloud TTS setup:\n1. Activate the Intelligent Speech Interaction service on the Alibaba Cloud platform\n2. Supports multiple voices; the current configuration uses xiaoyun\n3. Requires a network connection\n4. Output files are saved in the tmp/ directory\nHow to apply:\n1. Go to https://nls-portal.console.aliyun.com/ to activate the service\n2. Go to https://nls-portal.console.aliyun.com/applist to get the appkey\n3. Go to https://nls-portal.console.aliyun.com/overview to get the token\n4. Enter them in the configuration\nNote: The token is temporary and valid for 24 hours; for long-term use, configure access_key_id and access_key_secret"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_CosyVoiceSiliconflow",
+   "zh": "硅基流动TTS配置说明：\n1. 访问 https://cloud.siliconflow.cn/account/ak\n2. 注册并获取API密钥\n3. 填入配置文件中",
+   "en": "SiliconFlow TTS setup:\n1. Go to https://cloud.siliconflow.cn/account/ak\n2. Register and get an API key\n3. Enter it in the configuration"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_CozeCnTTS",
+   "zh": "Coze中文语音合成配置说明：\n1. 访问 https://www.coze.cn/ 注册并登录\n2. 创建应用并获取access_token\n3. 选择合适的音色ID\n音频参数：\n- response_format: 音频格式，支持pcm、wav、mp3\n- speed: 语速，范围0.5~2，默认1\n- loudness_rate: 音量增益，范围-50~100，默认0",
+   "en": "Coze Chinese speech synthesis setup:\n1. Go to https://www.coze.cn/ to register and log in\n2. Create an application and get an access_token\n3. Choose a suitable voice ID\nAudio parameters:\n- response_format: audio format; supports pcm, wav, mp3\n- speed: speech rate, range 0.5~2, default 1\n- loudness_rate: volume gain, range -50~100, default 0"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_CustomTTS",
+   "zh": "自定义TTS配置说明：\n1. 自定义的TTS接口服务，请求参数可自定义，可接入众多TTS服务\n2. 以本地部署的KokoroTTS为例\n3. 如果只有cpu运行：docker run -p 8880:8880 ghcr.io/remsky/kokoro-fastapi-cpu:latest\n4. 如果只有gpu运行：docker run --gpus all -p 8880:8880 ghcr.io/remsky/kokoro-fastapi-gpu:latest\n配置说明：\n1. 在params中配置请求参数,使用JSON格式\n   例如KokoroTTS：{ \"input\": \"{prompt_text}\", \"speed\": 1, \"voice\": \"zm_yunxi\", \"stream\": true, \"download_format\": \"mp3\", \"response_format\": \"mp3\", \"return_download_link\": true }\n2. 在headers中配置请求头\n3. 设置返回音频格式",
+   "en": "Custom TTS setup:\n1. A custom TTS API service with customizable request parameters, allowing integration with many TTS services\n2. Using a locally deployed KokoroTTS as an example\n3. To run on CPU only: docker run -p 8880:8880 ghcr.io/remsky/kokoro-fastapi-cpu:latest\n4. To run on GPU: docker run --gpus all -p 8880:8880 ghcr.io/remsky/kokoro-fastapi-gpu:latest\nConfiguration:\n1. Configure the request parameters in params, in JSON format\n   e.g. for KokoroTTS: { \"input\": \"{prompt_text}\", \"speed\": 1, \"voice\": \"zm_yunxi\", \"stream\": true, \"download_format\": \"mp3\", \"response_format\": \"mp3\", \"return_download_link\": true }\n2. Configure the request headers in headers\n3. Set the returned audio format"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_DoubaoTTS",
+   "zh": "豆包TTS配置说明：\n1. 访问 https://console.volcengine.com/speech/service/8\n2. 需要在火山引擎控制台创建应用并获取appid和access_token\n3. 山引擎语音一定要购买花钱，起步价30元，就有100并发了。如果用免费的只有2个并发，会经常报tts错误\n4. 购买服务后，购买免费的音色后，可能要等半小时左右，才能使用。\n5. 填入配置文件中",
+   "en": "Doubao TTS setup:\n1. Go to https://console.volcengine.com/speech/service/8\n2. Create an application in the Volcano Engine console and obtain the appid and access_token\n3. Volcano Engine speech must be purchased; the entry price is CNY 30, which gives 100 concurrent connections. The free tier allows only 2 concurrent connections and will frequently cause TTS errors\n4. After purchasing the service and then the free voices, it may take about half an hour before they can be used.\n5. Enter them in the configuration"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_EdgeTTS",
+   "zh": "EdgeTTS配置说明：\n1. 使用微软Edge TTS服务\n2. 支持多种语言和音色\n3. 免费使用，无需注册\n4. 需要网络连接\n5. 输出文件保存在tmp/目录\n6. 语速：-100~100，0为正常速度\n7. 音量：0~100，50为正常音量\n8. 音调：-100~100，0为正常音调",
+   "en": "EdgeTTS setup:\n1. Uses the Microsoft Edge TTS service\n2. Supports many languages and voices\n3. Free to use, no registration required\n4. Requires a network connection\n5. Output files are saved in the tmp/ directory\n6. Speech rate: -100~100, 0 is normal speed\n7. Volume: 0~100, 50 is normal volume\n8. Pitch: -100~100, 0 is normal pitch"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_FishSpeech",
+   "zh": "FishSpeech配置说明：\n1. 需要本地部署FishSpeech服务\n2. 支持自定义音色\n3. 本地推理，无需网络连接\n4. 输出文件保存在tmp/目录\n5. 可参照教程https://github.com/xinnan-tech/xiaozhi-esp32-server/blob/main/docs/fish-speech-integration.md",
+   "en": "FishSpeech setup:\n1. Requires a locally deployed FishSpeech service\n2. Supports custom voices\n3. Local inference, no network connection required\n4. Output files are saved in the tmp/ directory\n5. See the tutorial https://github.com/xinnan-tech/xiaozhi-esp32-server/blob/main/docs/fish-speech-integration.md"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_GPT_SOVITS_V2",
+   "zh": "GPT-SoVITS V2配置说明：\n1. 需要本地部署GPT-SoVITS服务\n2. 支持自定义音色克隆\n3. 本地推理，无需网络连接\n4. 输出文件保存在tmp/目录\n部署步骤：\n1. 运行服务示例命令：python api_v2.py -a 127.0.0.1 -p 9880 -c GPT_SoVITS/configs/demo.yaml",
+   "en": "GPT-SoVITS V2 setup:\n1. Requires a locally deployed GPT-SoVITS service\n2. Supports custom voice cloning\n3. Local inference, no network connection required\n4. Output files are saved in the tmp/ directory\nDeployment:\n1. Example command to run the service: python api_v2.py -a 127.0.0.1 -p 9880 -c GPT_SoVITS/configs/demo.yaml"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_GPT_SOVITS_V3",
+   "zh": "GPT-SoVITS V3配置说明：\n1. 需要本地部署GPT-SoVITS V3服务\n2. 支持自定义音色克隆\n3. 本地推理，无需网络连接\n4. 输出文件保存在tmp/目录",
+   "en": "GPT-SoVITS V3 setup:\n1. Requires a locally deployed GPT-SoVITS V3 service\n2. Supports custom voice cloning\n3. Local inference, no network connection required\n4. Output files are saved in the tmp/ directory"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_HSDSTTS_V2",
+   "zh": "豆包语音合成模型2.0配置说明（基于火山引擎seed-tts-2.0）：\n1. 访问 https://www.volcengine.com/ 注册并开通火山引擎账号\n2. 访问 https://console.volcengine.com/speech/service/10035 开通语音合成大模型，购买音色\n3. 在页面底部获取appid和access_token\n4. 资源ID固定为：seed-tts-2.0（豆包语音合成模型2.0）\n5. 链接复用：开启WebSocket连接复用，默认true减少链接损耗（注意：复用后设备处于聆听状态时空闲链接会占并发数）\n\n详细参数文档：https://www.volcengine.com/docs/6561/1329505\n【audio_params】音频输出配置 - 用户可自定义添加火山引擎支持的任何音频参数\n  - speech_rate: 语速(-50~100)，默认0\n  - loudness_rate: 音量(-50~100)，默认0\n  示例：{\"speech_rate\": 10, \"loudness_rate\": 5}\n\n【additions】高级文本处理配置 - 用户可自定义添加火山引擎支持的任何高级参数\n  - post_process.pitch: 音高(-12~12)，默认0\n  - aigc_metadata: AIGC元数据配置\n  - cache_config: 缓存配置\n  示例：{\"post_process\": {\"pitch\": 2}, \"aigc_metadata\": {}, \"cache_config\": {}}\n\n注意：\n- 豆包语音合成模型2.0使用seed-tts-2.0资源ID，与火山双流式TTS（volc.service_type.10029）不同\n- 相关音色列表：https://www.volcengine.com/docs/6561/1257544\n- 用户可根据火山引擎API文档自行添加更多参数\n",
+   "en": "Doubao Speech Synthesis Model 2.0 setup (based on Volcano Engine seed-tts-2.0):\n1. Go to https://www.volcengine.com/ to register and activate a Volcano Engine account\n2. Go to https://console.volcengine.com/speech/service/10035 to activate the speech synthesis large model and purchase voices\n3. Get the appid and access_token at the bottom of the page\n4. The resource ID is always: seed-tts-2.0 (Doubao Speech Synthesis Model 2.0)\n5. Connection reuse: enables WebSocket connection reuse; defaults to true to reduce connection overhead (note: with reuse enabled, idle connections count toward concurrency while the device is in the listening state)\n\nDetailed parameter docs: https://www.volcengine.com/docs/6561/1329505\n[audio_params] Audio output configuration - you can add any audio parameter supported by Volcano Engine\n  - speech_rate: speech rate (-50~100), default 0\n  - loudness_rate: volume (-50~100), default 0\n  Example: {\"speech_rate\": 10, \"loudness_rate\": 5}\n\n[additions] Advanced text processing configuration - you can add any advanced parameter supported by Volcano Engine\n  - post_process.pitch: pitch (-12~12), default 0\n  - aigc_metadata: AIGC metadata configuration\n  - cache_config: cache configuration\n  Example: {\"post_process\": {\"pitch\": 2}, \"aigc_metadata\": {}, \"cache_config\": {}}\n\nNote:\n- Doubao Speech Synthesis Model 2.0 uses the seed-tts-2.0 resource ID, which differs from Volcano bidirectional streaming TTS (volc.service_type.10029)\n- Voice list: https://www.volcengine.com/docs/6561/1257544\n- You can add more parameters according to the Volcano Engine API documentation\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_HuoshanDoubleStreamTTS",
+   "zh": "火山引擎双向流式TTS配置说明：\n1. 访问 https://www.volcengine.com/ 注册并开通火山引擎账号\n2. 访问 https://console.volcengine.com/speech/service/10007 开通语音合成大模型，购买音色\n3. 在页面底部获取appid和access_token\n4. 资源ID固定为：volc.service_type.10029（大模型语音合成及混音）\n5. 链接复用：开启WebSocket连接复用，默认true减少链接损耗（注意：复用后设备处于聆听状态时空闲链接会占并发数）\n\n详细参数文档：https://www.volcengine.com/docs/6561/1329505\n【audio_params】音频输出配置 - 用户可自定义添加火山引擎支持的任何音频参数\n  - speech_rate: 语速(-50~100)，默认0\n  - loudness_rate: 音量(-50~100)，默认0\n  - emotion: 情感类型（仅部分音色支持），可选值：neutral、happy、sad、angry、fearful、disgusted、surprised\n  - emotion_scale: 情感强度(1~5)，默认4\n  示例：{\"speech_rate\": 10, \"loudness_rate\": 5, \"emotion\": \"happy\", \"emotion_scale\": 4}\n\n【additions】高级文本处理配置 - 用户可自定义添加火山引擎支持的任何高级参数\n  - post_process.pitch: 音高(-12~12)，默认0\n  - aigc_metadata: AIGC元数据配置\n  - cache_config: 缓存配置\n  示例：{\"post_process\": {\"pitch\": 2}, \"aigc_metadata\": {}, \"cache_config\": {}}\n\n【mix_speaker】混音控制配置 - 多音色混合（仅 TTS 1.0）\n  示例：\n    {\"speakers\": [\n      {\"source_speaker\": \"zh_male_bvlazysheep\",\"mix_factor\": 0.3}, \n      {\"source_speaker\": \"BV120_streaming\",\"mix_factor\": 0.3}, \n      {\"source_speaker\": \"zh_male_ahu_conversation_wvae_bigtts\",\"mix_factor\": 0.4}\n    ]}\n\n注意：\n- 多情感音色参数（emotion、emotion_scale）仅部分音色支持\n- 相关音色列表：https://www.volcengine.com/docs/6561/1257544\n- 用户可根据火山引擎API文档自行添加更多参数\n- 混音功能主要适用于豆包语音合成模型1.0的音色，使用时需要将req_params.speaker设置为custom_mix_bigtts\n",
+   "en": "Volcano Engine bidirectional streaming TTS setup:\n1. Go to https://www.volcengine.com/ to register and activate a Volcano Engine account\n2. Go to https://console.volcengine.com/speech/service/10007 to activate the speech synthesis large model and purchase voices\n3. Get the appid and access_token at the bottom of the page\n4. The resource ID is always: volc.service_type.10029 (large-model speech synthesis and mixing)\n5. Connection reuse: enables WebSocket connection reuse; defaults to true to reduce connection overhead (note: with reuse enabled, idle connections count toward concurrency while the device is in the listening state)\n\nDetailed parameter docs: https://www.volcengine.com/docs/6561/1329505\n[audio_params] Audio output configuration - you can add any audio parameter supported by Volcano Engine\n  - speech_rate: speech rate (-50~100), default 0\n  - loudness_rate: volume (-50~100), default 0\n  - emotion: emotion type (supported by some voices only); options: neutral, happy, sad, angry, fearful, disgusted, surprised\n  - emotion_scale: emotion intensity (1~5), default 4\n  Example: {\"speech_rate\": 10, \"loudness_rate\": 5, \"emotion\": \"happy\", \"emotion_scale\": 4}\n\n[additions] Advanced text processing configuration - you can add any advanced parameter supported by Volcano Engine\n  - post_process.pitch: pitch (-12~12), default 0\n  - aigc_metadata: AIGC metadata configuration\n  - cache_config: cache configuration\n  Example: {\"post_process\": {\"pitch\": 2}, \"aigc_metadata\": {}, \"cache_config\": {}}\n\n[mix_speaker] Voice mixing configuration - blend multiple voices (TTS 1.0 only)\n  Example:\n    {\"speakers\": [\n      {\"source_speaker\": \"zh_male_bvlazysheep\",\"mix_factor\": 0.3}, \n      {\"source_speaker\": \"BV120_streaming\",\"mix_factor\": 0.3}, \n      {\"source_speaker\": \"zh_male_ahu_conversation_wvae_bigtts\",\"mix_factor\": 0.4}\n    ]}\n\nNote:\n- Multi-emotion voice parameters (emotion, emotion_scale) are supported by some voices only\n- Voice list: https://www.volcengine.com/docs/6561/1257544\n- You can add more parameters according to the Volcano Engine API documentation\n- Voice mixing mainly applies to Doubao Speech Synthesis Model 1.0 voices; to use it, set req_params.speaker to custom_mix_bigtts\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_IndexStreamTTS",
+   "zh": "Index-TTS-vLLM流式TTS配置说明：\n1. Index-TTS-vLLM是基于Index-TTS项目的vLLM推理服务，提供流式语音合成功能\n2. 支持多种音色，音质自然，适合各种语音交互场景\n3. 需要先部署Index-TTS-vLLM服务，然后配置API地址\n4. 支持实时流式合成，具有较低的延迟\n5. 支持自定义音色，可在项目assets文件夹下注册新音色\n部署步骤：\n1. 克隆项目：git clone https://github.com/Ksuriuri/index-tts-vllm.git\n2. 安装依赖：pip install -r requirements.txt\n3. 启动服务：python app.py\n4. 服务默认运行在 http://127.0.0.1:11996\n5. 如需其他音色，可到项目assets文件夹下注册\n6. 支持多种音频格式：pcm、wav、mp3等\n如需了解更多配置，请参考：https://github.com/Ksuriuri/index-tts-vllm/blob/master/README.md\n",
+   "en": "Index-TTS-vLLM streaming TTS setup:\n1. Index-TTS-vLLM is a vLLM inference service based on the Index-TTS project that provides streaming speech synthesis\n2. Supports multiple voices with natural sound quality, suitable for a variety of voice interaction scenarios\n3. Deploy the Index-TTS-vLLM service first, then configure the API address\n4. Supports real-time streaming synthesis with low latency\n5. Supports custom voices, which can be registered in the project's assets folder\nDeployment:\n1. Clone the project: git clone https://github.com/Ksuriuri/index-tts-vllm.git\n2. Install dependencies: pip install -r requirements.txt\n3. Start the service: python app.py\n4. The service runs at http://127.0.0.1:11996 by default\n5. For other voices, register them in the project's assets folder\n6. Supports multiple audio formats: pcm, wav, mp3, etc.\nFor more configuration, see: https://github.com/Ksuriuri/index-tts-vllm/blob/master/README.md\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_MinimaxStreamTTS",
+   "zh": "Minimax流式TTS配置说明：\n1. 需要先申请Minimax API Key\n2. 需要填写Group ID\n3. 支持多种音色设置和音频参数调整\n4. 支持实时流式合成，具有较低的延迟\n5. 支持自定义发音字典和音色权重\n6. 隐藏参数配置：声音设定(voice_setting)、发音字典(pronunciation_dict)、音色权重(timber_weights)\n   - 语速(speed): 范围[0.5,2]，默认1.0，取值越大语速越快\n   - 音量(vol): 范围(0,10]，默认1.0，取值越大音量越高\n   - 音调(pitch): 范围[-12,12]，默认0，取值需为整数\n   - 情绪(emotion): 控制合成语音的情绪，支持7种值：[\"happy\", \"sad\", \"angry\", \"fearful\", \"disgusted\", \"surprised\", \"calm\"]，该参数仅对 speech-2.5-hd-preview、speech-2.5-turbo-preview、speech-02-hd、speech-02-turbo、speech-01-turbo、speech-01-hd 生效\n   - timbre_weights与voice_id二选一必填\n   - voice_id(请求的音色id，须和weight参数同步填写)\n   - weight(权重，最多支持4种音色混合。范围[1,100])\n",
+   "en": "Minimax streaming TTS setup:\n1. Apply for a Minimax API Key first\n2. The Group ID is required\n3. Supports multiple voice settings and audio parameter adjustments\n4. Supports real-time streaming synthesis with low latency\n5. Supports custom pronunciation dictionaries and voice weights\n6. Hidden parameters: voice settings (voice_setting), pronunciation dictionary (pronunciation_dict), voice weights (timber_weights)\n   - Speech rate (speed): range [0.5,2], default 1.0; higher values mean faster speech\n   - Volume (vol): range (0,10], default 1.0; higher values mean louder output\n   - Pitch (pitch): range [-12,12], default 0; must be an integer\n   - Emotion (emotion): controls the emotion of the synthesized speech; supports 7 values: [\"happy\", \"sad\", \"angry\", \"fearful\", \"disgusted\", \"surprised\", \"calm\"]; this parameter only applies to speech-2.5-hd-preview, speech-2.5-turbo-preview, speech-02-hd, speech-02-turbo, speech-01-turbo, speech-01-hd\n   - Either timbre_weights or voice_id is required\n   - voice_id (requested voice ID; must be provided together with weight)\n   - weight (weight; up to 4 voices can be mixed. Range [1,100])\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_OpenAITTS",
+   "zh": "OpenAI TTS配置说明：\n1. 需要在OpenAI平台获取API密钥\n2. 支持多种音色，当前配置使用onyx\n3. 需要网络连接\n4. 输出文件保存在tmp/目录\n申请步骤：\n1. 访问 https://platform.openai.com/api-keys 获取API密钥\n2. 填入配置文件中\n注意：国内需要使用代理访问",
+   "en": "OpenAI TTS setup:\n1. Get an API key from the OpenAI platform\n2. Supports multiple voices; the current configuration uses onyx\n3. Requires a network connection\n4. Output files are saved in the tmp/ directory\nHow to apply:\n1. Go to https://platform.openai.com/api-keys to get an API key\n2. Enter it in the configuration\nNote: Access from mainland China requires a proxy"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_PaddleSpeechTTS",
+   "zh": "PaddleSpeechTTS 配置说明：\n1. PaddleSpeech 是百度飞桨开源的语音合成工具，支持本地离线部署和模型训练。paddlepaddle百度飞浆框架地址：https://www.paddlepaddle.org.cn/\n2. 支持 WebSocket 和 HTTP 协议，默认使用 WebSocket 进行流式传输（参考部署文档：https://github.com/xinnan-tech/xiaozhi-esp32-server/blob/main/docs/paddlespeech-deploy.md）。\n3. 使用前要在本地部署 paddlespeech 服务，服务默认运行在 ws://127.0.0.1:8092/paddlespeech/tts/streaming\n4. 支持自定义发音人、语速、音量和采样率。\n",
+   "en": "PaddleSpeechTTS setup:\n1. PaddleSpeech is Baidu PaddlePaddle's open-source speech synthesis toolkit, supporting local offline deployment and model training. Baidu PaddlePaddle framework: https://www.paddlepaddle.org.cn/\n2. Supports WebSocket and HTTP protocols; WebSocket is used by default for streaming (see the deployment guide: https://github.com/xinnan-tech/xiaozhi-esp32-server/blob/main/docs/paddlespeech-deploy.md).\n3. Deploy the paddlespeech service locally before use; the service runs at ws://127.0.0.1:8092/paddlespeech/tts/streaming by default\n4. Supports custom speaker, speech rate, volume and sample rate.\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_TencentTTS",
+   "zh": "腾讯TTS配置说明：\n1. 需要在腾讯云平台开通智能语音交互服务\n2. 支持多种音色，当前配置使用101001\n3. 需要网络连接\n4. 输出文件保存在tmp/目录\n申请步骤：\n1. 访问 https://console.cloud.tencent.com/cam/capi 获取密钥\n2. 访问 https://console.cloud.tencent.com/tts/resourcebundle 领取免费资源\n3. 创建新应用\n4. 获取appid、secret_id和secret_key\n5. 填入配置文件中\n音频参数：\n- format: 音频格式，支持pcm、wav、mp3\n- speed: 语速，范围-2~6，默认0\n- volume: 音量，范围-10~10，默认0",
+   "en": "Tencent TTS setup:\n1. Activate the Intelligent Speech Interaction service on the Tencent Cloud platform\n2. Supports multiple voices; the current configuration uses 101001\n3. Requires a network connection\n4. Output files are saved in the tmp/ directory\nHow to apply:\n1. Go to https://console.cloud.tencent.com/cam/capi to get the keys\n2. Go to https://console.cloud.tencent.com/tts/resourcebundle to claim free resources\n3. Create a new application\n4. Get the appid, secret_id and secret_key\n5. Enter them in the configuration\nAudio parameters:\n- format: audio format; supports pcm, wav, mp3\n- speed: speech rate, range -2~6, default 0\n- volume: volume, range -10~10, default 0"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_TTS302AI",
+   "zh": "302AI TTS配置说明：\n1. 需要在302平台创建账户并获取API密钥\n2. 支持多种音色，当前配置使用湾湾小何音色\n3. 需要网络连接\n4. 输出文件保存在tmp/目录\n申请步骤：\n1. 访问 https://dash.302.ai/ 注册账号\n2. 访问 https://dash.302.ai/apis/list 获取API密钥\n3. 填入配置文件中\n价格：$35/百万字符",
+   "en": "302AI TTS setup:\n1. Create an account on the 302 platform and get an API key\n2. Supports multiple voices; the current configuration uses the 湾湾小何 (Wanwan Xiaohe) voice\n3. Requires a network connection\n4. Output files are saved in the tmp/ directory\nHow to apply:\n1. Go to https://dash.302.ai/ to register an account\n2. Go to https://dash.302.ai/apis/list to get an API key\n3. Enter it in the configuration\nPrice: $35 per million characters"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_VolcesAiGatewayTTS",
+   "zh": "火山引擎边缘大模型网关TTS配置说明：\n1. 访问 https://console.volcengine.com/vei/aigateway/\n2. 创建网关访问密钥，搜索并勾选 Doubao-语音合成\n3. 如果需要使用LLM，一并勾选 Doubao-pro-32k-functioncall\n4. 访问 https://console.volcengine.com/vei/aigateway/tokens-list 获取密钥\n5. 填入配置文件中\n音色列表参考：https://www.volcengine.com/docs/6561/1257544",
+   "en": "Volcano Engine Edge LLM Gateway TTS setup:\n1. Go to https://console.volcengine.com/vei/aigateway/\n2. Create a gateway access key, then search for and select Doubao-语音合成 (Doubao speech synthesis)\n3. If you also need the LLM, select Doubao-pro-32k-functioncall as well\n4. Go to https://console.volcengine.com/vei/aigateway/tokens-list to get the key\n5. Enter it in the configuration\nVoice list: https://www.volcengine.com/docs/6561/1257544"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "TTS_XunFeiStreamTTS",
+   "zh": "讯飞流式TTS说明：\n1. 登录讯飞语音技术平台 https://console.xfyun.cn/app/myapp 创建相关应用\n2. 选择需要的服务获取api相关配置 https://console.xfyun.cn/services/uts\n3. 为需要使用的应用(APPID)购买相关服务 例如：超拟人合成 https://console.xfyun.cn/services/uts\n5. 支持实时双流式通信，具有较低的延迟\n6. 支持口语化设置和音频参数调整 注意：V5音色不支持相关口语化配置\n7. 支持实时调节音量、语速、音调等参数\n",
+   "en": "iFlytek streaming TTS notes:\n1. Log in to the iFlytek speech platform https://console.xfyun.cn/app/myapp and create an application\n2. Select the required services to get the API configuration https://console.xfyun.cn/services/uts\n3. Purchase the relevant services for the application (APPID) you will use, e.g. hyper-realistic synthesis https://console.xfyun.cn/services/uts\n5. Supports real-time bidirectional streaming with low latency\n6. Supports colloquial-style settings and audio parameter adjustment. Note: V5 voices do not support the colloquial-style settings\n7. Supports real-time adjustment of volume, speech rate, pitch and other parameters\n"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "VAD_SileroVAD",
+   "zh": "SileroVAD配置说明：\n1. 使用SileroVAD模型进行语音活动检测\n2. 本地推理，无需网络连接\n3. 需要下载模型文件到models/snakers4_silero-vad目录\n4. 可配置参数：\n   - threshold: 0.5（语音检测阈值）\n   - min_silence_duration_ms: 700（最小静音持续时间，单位毫秒）\n5. 如果说话停顿比较长，可以适当增加min_silence_duration_ms的值",
+   "en": "SileroVAD setup:\n1. Uses the SileroVAD model for voice activity detection\n2. Local inference, no network connection required\n3. Download the model files to the models/snakers4_silero-vad directory\n4. Configurable parameters:\n   - threshold: 0.5 (speech detection threshold)\n   - min_silence_duration_ms: 700 (minimum silence duration, in milliseconds)\n5. If speakers pause for a long time, increase min_silence_duration_ms accordingly"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "VLLM_ChatGLMVLLM",
+   "zh": "智谱视觉AI配置说明：\n1. 访问 https://bigmodel.cn/usercenter/proj-mgmt/apikeys\n2. 注册并获取API密钥\n3. 填入配置文件中",
+   "en": "Zhipu AI vision setup:\n1. Go to https://bigmodel.cn/usercenter/proj-mgmt/apikeys\n2. Register and get an API key\n3. Enter it in the configuration"
+  },
+  {
+   "t": "ai_model_config",
+   "c": "remark",
+   "id": "VLLM_QwenVLVLLM",
+   "zh": "千问视觉模型配置说明：\n1. 访问 https://bailian.console.aliyun.com/?tab=model#/api-key\n2. 注册并获取API密钥\n3. 填入配置文件中",
+   "en": "Qwen vision model setup:\n1. Go to https://bailian.console.aliyun.com/?tab=model#/api-key\n2. Register and get an API key\n3. Enter it in the configuration"
+  },
+  {
+   "t": "ai_agent_template",
+   "c": "agent_name",
+   "id": "0ca32eb728c949e58b1000b2e401f90c",
+   "zh": "星际游子",
+   "en": "Star Wanderer"
+  },
+  {
+   "t": "ai_agent_template",
+   "c": "agent_name",
+   "id": "6c7d8e9f0a1b2c3d4e5f6a7b8c9d0s24",
+   "zh": "英语老师",
+   "en": "English Teacher"
+  },
+  {
+   "t": "ai_agent_template",
+   "c": "agent_name",
+   "id": "9406648b5cc5fde1b8aa335b6f8b4f76",
+   "zh": "湾湾小何",
+   "en": "Taiwanese Xiao He"
+  },
+  {
+   "t": "ai_agent_template",
+   "c": "agent_name",
+   "id": "a45b6c7d8e9f0a1b2c3d4e5f6a7b8c92",
+   "zh": "汪汪队长",
+   "en": "Captain Woof"
+  },
+  {
+   "t": "ai_agent_template",
+   "c": "agent_name",
+   "id": "e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b1",
+   "zh": "好奇男孩",
+   "en": "Curious Boy"
+  }
+ ],
+ "labels": [
+  {
+   "zh": "API地址",
+   "en": "API URL"
+  },
+  {
+   "zh": "API密钥",
+   "en": "API key"
+  },
+  {
+   "zh": "API服务地址",
+   "en": "API service URL"
+  },
+  {
+   "zh": "Embedding API密钥",
+   "en": "Embedding API key"
+  },
+  {
+   "zh": "Embedding OpenAI基础URL",
+   "en": "Embedding OpenAI base URL"
+  },
+  {
+   "zh": "Embedding提供商",
+   "en": "Embedding provider"
+  },
+  {
+   "zh": "Embedding模型",
+   "en": "Embedding model"
+  },
+  {
+   "zh": "Embedding维度",
+   "en": "Embedding dimensions"
+  },
+  {
+   "zh": "HA API 访问令牌",
+   "en": "HA API access token"
+  },
+  {
+   "zh": "HA 服务器地址",
+   "en": "HA server URL"
+  },
+  {
+   "zh": "HTTPS代理",
+   "en": "HTTPS proxy"
+  },
+  {
+   "zh": "HTTP代理",
+   "en": "HTTP proxy"
+  },
+  {
+   "zh": "LLM API密钥",
+   "en": "LLM API key"
+  },
+  {
+   "zh": "LLM提供商",
+   "en": "LLM provider"
+  },
+  {
+   "zh": "LLM模型",
+   "en": "LLM model"
+  },
+  {
+   "zh": "OpenAI基础URL",
+   "en": "OpenAI base URL"
+  },
+  {
+   "zh": "WebSocket地址",
+   "en": "WebSocket URL"
+  },
+  {
+   "zh": "WebSocket地址（含Workspace ID）",
+   "en": "WebSocket URL (with Workspace ID)"
+  },
+  {
+   "zh": "top_k值",
+   "en": "top_k value"
+  },
+  {
+   "zh": "top_p值",
+   "en": "top_p value"
+  },
+  {
+   "zh": "个人访问令牌",
+   "en": "Personal access token"
+  },
+  {
+   "zh": "临时Token",
+   "en": "Temporary Token"
+  },
+  {
+   "zh": "保存路径",
+   "en": "Save path"
+  },
+  {
+   "zh": "保留书面语",
+   "en": "Keep written style"
+  },
+  {
+   "zh": "切分标点",
+   "en": "Split punctuation"
+  },
+  {
+   "zh": "动态修正",
+   "en": "Dynamic correction"
+  },
+  {
+   "zh": "区域",
+   "en": "Region"
+  },
+  {
+   "zh": "协议类型",
+   "en": "Protocol type"
+  },
+  {
+   "zh": "参考ID",
+   "en": "Reference ID"
+  },
+  {
+   "zh": "参考文本",
+   "en": "Reference text"
+  },
+  {
+   "zh": "参考音频",
+   "en": "Reference audio"
+  },
+  {
+   "zh": "参考音频路径",
+   "en": "Reference audio path"
+  },
+  {
+   "zh": "发音字典",
+   "en": "Pronunciation dictionary"
+  },
+  {
+   "zh": "变量",
+   "en": "Variables"
+  },
+  {
+   "zh": "口语化等级",
+   "en": "Colloquial level"
+  },
+  {
+   "zh": "向量存储配置(JSON)",
+   "en": "Vector store config (JSON)"
+  },
+  {
+   "zh": "启用用户画像",
+   "en": "Enable user profile"
+  },
+  {
+   "zh": "响应格式",
+   "en": "Response format"
+  },
+  {
+   "zh": "国际新闻 RSS 地址",
+   "en": "World news RSS URL"
+  },
+  {
+   "zh": "块长度",
+   "en": "Chunk length"
+  },
+  {
+   "zh": "基础URL",
+   "en": "Base URL"
+  },
+  {
+   "zh": "天气插件 API 密钥",
+   "en": "Weather plugin API key"
+  },
+  {
+   "zh": "对话模式",
+   "en": "Conversation mode"
+  },
+  {
+   "zh": "工具描述",
+   "en": "Tool description"
+  },
+  {
+   "zh": "应用AppID",
+   "en": "App AppID"
+  },
+  {
+   "zh": "应用AppKey",
+   "en": "App AppKey"
+  },
+  {
+   "zh": "应用ID",
+   "en": "App ID"
+  },
+  {
+   "zh": "应用密钥",
+   "en": "App secret"
+  },
+  {
+   "zh": "开发者 API Host",
+   "en": "Developer API Host"
+  },
+  {
+   "zh": "引用的LLM模型",
+   "en": "Referenced LLM model"
+  },
+  {
+   "zh": "批处理大小",
+   "en": "Batch size"
+  },
+  {
+   "zh": "批处理阈值",
+   "en": "Batch threshold"
+  },
+  {
+   "zh": "指定语言编码",
+   "en": "Language code"
+  },
+  {
+   "zh": "授权",
+   "en": "Authorization"
+  },
+  {
+   "zh": "接口地址",
+   "en": "Endpoint URL"
+  },
+  {
+   "zh": "提示文本",
+   "en": "Prompt text"
+  },
+  {
+   "zh": "提示语言",
+   "en": "Prompt language"
+  },
+  {
+   "zh": "搜索源：metaso / tavily / serply",
+   "en": "Search source: metaso / tavily / serply"
+  },
+  {
+   "zh": "文本分割方法",
+   "en": "Text split method"
+  },
+  {
+   "zh": "文本语言",
+   "en": "Text language"
+  },
+  {
+   "zh": "断句检测时间",
+   "en": "Sentence break detection time"
+  },
+  {
+   "zh": "新闻源配置",
+   "en": "News source config"
+  },
+  {
+   "zh": "方言",
+   "en": "Dialect"
+  },
+  {
+   "zh": "是否不使用本地prompt",
+   "en": "Skip local prompt"
+  },
+  {
+   "zh": "是否使用SR",
+   "en": "Use SR"
+  },
+  {
+   "zh": "是否使用SSL",
+   "en": "Use SSL"
+  },
+  {
+   "zh": "是否使用内存缓存",
+   "en": "Use memory cache"
+  },
+  {
+   "zh": "是否分桶",
+   "en": "Use bucketing"
+  },
+  {
+   "zh": "是否口语化",
+   "en": "Colloquial style"
+  },
+  {
+   "zh": "是否并行推理",
+   "en": "Parallel inference"
+  },
+  {
+   "zh": "是否开启多语种识别模式",
+   "en": "Enable multilingual recognition"
+  },
+  {
+   "zh": "是否开启链接复用",
+   "en": "Enable connection reuse"
+  },
+  {
+   "zh": "是否标准化",
+   "en": "Normalize"
+  },
+  {
+   "zh": "是否流式",
+   "en": "Streaming"
+  },
+  {
+   "zh": "是否流式模式",
+   "en": "Streaming mode"
+  },
+  {
+   "zh": "是否返回片段",
+   "en": "Return fragments"
+  },
+  {
+   "zh": "替换词文件名称",
+   "en": "Replacement words file name"
+  },
+  {
+   "zh": "最大令牌数",
+   "en": "Max tokens"
+  },
+  {
+   "zh": "最大新令牌数",
+   "en": "Max new tokens"
+  },
+  {
+   "zh": "最小静音时长",
+   "en": "Min silence duration"
+  },
+  {
+   "zh": "服务地址",
+   "en": "Service URL"
+  },
+  {
+   "zh": "服务端拆句",
+   "en": "Server-side sentence splitting"
+  },
+  {
+   "zh": "服务类型",
+   "en": "Service type"
+  },
+  {
+   "zh": "机器人ID",
+   "en": "Bot ID"
+  },
+  {
+   "zh": "检测阈值",
+   "en": "Detection threshold"
+  },
+  {
+   "zh": "模型",
+   "en": "Model"
+  },
+  {
+   "zh": "模型名称",
+   "en": "Model name"
+  },
+  {
+   "zh": "模型目录",
+   "en": "Model directory"
+  },
+  {
+   "zh": "模型路径",
+   "en": "Model path"
+  },
+  {
+   "zh": "混音控制配置",
+   "en": "Audio mixing config"
+  },
+  {
+   "zh": "温度",
+   "en": "Temperature"
+  },
+  {
+   "zh": "热词文件名称",
+   "en": "Hotwords file name"
+  },
+  {
+   "zh": "用户ID",
+   "en": "User ID"
+  },
+  {
+   "zh": "社会新闻 RSS 地址",
+   "en": "Society news RSS URL"
+  },
+  {
+   "zh": "种子",
+   "en": "Seed"
+  },
+  {
+   "zh": "端口号",
+   "en": "Port"
+  },
+  {
+   "zh": "组ID",
+   "en": "Group ID"
+  },
+  {
+   "zh": "记忆ID",
+   "en": "Memory ID"
+  },
+  {
+   "zh": "设备列表（名称,实体ID;…）",
+   "en": "Device list (name,entity ID;…)"
+  },
+  {
+   "zh": "访问令牌",
+   "en": "Access token"
+  },
+  {
+   "zh": "访问密钥ID",
+   "en": "Access key ID"
+  },
+  {
+   "zh": "访问密钥密码",
+   "en": "Access key secret"
+  },
+  {
+   "zh": "识别语言",
+   "en": "Recognition language"
+  },
+  {
+   "zh": "识别领域",
+   "en": "Recognition domain"
+  },
+  {
+   "zh": "语言参数",
+   "en": "Language parameter"
+  },
+  {
+   "zh": "语速",
+   "en": "Speech rate"
+  },
+  {
+   "zh": "语速(-100~100)",
+   "en": "Speech rate (-100~100)"
+  },
+  {
+   "zh": "请求参数",
+   "en": "Request parameters"
+  },
+  {
+   "zh": "请求头",
+   "en": "Request headers"
+  },
+  {
+   "zh": "请求方式",
+   "en": "Request method"
+  },
+  {
+   "zh": "财经新闻 RSS 地址",
+   "en": "Finance news RSS URL"
+  },
+  {
+   "zh": "资源ID",
+   "en": "Resource ID"
+  },
+  {
+   "zh": "辅助参考音频路径",
+   "en": "Auxiliary reference audio path"
+  },
+  {
+   "zh": "输入参考",
+   "en": "Input reference"
+  },
+  {
+   "zh": "输出目录",
+   "en": "Output directory"
+  },
+  {
+   "zh": "返回数量",
+   "en": "Result count"
+  },
+  {
+   "zh": "通道数",
+   "en": "Channels"
+  },
+  {
+   "zh": "速度",
+   "en": "Speed"
+  },
+  {
+   "zh": "速度因子",
+   "en": "Speed factor"
+  },
+  {
+   "zh": "采样步数",
+   "en": "Sampling steps"
+  },
+  {
+   "zh": "采样率",
+   "en": "Sample rate"
+  },
+  {
+   "zh": "重复惩罚",
+   "en": "Repetition penalty"
+  },
+  {
+   "zh": "集群",
+   "en": "Cluster"
+  },
+  {
+   "zh": "静音判定时长(ms)",
+   "en": "Silence threshold duration (ms)"
+  },
+  {
+   "zh": "音色",
+   "en": "Voice"
+  },
+  {
+   "zh": "音色ID",
+   "en": "Voice ID"
+  },
+  {
+   "zh": "音色权重",
+   "en": "Voice weight"
+  },
+  {
+   "zh": "音色设置",
+   "en": "Voice settings"
+  },
+  {
+   "zh": "音调",
+   "en": "Tone"
+  },
+  {
+   "zh": "音调(-100~100)",
+   "en": "Tone (-100~100)"
+  },
+  {
+   "zh": "音量",
+   "en": "Volume"
+  },
+  {
+   "zh": "音量(0~100)",
+   "en": "Volume (0~100)"
+  },
+  {
+   "zh": "音量增益",
+   "en": "Volume gain"
+  },
+  {
+   "zh": "音频格式",
+   "en": "Audio format"
+  },
+  {
+   "zh": "音频设置",
+   "en": "Audio settings"
+  },
+  {
+   "zh": "音频输出配置",
+   "en": "Audio output config"
+  },
+  {
+   "zh": "音高",
+   "en": "Pitch"
+  },
+  {
+   "zh": "频率惩罚",
+   "en": "Frequency penalty"
+  },
+  {
+   "zh": "高级文本处理配置",
+   "en": "Advanced text processing config"
+  },
+  {
+   "zh": "默认 RSS 源",
+   "en": "Default RSS source"
+  },
+  {
+   "zh": "默认查询城市",
+   "en": "Default city"
+  },
+  {
+   "zh": "默认音色",
+   "en": "Default voice"
+  }
+ ]
+}
