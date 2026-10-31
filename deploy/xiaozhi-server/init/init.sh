@@ -140,13 +140,18 @@ sql < /init/sql/custom.sql
 # Ready-made ASR entry for an Ollama/OpenAI-compatible endpoint. Created once;
 # afterwards edit it in the console (Model Config > Speech Recognition).
 if [ -n "${OLLAMA_ASR_URL:-}" ]; then
-  asr_config=$(printf '{"type": "openai_compat", "base_url": "%s", "model_name": "%s", "api_key": "ollama", "timeout": 60, "output_dir": "tmp/"}' \
-    "$OLLAMA_ASR_URL" "${OLLAMA_ASR_MODEL:-}")
+  asr_config=$(printf '{"type": "openai_compat", "base_url": "%s", "model_name": "%s", "api_key": "ollama", "languages": "%s", "timeout": 60, "output_dir": "tmp/"}' \
+    "$OLLAMA_ASR_URL" "${OLLAMA_ASR_MODEL:-}" "${OLLAMA_ASR_LANGUAGES:-}")
   sql -e "INSERT IGNORE INTO ai_model_config (id, model_type, model_code, model_name, is_default, is_enabled, config_json, remark, sort, creator, create_date, updater, update_date)
           VALUES ('ASR_OllamaQwen3', 'ASR', 'OllamaQwen3ASR', 'Ollama Qwen3-ASR', 0, 1, $(sqlq "$asr_config"),
                   'Speech recognition through an OpenAI-compatible /v1/audio/transcriptions endpoint (Ollama). Created from OLLAMA_ASR_URL in .env; edit here afterwards.',
                   0, 1, NOW(), 1, NOW())"
-  log "ASR model 'Ollama Qwen3-ASR' available ($OLLAMA_ASR_URL)"
+  # Entries created before "languages" existed get it once; console edits win afterwards
+  if [ -n "${OLLAMA_ASR_LANGUAGES:-}" ]; then
+    sql -e "UPDATE ai_model_config SET config_json = JSON_SET(config_json, '\$.languages', $(sqlq "$OLLAMA_ASR_LANGUAGES"))
+            WHERE id = 'ASR_OllamaQwen3' AND JSON_EXTRACT(config_json, '\$.languages') IS NULL"
+  fi
+  log "ASR model 'Ollama Qwen3-ASR' available ($OLLAMA_ASR_URL${OLLAMA_ASR_LANGUAGES:+, languages $OLLAMA_ASR_LANGUAGES})"
 fi
 
 # Ready-made TTS entry for a VieNeu-TTS speech API, with its preset voices.

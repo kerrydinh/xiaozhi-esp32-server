@@ -114,7 +114,8 @@ dropdowns, parameter descriptions and role template names. With
   is installed into the server as ASR type `openai_compat` (`init` puts it in
   `data/custom/`; the server copies it into its providers on start). It posts audio to any
   `/v1/audio/transcriptions` endpoint and strips the `language X<asr_text>` tags
-  that Qwen3-ASR returns. The console lists it as provider
+  that Qwen3-ASR returns. With *Allowed languages* (`languages`, e.g. `vi,en`)
+  a transcript in another language is redone with the first one forced. The console lists it as provider
   *OpenAI-compatible ASR (Ollama)*. If `OLLAMA_ASR_URL` is set, `init` creates
   the ready-to-use model **Ollama Qwen3-ASR** once; pick it under *Speech
   Recognition* in the agent's role configuration. Qwen3-ASR handles Vietnamese
@@ -171,6 +172,7 @@ once the new host works.
 | `SENSEVOICE_URL` | Hugging Face | ModelScope mirror is listed in `.env.example` |
 | `OLLAMA_ASR_URL` | — | e.g. `http://<ollama-host>:11434/v1/audio/transcriptions`; creates the *Ollama Qwen3-ASR* model once |
 | `OLLAMA_ASR_MODEL` | — | Ollama model name, e.g. `hf.co/foryoung365/Qwen3-ASR-1.7B-Q4_K_M-GGUF` |
+| `OLLAMA_ASR_LANGUAGES` | — | e.g. `vi,en`: languages spoken; another detected language is re-transcribed as the first. Added to the ASR entry once if it has none |
 | `VIENEU_TTS_URL` | — | e.g. `http://<host>:8010/v1/audio/speech`; creates the *VieNeu-TTS (Vietnamese)* model once |
 | `VIENEU_TTS_API_KEY` | — | The VieNeu server's `VIENEU_API_KEY` |
 | `VIENEU_TTS_STREAM` | `true` | `true` = streaming provider; `false` = built-in OpenAI TTS (whole sentences) |

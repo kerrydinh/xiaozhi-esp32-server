@@ -8,6 +8,7 @@ VALUES ('CUSTOM_ASR_OpenaiCompat', 'ASR', 'openai_compat', 'OpenAI-compatible AS
         '[{"key": "base_url", "type": "string", "label": "Transcriptions URL (.../v1/audio/transcriptions)"},
           {"key": "model_name", "type": "string", "label": "Model name"},
           {"key": "api_key", "type": "string", "label": "API key (any value for Ollama)"},
+          {"key": "languages", "type": "string", "label": "Allowed languages, e.g. vi,en (other detected languages are re-transcribed as the first; one = always that language; empty = auto)"},
           {"key": "timeout", "type": "number", "label": "Timeout (s)"},
           {"key": "output_dir", "type": "string", "label": "Output directory"}]',
         99, 1, NOW(), 1, NOW())

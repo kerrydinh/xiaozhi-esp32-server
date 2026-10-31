@@ -153,6 +153,7 @@ VieNeu is Vietnamese only; use Edge TTS for English.
 | `SENSEVOICE_DOWNLOAD` | `false` | Built-in FunASR model not needed (it cannot do Vietnamese) |
 | `OLLAMA_ASR_URL` | `http://192.168.8.122:11434/v1/audio/transcriptions` | Creates *Ollama Qwen3-ASR* once |
 | `OLLAMA_ASR_MODEL` | `hf.co/foryoung365/Qwen3-ASR-1.7B-Q4_K_M-GGUF` | Must be pulled in the `ollama` stack |
+| `OLLAMA_ASR_LANGUAGES` | `vi,en` | Languages you speak; another detected language (e.g. Thai for short Vietnamese phrases) is re-transcribed as the first. Set on the ASR entry once if it has none; later edit *Allowed languages* in the console |
 | `VIENEU_TTS_URL` | `http://192.168.8.122:8010/v1/audio/speech` | Creates *VieNeu-TTS (Vietnamese)* and its 25 voices once |
 | `VIENEU_TTS_API_KEY` | same as `VIENEU_API_KEY` | Only used when the TTS entry is created; later fix the key in the console (*Model Config → Text-to-Speech*) |
 | `MCP_PORT` | `8004` | MCP endpoint host port; `init` writes it into `server.mcp_endpoint` |
@@ -178,7 +179,7 @@ Console `http://192.168.8.122:8002` → *Agents* → *Configure role*.
 
 | Setting | Choice | Notes |
 |---|---|---|
-| Speech recognition (ASR) | **Ollama Qwen3-ASR** | Vietnamese + English, runs on the `ollama` stack |
+| Speech recognition (ASR) | **Ollama Qwen3-ASR** | Vietnamese + English, runs on the `ollama` stack; *Allowed languages* `vi,en` (Model Config → Speech Recognition) |
 | Large language model | **ChatGPT** / **Gemini** / local Ollama | See below |
 | Intent recognition | **LLM Autonomous Function Calling** with ChatGPT/Gemini; **No Intent Recognition** with small local models | Small models misuse the tools and answer in Chinese |
 | Memory | **No Memory**, or *Local Short-term Memory* with its `llm` pointed at your LLM entry | *Mem0AI* needs its own API key |
@@ -304,6 +305,7 @@ markers: `大模型收到用户消息` (LLM received the user's message), `识�
 | Replies in Chinese / calls "exit" on hello | Small local model confused by the tool descriptions: set Intent to *No Intent Recognition*, or use ChatGPT/Gemini |
 | `Mem0ai 的 API key 未设置` | Memory is *Mem0AI* without a key: choose *No Memory* |
 | First reply after a pause is slow | Ollama unloaded the ASR model: `OLLAMA_KEEP_ALIVE` on the `ollama` stack |
+| Vietnamese heard as Thai (Thai text, reply in Thai) | Qwen3-ASR misdetected the language: set *Allowed languages* `vi,en` on the ASR entry; the log then shows `ASR detected Thai ... retried as vi` |
 | VieNeu: `401` | `VIENEU_TTS_API_KEY` / the TTS entry's API key differs from `VIENEU_API_KEY` |
 | VieNeu: `400 unknown voice` | Voice name must match `GET /v1/voices` exactly (with diacritics) |
 | VieNeu: `429` | Requests queued too long on CPU; raise `VIENEU_QUEUE` or use Edge TTS |

@@ -95,6 +95,7 @@ services:
       SENSEVOICE_URL: ${SENSEVOICE_URL:-https://huggingface.co/FunAudioLLM/SenseVoiceSmall/resolve/main/model.pt}
       OLLAMA_ASR_URL: ${OLLAMA_ASR_URL:-}
       OLLAMA_ASR_MODEL: ${OLLAMA_ASR_MODEL:-}
+      OLLAMA_ASR_LANGUAGES: ${OLLAMA_ASR_LANGUAGES:-}
       VIENEU_TTS_URL: ${VIENEU_TTS_URL:-}
       VIENEU_TTS_API_KEY: ${VIENEU_TTS_API_KEY:-}
       VIENEU_TTS_STREAM: ${VIENEU_TTS_STREAM:-true}
