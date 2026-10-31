@@ -112,6 +112,8 @@ services:
     depends_on:
       init:
         condition: service_completed_successfully
+        # init may bring new provider code; the server only installs it on start
+        restart: true
     # Install the providers init placed in data/custom (e.g. ASR type
     # "openai_compat" for Ollama Qwen3-ASR), and link the ASR model from the
     # models volume instead of bind-mounting the file directly: a missing file
