@@ -9,6 +9,7 @@ How the self-hosted XiaoZhi voice assistant is deployed on the TrueNAS box
 |---|---|---|
 | `xiaozhi` | XiaoZhi server: device WebSocket, admin console + OTA, MySQL, Redis, MCP endpoint, one-shot `init` | 8000 (WebSocket), 8002 (console/OTA), 8003 (vision/MCP), 8004 (MCP endpoint) |
 | `vieneu-tts` | VieNeu-TTS: Vietnamese text-to-speech, OpenAI-compatible API, CPU | 8010 |
+| `mcp-tools` | MCP bridge: Brave web/news search for the agent, via the MCP endpoint | — (outgoing only) |
 | `ollama` (existing) | Ollama `latest` on CPU: Qwen3-ASR speech recognition (+ Open WebUI on 3000) | 11434 |
 | `ollama-2` (optional) | Ollama `0.24.0` on the Quadro P2000 GPU: local chat model | 11435 |
 
@@ -39,6 +40,7 @@ exist only on the PC (and on the NAS).
 | `ghcr.io/xinnan-tech/xiaozhi-esp32-server:server_0.9.8`, `web_0.9.8` | upstream | Pulled as is; the server image is ~3.5 GB |
 | `ghcr.io/kerrydinh/xiaozhi-server-init:latest` | `deploy/xiaozhi-server/init/` | Provisioning, English console data, Ollama ASR provider, extra voices, VieNeu entries |
 | `ghcr.io/kerrydinh/vieneu-tts:cpu` | upstream VieNeu-TTS @ `04044e1b` + `deploy/vieneu-tts/Dockerfile` | ~2.7 GB |
+| `ghcr.io/kerrydinh/xiaozhi-mcp-bridge:latest` | `deploy/mcp-bridge/` | Brave Search MCP server + bridge, ~470 MB |
 
 Both `kerrydinh` packages must be **Public** (GitHub → Packages → package →
 Package settings) so the NAS can pull them without logging in. They contain no
@@ -213,14 +215,32 @@ parameter `server.mcp_endpoint` to
 2. *Agents → Configure role → Edit functions*: the **MCP endpoint** section
    shows this agent's address, `ws://192.168.8.122:8004/mcp_endpoint/mcp/?token=...`.
    The token identifies the agent; treat the address like a password.
-3. Run an MCP tool connected to that address, e.g. the XiaoZhi sample
-   [mcp-calculator](https://github.com/78/mcp-calculator):
-   `MCP_ENDPOINT='ws://...'` then `python mcp_pipe.py calculator.py`.
+3. Run MCP tools connected to that address: the `mcp-tools` stack below, or
+   e.g. the XiaoZhi sample [mcp-calculator](https://github.com/78/mcp-calculator)
+   (`MCP_ENDPOINT='ws://...'` then `python mcp_pipe.py calculator.py`).
 4. Reconnect the device (it loads the agent's tools when it connects) and ask
-   it to use the tool.
+   it to use the tool. Intent recognition must be *LLM Autonomous Function
+   Calling*.
 
 Check the service: `http://192.168.8.122:8004/mcp_endpoint/health?key=<key>`
 answers `"status":"success"`.
+
+### Web search: `mcp-tools` stack (Brave Search)
+
+`deploy/mcp-bridge/` runs Brave's MCP server and connects it to the agent's
+MCP endpoint address (details in its README).
+
+1. Get a Brave Search API key: https://brave.com/search/api/ → plan →
+   *API keys*. Each search the agent does uses one query of the plan.
+2. Dockge → **+ Compose** → `mcp-tools`; paste `deploy/mcp-bridge/compose.yaml`
+   and, as `.env`, `deploy/mcp-bridge/.env.example` with `MCP_ENDPOINT` (the
+   agent's address from step 2 above) and `BRAVE_API_KEY` filled in.
+3. **Deploy**; the log shows `brave-search: connected to the endpoint`.
+4. Restart the device and ask e.g. "Tìm tin tức mới nhất về Sydney".
+
+By default the agent gets `brave_web_search` and `brave_news_search`
+(`BRAVE_MCP_ENABLED_TOOLS`). Other MCP servers can be added through
+`mcp_config.json` (see the README).
 
 ## Ollama stacks
 

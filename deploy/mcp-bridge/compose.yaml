@@ -1,0 +1,22 @@
+# MCP tools for a XiaoZhi agent (Brave Search), connected to the xiaozhi
+# stack's MCP endpoint. Works as a Dockge stack or with `docker compose up -d`;
+# settings in .env (copy .env.example).
+
+name: mcp-tools
+
+services:
+  mcp-bridge:
+    image: ${MCP_BRIDGE_IMAGE:-ghcr.io/kerrydinh/xiaozhi-mcp-bridge:latest}
+    container_name: mcp-bridge
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ:-Etc/UTC}
+      # The agent's address: console > Configure role > Edit functions > MCP endpoint
+      MCP_ENDPOINT: ${MCP_ENDPOINT:?set MCP_ENDPOINT in .env}
+      BRAVE_API_KEY: ${BRAVE_API_KEY:?set BRAVE_API_KEY in .env}
+      # Space-separated; every tool adds to the LLM prompt
+      BRAVE_MCP_ENABLED_TOOLS: ${BRAVE_MCP_ENABLED_TOOLS:-brave_web_search brave_news_search}
+    # To add more MCP servers, put your own mcp_config.json next to this file
+    # and uncomment (the image has Node.js and Python; npx works):
+    # volumes:
+    #   - ./mcp_config.json:/app/mcp_config.json:ro
