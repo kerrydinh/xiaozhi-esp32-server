@@ -1,0 +1,126 @@
+# XiaoZhi self-hosted server (xinnan-tech/xiaozhi-esp32-server, full module)
+#
+# Works as a Dockge stack (TrueNAS SCALE) or with plain `docker compose up -d`.
+# All settings live in .env (copy .env.example). See README.md for setup.
+#
+# Start order: db + redis -> web (console/API) -> init (one-shot) -> server
+# `init` reads the generated server.secret, writes data/.config.yaml, sets the
+# device-facing URLs, optionally translates console data to English, and
+# downloads the SenseVoice ASR model, so no manual copy/paste is needed.
+
+name: xiaozhi
+
+x-common: &common
+  restart: unless-stopped
+  environment: &common-env
+    TZ: ${TZ:-Etc/UTC}
+
+services:
+  db:
+    <<: *common
+    image: mysql:8.4
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      <<: *common-env
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?set MYSQL_ROOT_PASSWORD in .env}
+      MYSQL_DATABASE: xiaozhi_esp32_server
+    volumes:
+      - ${DATA_ROOT:-.}/mysql:/var/lib/mysql
+      # *.sql dumps here are imported only when the database is first created
+      - ./restore:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=\"$$MYSQL_ROOT_PASSWORD\" mysqladmin ping -h 127.0.0.1 -uroot --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+  redis:
+    <<: *common
+    image: redis:8.0
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # Admin console (manager-web) + management API (manager-api), behind nginx on 8002
+  web:
+    <<: *common
+    image: ghcr.io/xinnan-tech/xiaozhi-esp32-server:web_${XIAOZHI_VERSION:-0.9.8}
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "${WEB_PORT:-8002}:8002"
+    environment:
+      <<: *common-env
+      SPRING_DATASOURCE_DRUID_URL: jdbc:mysql://db:3306/xiaozhi_esp32_server?useUnicode=true&characterEncoding=UTF-8&serverTimezone=${TZ:-Etc/UTC}&nullCatalogMeansCurrent=true&connectTimeout=30000&socketTimeout=30000&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+      SPRING_DATASOURCE_DRUID_USERNAME: root
+      SPRING_DATASOURCE_DRUID_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PASSWORD: ""
+      SPRING_DATA_REDIS_PORT: "6379"
+    volumes:
+      - ${DATA_ROOT:-.}/uploadfile:/uploadfile
+    healthcheck:
+      # nginx answers immediately; this only passes once the Java API is up
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8002/xiaozhi/user/pub-config"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 60s
+
+  # One-shot provisioning; safe to re-run on every `up`
+  # Image built from ./init (see README)
+  init:
+    image: ${INIT_IMAGE:-ghcr.io/kerrydinh/xiaozhi-server-init:latest}
+    restart: "no"
+    depends_on:
+      web:
+        condition: service_healthy
+    environment:
+      <<: *common-env
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PUBLIC_HOST: ${PUBLIC_HOST:-}
+      WEB_PORT: ${WEB_PORT:-8002}
+      WS_PORT: ${WS_PORT:-8000}
+      HTTP_PORT: ${HTTP_PORT:-8003}
+      CONSOLE_DATA_LANGUAGE: ${CONSOLE_DATA_LANGUAGE:-en}
+      SENSEVOICE_DOWNLOAD: ${SENSEVOICE_DOWNLOAD:-true}
+      SENSEVOICE_URL: ${SENSEVOICE_URL:-https://huggingface.co/FunAudioLLM/SenseVoiceSmall/resolve/main/model.pt}
+      OLLAMA_ASR_URL: ${OLLAMA_ASR_URL:-}
+      OLLAMA_ASR_MODEL: ${OLLAMA_ASR_MODEL:-}
+      VIENEU_TTS_URL: ${VIENEU_TTS_URL:-}
+      VIENEU_TTS_API_KEY: ${VIENEU_TTS_API_KEY:-}
+    volumes:
+      - ${DATA_ROOT:-.}/data:/data
+      - ${DATA_ROOT:-.}/models:/models
+
+  # Voice server: WebSocket for devices (8000) + HTTP for vision/MCP (8003)
+  server:
+    <<: *common
+    image: ghcr.io/xinnan-tech/xiaozhi-esp32-server:server_${XIAOZHI_VERSION:-0.9.8}
+    depends_on:
+      init:
+        condition: service_completed_successfully
+    # Install the providers init placed in data/custom (e.g. ASR type
+    # "openai_compat" for Ollama Qwen3-ASR), and link the ASR model from the
+    # models volume instead of bind-mounting the file directly: a missing file
+    # would otherwise be created as a directory.
+    command:
+      - sh
+      - -c
+      - cp -rf data/custom/. core/providers/ && ln -sf /models/SenseVoiceSmall/model.pt models/SenseVoiceSmall/model.pt && exec python app.py
+    ports:
+      - "${WS_PORT:-8000}:8000"
+      - "${HTTP_PORT:-8003}:8003"
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+      - ${DATA_ROOT:-.}/data:/opt/xiaozhi-esp32-server/data
+      - ${DATA_ROOT:-.}/models:/models:ro

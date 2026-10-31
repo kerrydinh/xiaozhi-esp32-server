@@ -1,0 +1,243 @@
+# XiaoZhi on TrueNAS (Dockge): deployment guide
+
+How the self-hosted XiaoZhi voice assistant is deployed on the TrueNAS box
+(`192.168.8.122`) with Dockge, and how to rebuild or redeploy it.
+
+## Overview
+
+| Stack (Dockge) | What it runs | Host port(s) |
+|---|---|---|
+| `xiaozhi` | XiaoZhi server: device WebSocket, admin console + OTA, MySQL, Redis, one-shot `init` | 8000 (WebSocket), 8002 (console/OTA), 8003 (vision/MCP) |
+| `vieneu-tts` | VieNeu-TTS: Vietnamese text-to-speech, OpenAI-compatible API, CPU | 8010 |
+| `ollama` (existing) | Ollama `latest` on CPU: Qwen3-ASR speech recognition (+ Open WebUI on 3000) | 11434 |
+| `ollama-2` (optional) | Ollama `0.24.0` on the Quadro P2000 GPU: local chat model | 11435 |
+
+Voice path for one request: device → `xiaozhi` server → speech recognition
+(Ollama Qwen3-ASR) → LLM (OpenAI, Gemini or local Ollama) → text-to-speech
+(VieNeu-TTS or Edge TTS) → device.
+
+## Files in this folder
+
+None of these are part of the upstream repo; they are excluded from git in
+`.git/info/exclude` (`.env` is ignored by upstream's `.gitignore`).
+
+| File | Use |
+|---|---|
+| `compose.yaml` | Paste into the `xiaozhi` Dockge stack |
+| `.env` | Paste into the `xiaozhi` stack's `.env` editor (holds the MySQL password and the VieNeu key) |
+| `restore/xiaozhi.sql` | Database dump from the first (PC) install; only for restoring, contains secrets |
+| `vieneu-tts/compose.yaml` | Paste into the `vieneu-tts` Dockge stack |
+| `vieneu-tts/.env` | Paste into the `vieneu-tts` stack's `.env` editor |
+
+The sources these are generated from (compose files, `init` scripts, English
+console data, image Dockerfiles) live in the firmware repo
+`E:\Development\Development\Projects\IoT\xiaozhi\xiaozhi-esp32\docker\`:
+`xiaozhi-server/` and `vieneu-tts/`, each with its own README.
+
+## Images
+
+| Image | Built from | Notes |
+|---|---|---|
+| `ghcr.io/xinnan-tech/xiaozhi-esp32-server:server_0.9.8`, `web_0.9.8` | upstream | Pulled as is; the server image is ~3.5 GB |
+| `ghcr.io/kerrydinh/xiaozhi-server-init:latest` | `xiaozhi-esp32/docker/xiaozhi-server/init/` | Provisioning, English console data, Ollama ASR provider, extra voices, VieNeu entries |
+| `ghcr.io/kerrydinh/vieneu-tts:cpu` | upstream VieNeu-TTS @ `04044e1b` + `xiaozhi-esp32/docker/vieneu-tts/Dockerfile` | ~2.7 GB |
+
+Both `kerrydinh` packages must be **Public** (GitHub → Packages → package →
+Package settings) so the NAS can pull them without logging in. They contain no
+secrets.
+
+### Rebuilding and pushing
+
+Run on the PC from `E:\Development\Development\Projects\IoT\xiaozhi\xiaozhi-esp32`
+(Docker Desktop running). Log in once with a GitHub token that has
+`write:packages`:
+
+```sh
+echo <token> | docker login ghcr.io -u kerrydinh --password-stdin
+```
+
+`init` image (after any change under `docker/xiaozhi-server/init/`):
+
+```sh
+docker build --platform linux/amd64 -t ghcr.io/kerrydinh/xiaozhi-server-init:latest docker/xiaozhi-server/init
+docker push ghcr.io/kerrydinh/xiaozhi-server-init:latest
+```
+
+VieNeu-TTS image (only when moving to a newer VieNeu-TTS commit):
+
+```sh
+docker build --platform linux/amd64 -t vieneu-tts-upstream:cpu -f docker/Dockerfile.cpu \
+  https://github.com/pnnbao97/VieNeu-TTS.git#04044e1b8f822f946bafb2c88b716459f4164152
+docker build --platform linux/amd64 -t ghcr.io/kerrydinh/vieneu-tts:cpu docker/vieneu-tts
+docker push ghcr.io/kerrydinh/vieneu-tts:cpu
+```
+
+After pushing, open the stack in Dockge and click **Update** to pull the new
+image and restart.
+
+## 1. Deploy VieNeu-TTS
+
+Deploy this first so the `xiaozhi` stack can register it.
+
+1. Dockge → **+ Compose** → name `vieneu-tts`.
+2. Paste `vieneu-tts/compose.yaml` into the compose editor and
+   `vieneu-tts/.env` into the `.env` editor.
+3. **Deploy**. The first start downloads the v3 Turbo model (~0.5 GB) into
+   the `hf_cache` volume; later starts take about a minute.
+4. Check `http://192.168.8.122:8010/health` → `"status":"ok"`.
+
+`.env` settings:
+
+| Variable | Value | Notes |
+|---|---|---|
+| `VIENEU_IMAGE` | `ghcr.io/kerrydinh/vieneu-tts:cpu` | |
+| `VIENEU_PORT` | `8010` | 8000 is taken by XiaoZhi |
+| `VIENEU_API_KEY` | random string | Must equal `VIENEU_TTS_API_KEY` in the `xiaozhi` `.env` |
+| `VIENEU_PRECISION` | `fp32` | `int8` is ~2x faster but needs a CPU with VNNI; check with `grep -o -m1 'avx512_vnni\|avx_vnni' /proc/cpuinfo` (no output = keep `fp32`, int8 would garble audio) |
+| `TZ` | `Australia/Sydney` | |
+
+It runs on CPU because the GPU build needs a newer GPU and NVIDIA driver than
+the P2000 / driver 550. It generates one sentence at a time; on the PC a
+sentence took ~3 s. VieNeu is Vietnamese only; use Edge TTS for English.
+
+## 2. Deploy the XiaoZhi server
+
+1. Dockge → **+ Compose** → name `xiaozhi`.
+2. Paste `compose.yaml` and `.env`.
+3. Choose one:
+   - **Restore the existing setup** (accounts, agent, bound device, model
+     settings): click **Save** (not Deploy). Copy `restore/xiaozhi.sql` into
+     the stack folder on the NAS as `restore/xiaozhi.sql` (SMB, or
+     `scp` + TrueNAS shell). Then **Deploy**. MySQL imports it only while
+     creating an empty database.
+   - **Fresh install:** click **Deploy**. Open `http://192.168.8.122:8002`
+     and register; the first account becomes the super admin.
+4. The first start pulls ~4 GB of images. Watch the `init` container log; it
+   ends with `[init] Done`, after which `server` starts. Expected lines:
+   ```
+   [init] Device URLs: ws://192.168.8.122:8000/xiaozhi/v1/ , OTA http://192.168.8.122:8002/xiaozhi/ota/
+   [init] Applied English console data
+   [init] ASR model 'Ollama Qwen3-ASR' available (...)
+   [init] TTS model 'VieNeu-TTS (Vietnamese)' available (...)
+   [init] Done
+   ```
+5. After a restore works, delete `restore/xiaozhi.sql` from the NAS (it holds
+   API keys and the password hash).
+
+`.env` settings:
+
+| Variable | Value | Notes |
+|---|---|---|
+| `XIAOZHI_VERSION` | `0.9.8` | Upstream release |
+| `INIT_IMAGE` | `ghcr.io/kerrydinh/xiaozhi-server-init:latest` | |
+| `PUBLIC_HOST` | `192.168.8.122` | Address the device uses; overrides the URLs in the console on every start |
+| `WEB_PORT` / `WS_PORT` / `HTTP_PORT` | `8002` / `8000` / `8003` | |
+| `MYSQL_ROOT_PASSWORD` | random | Only applied when the database is first created |
+| `TZ` | `Australia/Sydney` | |
+| `DATA_ROOT` | `.` | `mysql/`, `data/`, `models/`, `uploadfile/` under the stack folder |
+| `CONSOLE_DATA_LANGUAGE` | `en` | Translates console data to English |
+| `SENSEVOICE_DOWNLOAD` | `false` | Built-in FunASR model not needed (it cannot do Vietnamese) |
+| `OLLAMA_ASR_URL` | `http://192.168.8.122:11434/v1/audio/transcriptions` | Creates *Ollama Qwen3-ASR* once |
+| `OLLAMA_ASR_MODEL` | `hf.co/foryoung365/Qwen3-ASR-1.7B-Q4_K_M-GGUF` | Must be pulled in the `ollama` stack |
+| `VIENEU_TTS_URL` | `http://192.168.8.122:8010/v1/audio/speech` | Creates *VieNeu-TTS (Vietnamese)* and its 25 voices once |
+| `VIENEU_TTS_API_KEY` | same as `VIENEU_API_KEY` | |
+
+The ASR and TTS entries are created once (if missing); after that, edit them
+in the console under *Model Config*. `init` runs on every deploy and is safe
+to re-run.
+
+## 3. Point the device at the server
+
+1. Triple-click the device's power button to enter Wi-Fi configuration mode.
+2. Join the `Xiaozhi-xxxx` hotspot and open the portal; under **Advanced** set
+   the OTA URL to `http://192.168.8.122:8002/xiaozhi/ota/`, save, reboot.
+3. Restored install: the device connects straight away. Fresh install: it
+   shows a 6-digit code; in the console go to *Agents → (agent) → Manage
+   devices / Add device* and enter it.
+
+## 4. Configure the agent
+
+Console `http://192.168.8.122:8002` → *Agents* → *Configure role*.
+
+| Setting | Choice | Notes |
+|---|---|---|
+| Speech recognition (ASR) | **Ollama Qwen3-ASR** | Vietnamese + English, runs on the `ollama` stack |
+| Large language model | **ChatGPT** / **Gemini** / local Ollama | See below |
+| Intent recognition | **LLM Autonomous Function Calling** with ChatGPT/Gemini; **No Intent Recognition** with small local models | Small models misuse the tools and answer in Chinese |
+| Memory | **No Memory**, or *Local Short-term Memory* with its `llm` pointed at your LLM entry | *Mem0AI* needs its own API key |
+| Text-to-speech | **VieNeu-TTS (Vietnamese)** + a voice (e.g. Ngọc Huyền, Mai Anh), or **Edge TTS** + Language Vietnamese/English | |
+| Role prompt | e.g. `Bạn là trợ lý giọng nói thân thiện. Luôn trả lời ngắn gọn bằng tiếng Việt.` | |
+
+Save, then restart the device (or wait for it to reconnect).
+
+### LLM entries (*Model Config → Large Language Model → Add*)
+
+All use provider **OpenAI API**. The server appends `/chat/completions` to
+`base_url`, so never include it (or `/responses`).
+
+| Name | base_url | model_name | api_key |
+|---|---|---|---|
+| ChatGPT | `https://api.openai.com/v1` | a fast "mini" model | OpenAI API key (platform.openai.com; needs API credit, separate from a ChatGPT subscription) |
+| Gemini | `https://generativelanguage.googleapis.com/v1beta/openai` | a current Flash model, e.g. `gemini-2.5-flash` | Key from aistudio.google.com/apikey |
+| Local Ollama (GPU) | `http://192.168.8.122:11435/v1` | e.g. `llama3.2:3b` | `ollama` |
+
+Use these instead of the built-in *Google Gemini* / *Ollama* providers. Fast
+models matter for voice: LLM latency is silence on the device.
+
+## Ollama stacks
+
+- `ollama` (`ollama/ollama:latest`, CPU, port 11434): serves Qwen3-ASR; set
+  `OLLAMA_KEEP_ALIVE: 30m` so the first request is not slow. Pull the model
+  once: `docker exec ollama ollama pull hf.co/foryoung365/Qwen3-ASR-1.7B-Q4_K_M-GGUF`.
+- Current Ollama cannot use the P2000: Ollama ≥ 0.30 needs NVIDIA driver ≥ 570
+  for Pascal GPUs and TrueNAS ships 550 (newer TrueNAS drops Pascal entirely).
+- `ollama-2` (`ollama/ollama:0.24.0`, GPU, port 11435) still runs on the P2000
+  and is for a local chat model only (0.24 cannot run Qwen3-ASR). Pull models
+  into it with `docker exec ollama-2 ollama pull <model>` and check
+  `docker exec ollama-2 ollama ps` shows `100% GPU`. Only this stack should
+  reserve the GPU.
+- One Open WebUI can use both: *Admin Panel → Settings → Connections → Ollama
+  API → +* `http://192.168.8.122:11435`.
+
+## Updating
+
+- **XiaoZhi upstream release:** back up the stack's `mysql/` folder, change
+  `XIAOZHI_VERSION` in `.env`, click **Update**. The API migrates the database
+  on start. Rows added by a new release may stay in Chinese until the English
+  data in `init` is extended.
+- **init or VieNeu image:** rebuild and push (see *Rebuilding and pushing*),
+  then **Update** the stack.
+
+## Backing up / moving
+
+Dump the database from the TrueNAS shell (container name as shown in Dockge):
+
+```sh
+sudo docker exec xiaozhi-db-1 sh -c 'MYSQL_PWD="$MYSQL_ROOT_PASSWORD" mysqldump -uroot --single-transaction --databases xiaozhi_esp32_server' > xiaozhi.sql
+```
+
+To restore on a new host, follow step 2 with that file as
+`restore/xiaozhi.sql`, set `PUBLIC_HOST` to the new address, and repoint the
+device (step 3).
+
+## Troubleshooting
+
+Read the `server` container log in Dockge. The server logs in Chinese; useful
+markers: `大模型收到用户消息` (LLM received the user's message), `识别文本`
+(recognised text), `语音生成失败` (speech generation failed).
+
+| Symptom | Cause / fix |
+|---|---|
+| Device says it is busy, or ~10 s silence then nothing | The LLM call failed; the next `ERROR` line after `大模型收到用户消息` says why. The fallback reply is Chinese, which a Vietnamese voice cannot speak, so TTS also fails and retries. |
+| `404 Invalid URL (POST /v1/responses/chat/completions)` | `base_url` must end in `/v1` (OpenAI) or `/v1beta/openai` (Gemini) |
+| `429 ... credit_balance_exhausted` / `insufficient_quota` | Add API credit at platform.openai.com → Billing |
+| Header/ascii error with `你的api_key` | The API key field still holds the placeholder |
+| Replies in Chinese / calls "exit" on hello | Small local model confused by the tool descriptions: set Intent to *No Intent Recognition*, or use ChatGPT/Gemini |
+| `Mem0ai 的 API key 未设置` | Memory is *Mem0AI* without a key: choose *No Memory* |
+| First reply after a pause is slow | Ollama unloaded the ASR model: `OLLAMA_KEEP_ALIVE` on the `ollama` stack |
+| VieNeu: `401` | `VIENEU_TTS_API_KEY` / the TTS entry's API key differs from `VIENEU_API_KEY` |
+| VieNeu: `400 unknown voice` | Voice name must match `GET /v1/voices` exactly (with diacritics) |
+| VieNeu: `429` | Requests queued too long on CPU; raise `VIENEU_QUEUE` or use Edge TTS |
+| VieNeu container restarts on first start | Model download still running or failed; check its log and `/health` |
+| MySQL fails with a permission error | Stack folder is on an SMB-shared dataset with restricted ACLs: set `DATA_ROOT` to a dataset with the Apps preset |
+| Console edits to the WebSocket/OTA URL revert | Expected: `PUBLIC_HOST` in `.env` is the source of truth |
